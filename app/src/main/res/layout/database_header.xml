@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/endPaddingForDate"
+    android:paddingStart="@dimen/listItemStartPadding"
+    android:background="@color/colorBrown">
+
+    <TextView
+        android:id="@+id/list_header_lp"
+        style="@style/pictureListHeader"
+        android:text="@string/list_header_lp" />
+
+    <TextView
+        android:id="@+id/list_header_alpha"
+        style="@style/pictureListHeader"
+        android:text="@string/list_header_alpha" />
+
+    <TextView
+        android:id="@+id/list_header_a"
+        style="@style/pictureListHeader"
+        android:text="@string/list_header_a" />
+
+    <TextView
+        android:id="@+id/list_header_theta"
+        style="@style/pictureListHeader"
+        android:text="@string/list_header_theta" />
+
+    <TextView
+        android:id="@+id/list_header_d"
+        style="@style/pictureListHeader"
+        android:text="@string/list_header_d" />
+
+</LinearLayout>
