@@ -1,8 +1,7 @@
 package com.example.damian.kinematicscalculatorvs3.adapters;
 
 import android.content.Context;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
+import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModel;
 
 import java.util.ArrayList;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by Damian on 2016-10-12.
@@ -59,7 +56,7 @@ public class JoinListViewAdapter extends ArrayAdapter<JoinListViewModel> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         final ListViewHolder listViewHolder;
         if (convertView == null) {
@@ -85,6 +82,37 @@ public class JoinListViewAdapter extends ArrayAdapter<JoinListViewModel> {
         listViewHolder.edittheta.setText(joinListViewModels.get(position).getEt_theta());
         listViewHolder.editd.setText(joinListViewModels.get(position).getEt_d());
 
+        setEditTextActionListener(listViewHolder.edita, position);
+        setEditTextActionListener(listViewHolder.editalpha, position);
+        setEditTextActionListener(listViewHolder.edittheta, position);
+        setEditTextActionListener(listViewHolder.editd, position);
+
+//        listViewHolder.editalpha.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//
+//                joinListViewModels.get(position).setEt_alpha(listViewHolder.editalpha.getText().toString());
+//                joinListViewModels.get(position).setEt_a(listViewHolder.edita.getText().toString());
+//                joinListViewModels.get(position).setEt_theta(listViewHolder.edittheta.getText().toString());
+//                joinListViewModels.get(position).setEt_d(listViewHolder.editd.getText().toString());
+//
+//                return false;
+//            }
+//        });
+//
+//        listViewHolder.editalpha.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//
+//                joinListViewModels.get(position).setEt_alpha(listViewHolder.editalpha.getText().toString());
+//                joinListViewModels.get(position).setEt_a(listViewHolder.edita.getText().toString());
+//                joinListViewModels.get(position).setEt_theta(listViewHolder.edittheta.getText().toString());
+//                joinListViewModels.get(position).setEt_d(listViewHolder.editd.getText().toString());
+//
+//                return false;
+//            }
+//        });
+
 //        listViewHolder.editalpha.addTextChangedListener(new TextWatcher() {
 //            @Override
 //            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -103,5 +131,20 @@ public class JoinListViewAdapter extends ArrayAdapter<JoinListViewModel> {
 //        });
 
         return convertView;
+    }
+
+    private void setEditTextActionListener(final EditText editText, final int position){
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+
+                joinListViewModels.get(position).setEt_alpha(editText.getText().toString());
+                joinListViewModels.get(position).setEt_a(editText.toString());
+                joinListViewModels.get(position).setEt_theta(editText.toString());
+                joinListViewModels.get(position).setEt_d(editText.toString());
+
+                return false;
+            }
+        });
     }
 }

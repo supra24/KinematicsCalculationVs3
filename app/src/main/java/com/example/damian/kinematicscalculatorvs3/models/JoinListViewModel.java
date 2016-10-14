@@ -1,4 +1,4 @@
-package com.example.damian.kinematicscalculatorvs3.adapters;
+package com.example.damian.kinematicscalculatorvs3.models;
 
 import android.widget.EditText;
 import android.widget.TextView;
