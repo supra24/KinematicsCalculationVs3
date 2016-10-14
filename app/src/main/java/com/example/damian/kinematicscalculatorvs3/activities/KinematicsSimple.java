@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.damian.kinematicscalculatorvs3.R;
 import com.example.damian.kinematicscalculatorvs3.fragments.JoinCustomListView;
+import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsSimple;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

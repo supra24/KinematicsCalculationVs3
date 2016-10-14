@@ -1,6 +1,7 @@
 package com.example.damian.kinematicscalculatorvs3.adapters;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
 import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModel;
+import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsSimple;
 
 import java.util.ArrayList;
 
@@ -77,74 +79,131 @@ public class JoinListViewAdapter extends ArrayAdapter<JoinListViewModel> {
         }
 
         listViewHolder.textViewlp.setText(String.valueOf(joinListViewModels.get(position).getTv_lp()));
-        listViewHolder.editalpha.setText(joinListViewModels.get(position).getEt_alpha());
-        listViewHolder.edita.setText(joinListViewModels.get(position).getEt_a());
-        listViewHolder.edittheta.setText(joinListViewModels.get(position).getEt_theta());
-        listViewHolder.editd.setText(joinListViewModels.get(position).getEt_d());
+        listViewHolder.editalpha.setText(String.valueOf(joinListViewModels.get(position).getEt_alpha()));
+        listViewHolder.edita.setText(String.valueOf(joinListViewModels.get(position).getEt_a()));
+        listViewHolder.edittheta.setText(String.valueOf(joinListViewModels.get(position).getEt_theta()));
+        listViewHolder.editd.setText(String.valueOf(joinListViewModels.get(position).getEt_d()));
 
-        setEditTextActionListener(listViewHolder.edita, position);
-        setEditTextActionListener(listViewHolder.editalpha, position);
-        setEditTextActionListener(listViewHolder.edittheta, position);
-        setEditTextActionListener(listViewHolder.editd, position);
+//        setEditTextActionListener(listViewHolder.edita, position);
+//        setEditTextActionListener(listViewHolder.editalpha, position);
+//        setEditTextActionListener(listViewHolder.edittheta, position);
+//        setEditTextActionListener(listViewHolder.editd, position);
+
+        TextView.OnEditorActionListener onEditorActionListener = new TextView.OnEditorActionListener(){
+
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+
+                JoinListViewModel joinListViewModel = new JoinListViewModel();
+                joinListViewModel.setTv_lp(position);
+                joinListViewModel.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
+                joinListViewModel.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
+                joinListViewModel.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
+                joinListViewModel.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
+
+                StaticVolumesJoinKinematicsSimple.setOneJoinModel(joinListViewModel);
+                return false;
+            }
+        };
+
+        listViewHolder.editalpha.setOnEditorActionListener(onEditorActionListener);
+        listViewHolder.edita.setOnEditorActionListener(onEditorActionListener);
+        listViewHolder.edittheta.setOnEditorActionListener(onEditorActionListener);
+        listViewHolder.editd.setOnEditorActionListener(onEditorActionListener);
 
 //        listViewHolder.editalpha.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 //            @Override
 //            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 //
-//                joinListViewModels.get(position).setEt_alpha(listViewHolder.editalpha.getText().toString());
-//                joinListViewModels.get(position).setEt_a(listViewHolder.edita.getText().toString());
-//                joinListViewModels.get(position).setEt_theta(listViewHolder.edittheta.getText().toString());
-//                joinListViewModels.get(position).setEt_d(listViewHolder.editd.getText().toString());
+//                JoinListViewModel joinListViewModel = new JoinListViewModel();
+//                joinListViewModel.setTv_lp(position);
+//                joinListViewModel.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
+//                joinListViewModel.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
+//                joinListViewModel.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
+//                joinListViewModel.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
+//
+//                StaticVolumesJoinKinematicsSimple.setOneJoinModel(joinListViewModel);
+//
+////                joinListViewModels.get(position).setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
+////                joinListViewModels.get(position).setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
+////                joinListViewModels.get(position).setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
+////                joinListViewModels.get(position).setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
 //
 //                return false;
 //            }
 //        });
 //
-//        listViewHolder.editalpha.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//        listViewHolder.edita.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 //            @Override
 //            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 //
-//                joinListViewModels.get(position).setEt_alpha(listViewHolder.editalpha.getText().toString());
-//                joinListViewModels.get(position).setEt_a(listViewHolder.edita.getText().toString());
-//                joinListViewModels.get(position).setEt_theta(listViewHolder.edittheta.getText().toString());
-//                joinListViewModels.get(position).setEt_d(listViewHolder.editd.getText().toString());
+//                JoinListViewModel joinListViewModel = new JoinListViewModel();
+//                joinListViewModel.setTv_lp(position);
+//                joinListViewModel.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
+//                joinListViewModel.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
+//                joinListViewModel.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
+//                joinListViewModel.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
 //
+//                StaticVolumesJoinKinematicsSimple.setOneJoinModel(joinListViewModel);
 //                return false;
 //            }
 //        });
-
-//        listViewHolder.editalpha.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 //
+//        listViewHolder.edittheta.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//
+//                JoinListViewModel joinListViewModel = new JoinListViewModel();
+//                joinListViewModel.setTv_lp(position);
+//                joinListViewModel.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
+//                joinListViewModel.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
+//                joinListViewModel.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
+//                joinListViewModel.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
+//
+//                StaticVolumesJoinKinematicsSimple.setOneJoinModel(joinListViewModel);
+//                return false;
 //            }
+//        });
 //
+//        listViewHolder.editd.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 //            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 //
-//            }
+//                JoinListViewModel joinListViewModel = new JoinListViewModel();
+//                joinListViewModel.setTv_lp(position);
+//                joinListViewModel.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
+//                joinListViewModel.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
+//                joinListViewModel.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
+//                joinListViewModel.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
 //
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//
+//                StaticVolumesJoinKinematicsSimple.setOneJoinModel(joinListViewModel);
+//                return false;
 //            }
 //        });
 
         return convertView;
     }
 
-    private void setEditTextActionListener(final EditText editText, final int position){
-        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
-                joinListViewModels.get(position).setEt_alpha(editText.getText().toString());
-                joinListViewModels.get(position).setEt_a(editText.toString());
-                joinListViewModels.get(position).setEt_theta(editText.toString());
-                joinListViewModels.get(position).setEt_d(editText.toString());
-
-                return false;
-            }
-        });
-    }
+//    private void setEditTextActionListener(final ListViewHolder listViewHolder, final int position) {
+//        listViewHolder..setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//
+////                joinListViewModels.get(position).setEt_alpha(editText.getText().toString());
+////                joinListViewModels.get(position).setEt_a(editText.toString());
+////                joinListViewModels.get(position).setEt_theta(editText.toString());
+////                joinListViewModels.get(position).setEt_d(editText.toString());
+//
+////                StaticVolumesJoinKinematicsSimple.getJoinListViewModels().get(position).setEt_alpha(Integer.parseInt(editText.getText().toString()));
+////                StaticVolumesJoinKinematicsSimple.getJoinListViewModels().get(position).setEt_a(Integer.parseInt(editText.getText().toString()));
+////                StaticVolumesJoinKinematicsSimple.getJoinListViewModels().get(position).setEt_theta(Integer.parseInt(editText.getText().toString()));
+////                StaticVolumesJoinKinematicsSimple.getJoinListViewModels().get(position).setEt_d(Integer.parseInt(editText.getText().toString()));
+//
+//
+//
+//                return false;
+//            }
+//        });
 }
+

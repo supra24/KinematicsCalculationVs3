@@ -18,13 +18,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final int DB_VERSION = 1;
     private static final String DB_NAME = "join";
-    private static final String DB_TODO_TABLE = "kienematics simple";
+    private static final String DB_TODO_TABLE = "kienematicsSimple";
 
     public static final String KEY_ID = "_id";
     public static final String KEY_ALPHA = "ALPHA";
-    public static final String KEY_A = "A";
+    public static final String KEY_A = "_A";
     public static final String KEY_THETA = "THETA";
-    public static final String KEY_D = "D";
+    public static final String KEY_D = "_D";
 
 
     public DatabaseHelper(Context context) {
@@ -33,13 +33,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + DB_TODO_TABLE + "("
-                + KEY_ID + " INTEGER PRIMARY KEY,"
-                + KEY_ALPHA + " TEXT,"
-                + KEY_A + " TEXT"
-                + KEY_THETA + " TEXT"
-                + KEY_D + " TEXT"
-                + ")";
+        String CREATE_CONTACTS_TABLE = " CREATE TABLE " + DB_TODO_TABLE + "("
+                + KEY_ID + " integer primary key autoincrement, "
+                + KEY_ALPHA + " TEXT NOT NULL, "
+                + KEY_A + " TEXT NOT NULL, "
+                + KEY_THETA + " TEXT NOT NULL, "
+                + KEY_D + " TEXT NOT NULL " + ");";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
 
@@ -75,17 +74,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         JoinListViewModel joinListViewModel = new JoinListViewModel();
         joinListViewModel.setTv_lp(Integer.getInteger(cursor.getString(0)));
-        joinListViewModel.setEt_alpha(cursor.getString(1));
-        joinListViewModel.setEt_a(cursor.getString(2));
-        joinListViewModel.setEt_theta(cursor.getString(3));
-        joinListViewModel.setEt_d(cursor.getString(4));
+        joinListViewModel.setEt_alpha(Integer.parseInt(cursor.getString(1)));
+        joinListViewModel.setEt_a(Integer.parseInt(cursor.getString(2)));
+        joinListViewModel.setEt_theta(Integer.parseInt(cursor.getString(3)));
+        joinListViewModel.setEt_d(Integer.parseInt(cursor.getString(4)));
 
         return joinListViewModel;
     }
 
     // Getting All rubber
-    public List<JoinListViewModel> getAllRubbers() {
-        List<JoinListViewModel> joinListViewModels = new ArrayList<>();
+    public ArrayList<JoinListViewModel> gerAllJoin() {
+        ArrayList<JoinListViewModel> joinListViewModels = new ArrayList<>();
         String selectQuery = "SELECT  * FROM " + DB_TODO_TABLE;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -95,10 +94,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
                 JoinListViewModel joinListViewModel = new JoinListViewModel();
                 joinListViewModel.setTv_lp(Integer.getInteger(cursor.getString(0)));
-                joinListViewModel.setEt_alpha(cursor.getString(1));
-                joinListViewModel.setEt_a(cursor.getString(2));
-                joinListViewModel.setEt_theta(cursor.getString(3));
-                joinListViewModel.setEt_d(cursor.getString(4));
+                joinListViewModel.setEt_alpha(Integer.parseInt(cursor.getString(1)));
+                joinListViewModel.setEt_a(Integer.parseInt(cursor.getString(2)));
+                joinListViewModel.setEt_theta(Integer.parseInt(cursor.getString(3)));
+                joinListViewModel.setEt_d(Integer.parseInt(cursor.getString(4)));
                 joinListViewModels.add(joinListViewModel);
             } while (cursor.moveToNext());
         }
@@ -109,15 +108,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean updateJoin(JoinListViewModel joinListViewModel) {
         long id = joinListViewModel.getTv_lp();
 
-        String et_alpha = joinListViewModel.getEt_alpha();
-        String et_a = joinListViewModel.getEt_a();
-        String et_theta = joinListViewModel.getEt_theta();
-        String et_d = joinListViewModel.getEt_d();
+        int et_alpha = joinListViewModel.getEt_alpha();
+        int et_a = joinListViewModel.getEt_a();
+        int et_theta = joinListViewModel.getEt_theta();
+        int et_d = joinListViewModel.getEt_d();
 
         return updateJoin(id, et_alpha, et_a, et_theta, et_d);
     }
 
-    public boolean updateJoin(long id, String et_alpha, String et_a, String et_theta, String et_d) {
+    public boolean updateJoin(long id, int et_alpha, int et_a, int et_theta, int et_d) {
         String where = KEY_ID + "=" + id;
 
         SQLiteDatabase db = this.getReadableDatabase();

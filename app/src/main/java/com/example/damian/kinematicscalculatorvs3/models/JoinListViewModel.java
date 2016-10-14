@@ -9,11 +9,11 @@ import android.widget.TextView;
 
 public class JoinListViewModel {
 
-    private int tv_lp;
-    private String et_alpha;
-    private String et_a;
-    private String et_theta;
-    private String et_d;
+    private int tv_lp ;
+    private int et_alpha;
+    private int et_a;
+    private int et_theta;
+    private int et_d;
 
     public JoinListViewModel(){
 
@@ -25,19 +25,19 @@ public class JoinListViewModel {
         this.tv_lp = tv_lp;
     }
 
-    public void setEt_alpha(String et_alpha) {
+    public void setEt_alpha(int et_alpha) {
         this.et_alpha = et_alpha;
     }
 
-    public void setEt_a(String et_a) {
+    public void setEt_a(int et_a) {
         this.et_a = et_a;
     }
 
-    public void setEt_theta(String et_theta) {
+    public void setEt_theta(int et_theta) {
         this.et_theta = et_theta;
     }
 
-    public void setEt_d(String et_d) {
+    public void setEt_d(int et_d) {
         this.et_d = et_d;
     }
 
@@ -49,19 +49,19 @@ public class JoinListViewModel {
         return tv_lp;
     }
 
-    public String getEt_alpha() {
+    public int getEt_alpha() {
         return et_alpha;
     }
 
-    public String getEt_a() {
+    public int getEt_a() {
         return et_a;
     }
 
-    public String getEt_theta() {
+    public int getEt_theta() {
         return et_theta;
     }
 
-    public String getEt_d() {
+    public int getEt_d() {
         return et_d;
     }
 }
