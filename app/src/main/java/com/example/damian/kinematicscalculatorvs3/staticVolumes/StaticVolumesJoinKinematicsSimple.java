@@ -32,18 +32,6 @@ public class StaticVolumesJoinKinematicsSimple {
         else
             joinListViewModel.setTv_lp(joinListViewModels.get(joinListViewModels.size() - 1).getTv_lp() + 1);
 
-//        joinListViewModel.setEt_alpha("");
-//        joinListViewModel.setEt_a("0");
-//        joinListViewModel.setEt_theta("0");
-//        joinListViewModel.setEt_d("0");
-
         joinListViewModels.add(joinListViewModel);
-    }
-
-    public static void undoJoin() {
-
-        if (!joinListViewModels.isEmpty()) {
-            joinListViewModels.remove(joinListViewModels.size() - 1);
-        }
     }
 }

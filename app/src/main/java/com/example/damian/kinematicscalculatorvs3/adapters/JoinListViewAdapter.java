@@ -1,7 +1,6 @@
 package com.example.damian.kinematicscalculatorvs3.adapters;
 
 import android.content.Context;
-import android.graphics.Paint;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -84,12 +83,19 @@ public class JoinListViewAdapter extends ArrayAdapter<JoinListViewModel> {
         listViewHolder.edittheta.setText(String.valueOf(joinListViewModels.get(position).getEt_theta()));
         listViewHolder.editd.setText(String.valueOf(joinListViewModels.get(position).getEt_d()));
 
-//        setEditTextActionListener(listViewHolder.edita, position);
-//        setEditTextActionListener(listViewHolder.editalpha, position);
-//        setEditTextActionListener(listViewHolder.edittheta, position);
-//        setEditTextActionListener(listViewHolder.editd, position);
+        listViewHolder.editalpha.setFocusable(false);
+//        listViewHolder.editalpha.setClickable();
+        listViewHolder.edita.setFocusable(false);
+        listViewHolder.edittheta.setFocusable(false);
+        listViewHolder.editd.setFocusable(false);
 
-        TextView.OnEditorActionListener onEditorActionListener = new TextView.OnEditorActionListener(){
+//        listViewHolder.editalpha.setFocusableInTouchMode(true);
+//        listViewHolder.edita.setFocusableInTouchMode(true);
+//        listViewHolder.edittheta.setFocusableInTouchMode(true);
+//        listViewHolder.editd.setFocusableInTouchMode(true);
+
+
+        TextView.OnEditorActionListener onEditorActionListener = new TextView.OnEditorActionListener() {
 
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -111,99 +117,19 @@ public class JoinListViewAdapter extends ArrayAdapter<JoinListViewModel> {
         listViewHolder.edittheta.setOnEditorActionListener(onEditorActionListener);
         listViewHolder.editd.setOnEditorActionListener(onEditorActionListener);
 
-//        listViewHolder.editalpha.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//        listViewHolder.editalpha.setOnClickListener(new View.OnClickListener() {
 //            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//
-//                JoinListViewModel joinListViewModel = new JoinListViewModel();
-//                joinListViewModel.setTv_lp(position);
-//                joinListViewModel.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
-//                joinListViewModel.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
-//                joinListViewModel.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
-//                joinListViewModel.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
-//
-//                StaticVolumesJoinKinematicsSimple.setOneJoinModel(joinListViewModel);
-//
-////                joinListViewModels.get(position).setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
-////                joinListViewModels.get(position).setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
-////                joinListViewModels.get(position).setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
-////                joinListViewModels.get(position).setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
-//
-//                return false;
+//            public void onClick(View v) {
+//                listViewHolder.editalpha.setFocusableInTouchMode(true);
+//                listViewHolder.edita.setFocusableInTouchMode(true);
+//                listViewHolder.edittheta.setFocusableInTouchMode(true);
+//                listViewHolder.editd.setFocusableInTouchMode(true);
 //            }
 //        });
-//
-//        listViewHolder.edita.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//
-//                JoinListViewModel joinListViewModel = new JoinListViewModel();
-//                joinListViewModel.setTv_lp(position);
-//                joinListViewModel.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
-//                joinListViewModel.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
-//                joinListViewModel.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
-//                joinListViewModel.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
-//
-//                StaticVolumesJoinKinematicsSimple.setOneJoinModel(joinListViewModel);
-//                return false;
-//            }
-//        });
-//
-//        listViewHolder.edittheta.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//
-//                JoinListViewModel joinListViewModel = new JoinListViewModel();
-//                joinListViewModel.setTv_lp(position);
-//                joinListViewModel.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
-//                joinListViewModel.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
-//                joinListViewModel.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
-//                joinListViewModel.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
-//
-//                StaticVolumesJoinKinematicsSimple.setOneJoinModel(joinListViewModel);
-//                return false;
-//            }
-//        });
-//
-//        listViewHolder.editd.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//
-//                JoinListViewModel joinListViewModel = new JoinListViewModel();
-//                joinListViewModel.setTv_lp(position);
-//                joinListViewModel.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
-//                joinListViewModel.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
-//                joinListViewModel.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
-//                joinListViewModel.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
-//
-//                StaticVolumesJoinKinematicsSimple.setOneJoinModel(joinListViewModel);
-//                return false;
-//            }
-//        });
+
+//        listViewHolder.editalpha.setOnLongClickListener();
 
         return convertView;
     }
-
-
-//    private void setEditTextActionListener(final ListViewHolder listViewHolder, final int position) {
-//        listViewHolder..setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//
-////                joinListViewModels.get(position).setEt_alpha(editText.getText().toString());
-////                joinListViewModels.get(position).setEt_a(editText.toString());
-////                joinListViewModels.get(position).setEt_theta(editText.toString());
-////                joinListViewModels.get(position).setEt_d(editText.toString());
-//
-////                StaticVolumesJoinKinematicsSimple.getJoinListViewModels().get(position).setEt_alpha(Integer.parseInt(editText.getText().toString()));
-////                StaticVolumesJoinKinematicsSimple.getJoinListViewModels().get(position).setEt_a(Integer.parseInt(editText.getText().toString()));
-////                StaticVolumesJoinKinematicsSimple.getJoinListViewModels().get(position).setEt_theta(Integer.parseInt(editText.getText().toString()));
-////                StaticVolumesJoinKinematicsSimple.getJoinListViewModels().get(position).setEt_d(Integer.parseInt(editText.getText().toString()));
-//
-//
-//
-//                return false;
-//            }
-//        });
 }
 

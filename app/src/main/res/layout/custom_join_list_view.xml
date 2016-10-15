@@ -2,27 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="48dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/endPaddingForDate"
+    android:paddingStart="@dimen/listItemStartPadding">
 
     <TextView
         android:id="@+id/list_view_join_i"
         style="@style/pictureListViewTextView"
-        android:gravity="center_vertical|center_horizontal" />
+        android:gravity="center_vertical|center_horizontal"
+      />
 
     <EditText
         android:id="@+id/list_view_join_alpha"
-        style="@style/pictureListViewEditText" />
+        style="@style/pictureListViewEditText"
+      />
 
     <EditText
         android:id="@+id/list_view_join_a"
-        style="@style/pictureListViewEditText" />
+        style="@style/pictureListViewEditText"
+     />
 
     <EditText
         android:id="@+id/list_view_join_theta"
-        style="@style/pictureListViewEditText" />
+        style="@style/pictureListViewEditText"
+       />
 
     <EditText
         android:id="@+id/list_view_join_d"
-        style="@style/pictureListViewEditText" />
+        style="@style/pictureListViewEditText"
+    />
 
 </LinearLayout>

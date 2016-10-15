@@ -3,7 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="subheading">16sp</dimen>
+    <dimen name="subheading">25sp</dimen>
 
     <dimen name="endPaddingForDate">40dp</dimen>
     <dimen name="listItemStartPadding">16dp</dimen>
