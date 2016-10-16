@@ -15,18 +15,15 @@
 
         <TextView
             android:id="@+id/textX"
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            style="@style/coordinatesTextView" />
 
         <TextView
             android:id="@+id/textY"
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            style="@style/coordinatesTextView" />
 
         <TextView
             android:id="@+id/textZ"
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            style="@style/coordinatesTextView" />
 
     </LinearLayout>
 

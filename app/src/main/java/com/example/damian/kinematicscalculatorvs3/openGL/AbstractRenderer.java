@@ -4,6 +4,11 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLU;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
+import java.nio.ShortBuffer;
+
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
@@ -32,6 +37,11 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
     // zmienne do samego renderu
     private final static int APLICATION_THREAD_FPS_SLEEP = (1000 / 40);
 
+
+    ShortBuffer mTriangleBorderIndicesBuffer = null;
+    private int mNumOfTriangleBorderIndices = 0;
+    private FloatBuffer mVertexBuffer = null;
+
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) { // ogólne ustawienia, metoda która uruchamia się po uruchomieniu aplikacji
         gl.glDisable(GL10.GL_DITHER);
@@ -39,6 +49,30 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
         gl.glClearColor(.5f, .5f, .5f, 1); // kolor tła
         gl.glShadeModel(GL10.GL_SMOOTH); // włączenie cieniowania
         gl.glEnable(GL10.GL_DEPTH_TEST);
+
+
+        float vertexlist[] = {
+                -1.0f, 0.0f, -1.0f, 1.0f, 0.0f, -1.0f, -1.0f, 0.0f, 1.0f,
+                1.0f, 0.0f, 1.0f, 0.0f, 2.0f, 0.0f,
+        };
+
+        short trigborderindexlist[] = {
+                4, 0, 4, 1, 4, 2, 4, 3, 0, 1, 1, 3, 3, 2, 2, 0, 0, 3
+        };
+
+        ByteBuffer vbb = ByteBuffer.allocateDirect(vertexlist.length * 4);
+        vbb.order(ByteOrder.nativeOrder());
+        mVertexBuffer = vbb.asFloatBuffer();
+        mVertexBuffer.put(vertexlist);
+        mVertexBuffer.position(0);
+
+
+        mNumOfTriangleBorderIndices = trigborderindexlist.length;
+        ByteBuffer tbibb = ByteBuffer.allocateDirect(trigborderindexlist.length * 2);
+        tbibb.order(ByteOrder.nativeOrder());
+        mTriangleBorderIndicesBuffer = tbibb.asShortBuffer();
+        mTriangleBorderIndicesBuffer.put(trigborderindexlist);
+        mTriangleBorderIndicesBuffer.position(0);
     }
 
     @Override
@@ -48,6 +82,9 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
         float ratio = (float) width / height;
         gl.glMatrixMode(GL10.GL_PROJECTION);
         gl.glLoadIdentity();
+        gl.glFrontFace(GL10.GL_CCW);
+        gl.glEnable(GL10.GL_CULL_FACE);
+        gl.glCullFace(GL10.GL_BACK);
         gl.glFrustumf(-ratio, ratio, cameraBOTTOM, cameraTOP, cameraZ_NEAR, cameraZ_FAR);
     }
 
@@ -56,7 +93,7 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
 
         try {
             Thread.sleep(APLICATION_THREAD_FPS_SLEEP);
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -77,6 +114,15 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
 
         gl.glRotatef(alpha, 1.0f, 0, 0);
         gl.glRotatef(theta, 0, 0, 1.0f);
+
+
+        gl.glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+        gl.glVertexPointer(3, GL10.GL_FLOAT, 0, mVertexBuffer);
+
+        gl.glLineWidth(10);
+
+        gl.glDrawElements(GL10.GL_LINES, mNumOfTriangleBorderIndices,
+                GL10.GL_UNSIGNED_SHORT, mTriangleBorderIndicesBuffer);
 
         draw(gl);
     }

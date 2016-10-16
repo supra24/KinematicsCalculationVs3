@@ -8,7 +8,6 @@ import android.util.Log;
 public class CalculationCoordinatesEndEffector {
 
     private float[][] tableParameters;
-    //    private float[] coordinatesEffector;
     private float[] coordinatesEndEffector;
 
     public CalculationCoordinatesEndEffector(float[][] tableParameters) {
