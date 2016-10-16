@@ -2,11 +2,11 @@ package com.example.damian.kinematicscalculatorvs3.openGL;
 
 import android.content.Context;
 
-import com.example.damian.kinematicscalculationvs2.calculations.SingeltonMatrix;
-import com.example.damian.kinematicscalculationvs2.openGL.objects.Cube;
-import com.example.damian.kinematicscalculationvs2.openGL.objects.CuboidA;
-import com.example.damian.kinematicscalculationvs2.openGL.objects.CuboidD;
-import com.example.damian.kinematicscalculationvs2.openGL.objects.ObjectParent;
+import com.example.damian.kinematicscalculatorvs3.calculations.SingeltonMatrix;
+import com.example.damian.kinematicscalculatorvs3.openGL.objects.Cube;
+import com.example.damian.kinematicscalculatorvs3.openGL.objects.CuboidA;
+import com.example.damian.kinematicscalculatorvs3.openGL.objects.CuboidD;
+import com.example.damian.kinematicscalculatorvs3.openGL.objects.ObjectParent;
 
 import java.util.ArrayList;
 
@@ -25,7 +25,7 @@ public class RenderManipulator extends AbstractRenderer {
 
     private ArrayList<ObjectParent> object = new ArrayList<>();
 
-    public RenderManipulator(Context context, float[][] tableParameter, float[] effectorCoord, float[] effectorEndCoord) {
+    public RenderManipulator(Context context, float[][] tableParameter, float[] effectorEndCoord) {
         this.tableParameter = tableParameter;
         this.effectorCoord = effectorCoord;
         this.effectorEndCoord = effectorEndCoord;
@@ -46,10 +46,10 @@ public class RenderManipulator extends AbstractRenderer {
             // tworzenie członu
             for (int j = 0; j < i; j++) {
 
-                float[][] RotZ = SingeltonMatrix.DHRotZ(tableParameter[j][3]);
-                float[][] TransZ = SingeltonMatrix.DHTransZ(tableParameter[j][2]);
-                float[][] TransX = SingeltonMatrix.DHTransX(tableParameter[j][0]);
-                float[][] RotX = SingeltonMatrix.DHRotX(tableParameter[j][1]);
+                float[][] RotZ = SingeltonMatrix.DHRotZ(tableParameter[j][2]);
+                float[][] TransZ = SingeltonMatrix.DHTransZ(tableParameter[j][3]);
+                float[][] TransX = SingeltonMatrix.DHTransX(tableParameter[j][1]);
+                float[][] RotX = SingeltonMatrix.DHRotX(tableParameter[j][0]);
 
                 float[][] RotZxTransZ = SingeltonMatrix.Multiplication(RotZ, TransZ);
                 float[][] xTransX = SingeltonMatrix.Multiplication(RotZxTransZ, TransX);
@@ -61,7 +61,7 @@ public class RenderManipulator extends AbstractRenderer {
             object.add(new Cube(MatrixUnit[0][3], MatrixUnit[1][3], MatrixUnit[2][3]));
 //-------------------------------------------------------------------
             // tworzenie długości D
-            object.add(new CuboidD(tableParameter[i][2]));
+            object.add(new CuboidD(tableParameter[i][3]));
             float[] verticlesD = object.get(object.size() - 1).getVerticles();
 
 //            float[][] Ad = {
@@ -80,8 +80,8 @@ public class RenderManipulator extends AbstractRenderer {
 
                 for (int j = 0; j < i - 1; j++) {
 
-                    float[][] RotZD = SingeltonMatrix.RotZ(tableParameter[j][3]);
-                    float[][] RotXD = SingeltonMatrix.RotX(tableParameter[j][1]);
+                    float[][] RotZD = SingeltonMatrix.RotZ(tableParameter[j][2]);
+                    float[][] RotXD = SingeltonMatrix.RotX(tableParameter[j][0]);
 
                     float[][] RotZxRotXD = SingeltonMatrix.Multiplication(RotZD, RotXD);
 
@@ -135,7 +135,7 @@ public class RenderManipulator extends AbstractRenderer {
 
 //-------------------------------------------------------------------
             // tworzenie długości A
-            object.add(new CuboidA(tableParameter[i][0]));
+            object.add(new CuboidA(tableParameter[i][1]));
             float[] verticlesA = object.get(object.size() - 1).getVerticles();
 
             float[][] Aa = {
@@ -145,16 +145,16 @@ public class RenderManipulator extends AbstractRenderer {
             };
             for (int j = 0; j < i; j++) {
 
-                float[][] RotZA = SingeltonMatrix.RotZ(tableParameter[j][3]);
-                float[][] RotXA = SingeltonMatrix.RotX(tableParameter[j][1]);
+                float[][] RotZA = SingeltonMatrix.RotZ(tableParameter[j][2]);
+                float[][] RotXA = SingeltonMatrix.RotX(tableParameter[j][0]);
 
                 float[][] RotZxRotXA = SingeltonMatrix.Multiplication(RotZA, RotXA);
 
                 Aa = SingeltonMatrix.Multiplication(Aa, RotZxRotXA);
             }
 
-            float [][] MatrixUnitxRotz = SingeltonMatrix.Multiplication(MatrixUnit,SingeltonMatrix.DHRotZ(tableParameter[i][3]));
-            float [][] xTransZ = SingeltonMatrix.Multiplication(MatrixUnitxRotz, SingeltonMatrix.DHTransZ(tableParameter[i][2]));
+            float [][] MatrixUnitxRotz = SingeltonMatrix.Multiplication(MatrixUnit,SingeltonMatrix.DHRotZ(tableParameter[i][2]));
+            float [][] xTransZ = SingeltonMatrix.Multiplication(MatrixUnitxRotz, SingeltonMatrix.DHTransZ(tableParameter[i][0]));
 
             for (int h = 0; h < verticlesA.length; h = h + 3) {
                 float[] v = {

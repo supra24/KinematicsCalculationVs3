@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.example.damian.kinematicscalculatorvs3.R;
 import com.example.damian.kinematicscalculatorvs3.calculations.CalculationCoordinatesEndEffector;
 import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModel;
+import com.example.damian.kinematicscalculatorvs3.openGL.AbstractRenderer;
+import com.example.damian.kinematicscalculatorvs3.openGL.RenderManipulator;
 import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsSimple;
 
 import java.util.ArrayList;
@@ -23,7 +25,7 @@ import java.util.ArrayList;
  * Created by Damian on 2016-10-15.
  */
 
-public class KinematicsSimpleDraw extends AppCompatActivity  {
+public class KinematicsSimpleDraw extends AppCompatActivity {
 
     private GLSurfaceView mTestHarness;
     private VelocityTracker vTracker = null;  // VelocityTracer określa zachowanie sekwencji dotyku
@@ -42,21 +44,15 @@ public class KinematicsSimpleDraw extends AppCompatActivity  {
         float[][] tableParameters = new float[StaticVolumesJoinKinematicsSimple.getJoinListViewModels().size()][4];
 
 //        KinematicsSImpleCustomView.reverseAllObject();
-        for (int i = 0; i < tableParameters.length - 1; i++) {
-//            Log.v("getEditFirst", KinematicsSImpleCustomView.getEditFirst(i));
-//            Log.v("getEditSecond", KinematicsSImpleCustomView.getEditSecond(i));
-//            Log.v("getEditThird", KinematicsSImpleCustomView.getEditThird(i));
-//            Log.v("getEditFourth", KinematicsSImpleCustomView.getEditFourth(i));
+        for (int i = 0; i < tableParameters.length; i++) {
 
             tableParameters[i][0] = joinListViewModels.get(i).getEt_alpha();
             tableParameters[i][1] = joinListViewModels.get(i).getEt_a();
             tableParameters[i][2] = joinListViewModels.get(i).getEt_theta();
             tableParameters[i][3] = joinListViewModels.get(i).getEt_d();
-
         }
 
-        CalculationCoordinatesEndEffector calculationCoordinatesEndEffector = new CalculationCoordinatesEndEffector(tableParameters, effector);
-        calculationCoordinatesEndEffector.Calculation();
+        CalculationCoordinatesEndEffector calculationCoordinatesEndEffector = new CalculationCoordinatesEndEffector(tableParameters);
         float[] coordinates = calculationCoordinatesEndEffector.getCoordinatesEndEffector();
 
         TextView textX = (TextView) findViewById(R.id.textX);
@@ -70,8 +66,7 @@ public class KinematicsSimpleDraw extends AppCompatActivity  {
         // openGlES
         mTestHarness = (GLSurfaceView) findViewById(R.id.GLView);
         mTestHarness.setEGLConfigChooser(false); // nie wymagamy wyboru specjalnej konfiguracji EDL i wystarczają domyśle ustawienia
-        mTestHarness.setRenderer(new RenderManipulator(this, tableParameters, effector, coordinates));
-//        mTestHarness.setRenderer(new RenderManipulator(getBaseContext()));
+        mTestHarness.setRenderer(new RenderManipulator(this, tableParameters, coordinates));
         mTestHarness.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
 
         mTestHarness.setOnTouchListener(new View.OnTouchListener() {
@@ -116,8 +111,6 @@ public class KinematicsSimpleDraw extends AppCompatActivity  {
         float x = event.getX();
         float y = event.getY();
 
-//        Log.v("VelocityTracker", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
         int action = event.getAction() & MotionEvent.ACTION_MASK;
 
         if (event.getPointerCount() == 1) {
@@ -135,9 +128,6 @@ public class KinematicsSimpleDraw extends AppCompatActivity  {
                     vTracker.addMovement(event);
                     vTracker.computeCurrentVelocity(1000);
 
-//                    Log.v("VelocityTracker", "Predkosc w osi x wynosi: " + vTracker.getXVelocity() + " pikseli na sekunde");
-//                    Log.v("VelocityTracker", "Predkosc w osi y wynosi: " + vTracker.getYVelocity() + " pikseli na sekunde");
-
                     AbstractRenderer.setRotate(vTracker.getXVelocity(), vTracker.getYVelocity());
                     break;
                 case MotionEvent.ACTION_UP:
@@ -154,12 +144,7 @@ public class KinematicsSimpleDraw extends AppCompatActivity  {
                     if (newDistance != startingDistance) { // palce się oddalają
 
                         AbstractRenderer.setRadiusDistance(newDistance - startingDistance);
-                        /*
-                        if newDistance < startingDistance to palce się przyblizają
-                         if newDistance > startingDistance to palce się oddlają
-                         */
                     }
-
                     break;
             }
         }

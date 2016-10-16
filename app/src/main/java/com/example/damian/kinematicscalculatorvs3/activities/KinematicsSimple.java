@@ -1,10 +1,12 @@
 package com.example.damian.kinematicscalculatorvs3.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,8 +14,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.damian.kinematicscalculatorvs3.R;
+import com.example.damian.kinematicscalculatorvs3.calculations.CalculationCoordinatesEndEffector;
 import com.example.damian.kinematicscalculatorvs3.fragments.JoinCustomListView;
-import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsSimple;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,7 +58,20 @@ public class KinematicsSimple extends AppCompatActivity {
                 case R.id.id_add_join:
                     joinCustomListView.addObjectJoin();
                     break;
-                case R.id.id_add_effetor:
+                case R.id.id_end:
+                    startActivity(new Intent(KinematicsSimple.this, KinematicsSimpleDraw.class));
+
+//                    float[][] floats = new float[][]{
+//                            {0, 10, 0, 10},
+//                            {0, 10, 0, 10}
+//                    };
+//
+//                    CalculationCoordinatesEndEffector calculationCoordinatesEndEffector = new CalculationCoordinatesEndEffector(floats);
+////                    calculationCoordinatesEndEffector.Calculation();
+//                    float[] coordinates = calculationCoordinatesEndEffector.getCoordinatesEndEffector();
+//                    Log.v("X = ", String.valueOf(coordinates[0]));
+//                    Log.v("Y = ", String.valueOf(coordinates[1]));
+//                    Log.v("Z = ", String.valueOf(coordinates[2]));
 
                     break;
                 case R.id.id_undo:

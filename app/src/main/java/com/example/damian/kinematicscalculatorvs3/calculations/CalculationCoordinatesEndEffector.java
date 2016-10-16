@@ -8,11 +8,12 @@ import android.util.Log;
 public class CalculationCoordinatesEndEffector {
 
     private float[][] tableParameters;
-    private float[] coordinatesEffector;
+    //    private float[] coordinatesEffector;
     private float[] coordinatesEndEffector;
 
     public CalculationCoordinatesEndEffector(float[][] tableParameters) {
         this.tableParameters = tableParameters;
+        Calculation();
     }
 
     public void Calculation() {
@@ -26,10 +27,10 @@ public class CalculationCoordinatesEndEffector {
 
         for (int i = 0; i < tableParameters.length; i++) {
 
-            float[][] RotZ = SingeltonMatrix.DHRotZ(tableParameters[i][3]);
-            float[][] TransZ = SingeltonMatrix.DHTransZ(tableParameters[i][2]);
-            float[][] TransX = SingeltonMatrix.DHTransX(tableParameters[i][0]);
-            float[][] RotX = SingeltonMatrix.DHRotX(tableParameters[i][1]);
+            float[][] RotZ = SingeltonMatrix.DHRotZ(tableParameters[i][2]);
+            float[][] TransZ = SingeltonMatrix.DHTransZ(tableParameters[i][3]);
+            float[][] TransX = SingeltonMatrix.DHTransX(tableParameters[i][1]);
+            float[][] RotX = SingeltonMatrix.DHRotX(tableParameters[i][0]);
 
             float[][] RotZxTransZ = SingeltonMatrix.Multiplication(RotZ, TransZ);
             float[][] xTransX = SingeltonMatrix.Multiplication(RotZxTransZ, TransX);
@@ -39,17 +40,11 @@ public class CalculationCoordinatesEndEffector {
         }
 
         coordinatesEndEffector = new float[]{
-                A[0][3] + coordinatesEffector[0],
-                A[1][3] + coordinatesEffector[1],
-                A[2][3] + coordinatesEffector[2]
+                A[0][3], A[1][3], A[2][3]
         };
-
-        Log.v("X = ", String.valueOf(coordinatesEndEffector[0]));
-        Log.v("Y = ", String.valueOf(coordinatesEndEffector[1]));
-        Log.v("Z = ", String.valueOf(coordinatesEndEffector[2]));
     }
 
-    public float [] getCoordinatesEndEffector(){
+    public float[] getCoordinatesEndEffector() {
         return coordinatesEndEffector;
     }
 }

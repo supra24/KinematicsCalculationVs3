@@ -83,11 +83,11 @@ public class JoinListViewAdapter extends ArrayAdapter<JoinListViewModel> {
         listViewHolder.edittheta.setText(String.valueOf(joinListViewModels.get(position).getEt_theta()));
         listViewHolder.editd.setText(String.valueOf(joinListViewModels.get(position).getEt_d()));
 
-        listViewHolder.editalpha.setFocusable(false);
+        listViewHolder.editalpha.setFocusable(true);
 //        listViewHolder.editalpha.setClickable();
-        listViewHolder.edita.setFocusable(false);
-        listViewHolder.edittheta.setFocusable(false);
-        listViewHolder.editd.setFocusable(false);
+        listViewHolder.edita.setFocusable(true);
+        listViewHolder.edittheta.setFocusable(true);
+        listViewHolder.editd.setFocusable(true);
 
 //        listViewHolder.editalpha.setFocusableInTouchMode(true);
 //        listViewHolder.edita.setFocusableInTouchMode(true);

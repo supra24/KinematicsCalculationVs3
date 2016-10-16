@@ -28,7 +28,7 @@ public class StaticVolumesJoinKinematicsSimple {
 
         JoinListViewModel joinListViewModel = new JoinListViewModel();
         if (joinListViewModels.isEmpty())
-            joinListViewModel.setTv_lp(0);
+            joinListViewModel.setTv_lp(1);
         else
             joinListViewModel.setTv_lp(joinListViewModels.get(joinListViewModels.size() - 1).getTv_lp() + 1);
 
