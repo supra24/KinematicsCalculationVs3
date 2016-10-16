@@ -3,10 +3,14 @@ package com.example.damian.kinematicscalculatorvs3.openGL;
 import android.content.Context;
 
 import com.example.damian.kinematicscalculatorvs3.calculations.SingeltonMatrix;
-import com.example.damian.kinematicscalculatorvs3.openGL.objects.Cube;
-import com.example.damian.kinematicscalculatorvs3.openGL.objects.CuboidA;
-import com.example.damian.kinematicscalculatorvs3.openGL.objects.CuboidD;
+//import com.example.damian.kinematicscalculatorvs3.openGL.objects.Cube;
+//import com.example.damian.kinematicscalculatorvs3.openGL.objects.CuboidA;
+//import com.example.damian.kinematicscalculatorvs3.openGL.objects.CuboidD;
+import com.example.damian.kinematicscalculatorvs3.openGL.objects.CoordinateXAxes;
+import com.example.damian.kinematicscalculatorvs3.openGL.objects.CoordinateYAxes;
+import com.example.damian.kinematicscalculatorvs3.openGL.objects.CoordinateZAxes;
 import com.example.damian.kinematicscalculatorvs3.openGL.objects.ObjectParent;
+import com.example.damian.kinematicscalculatorvs3.openGL.objects.Vector;
 
 import java.util.ArrayList;
 
@@ -32,6 +36,11 @@ public class RenderManipulator extends AbstractRenderer {
     }
 
     private void render() {
+
+        object.add(new CoordinateXAxes());
+        object.add(new CoordinateYAxes());
+        object.add(new CoordinateZAxes());
+        object.add(new Vector(new float[]{0, 0, 0}, new float[]{5, 0, 10}));
 
 //        for (int i = 0; i < tableParameter.length; i++) {
 //

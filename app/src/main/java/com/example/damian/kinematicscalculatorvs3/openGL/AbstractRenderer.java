@@ -50,29 +50,29 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
         gl.glShadeModel(GL10.GL_SMOOTH); // włączenie cieniowania
         gl.glEnable(GL10.GL_DEPTH_TEST);
 
-
-        float vertexlist[] = {
-                -1.0f, 0.0f, -1.0f, 1.0f, 0.0f, -1.0f, -1.0f, 0.0f, 1.0f,
-                1.0f, 0.0f, 1.0f, 0.0f, 2.0f, 0.0f,
-        };
-
-        short trigborderindexlist[] = {
-                4, 0, 4, 1, 4, 2, 4, 3, 0, 1, 1, 3, 3, 2, 2, 0, 0, 3
-        };
-
-        ByteBuffer vbb = ByteBuffer.allocateDirect(vertexlist.length * 4);
-        vbb.order(ByteOrder.nativeOrder());
-        mVertexBuffer = vbb.asFloatBuffer();
-        mVertexBuffer.put(vertexlist);
-        mVertexBuffer.position(0);
-
-
-        mNumOfTriangleBorderIndices = trigborderindexlist.length;
-        ByteBuffer tbibb = ByteBuffer.allocateDirect(trigborderindexlist.length * 2);
-        tbibb.order(ByteOrder.nativeOrder());
-        mTriangleBorderIndicesBuffer = tbibb.asShortBuffer();
-        mTriangleBorderIndicesBuffer.put(trigborderindexlist);
-        mTriangleBorderIndicesBuffer.position(0);
+//
+//        float vertexlist[] = {
+//                -1.0f, 0.0f, -1.0f, 1.0f, 0.0f, -1.0f, -1.0f, 0.0f, 1.0f,
+//                1.0f, 0.0f, 1.0f, 0.0f, 2.0f, 0.0f,
+//        };
+//
+//        short trigborderindexlist[] = {
+//                4, 0, 4, 1, 4, 2, 4, 3, 0, 1, 1, 3, 3, 2, 2, 0, 0, 3
+//        };
+//
+//        ByteBuffer vbb = ByteBuffer.allocateDirect(vertexlist.length * 4);
+//        vbb.order(ByteOrder.nativeOrder());
+//        mVertexBuffer = vbb.asFloatBuffer();
+//        mVertexBuffer.put(vertexlist);
+//        mVertexBuffer.position(0);
+//
+//
+//        mNumOfTriangleBorderIndices = trigborderindexlist.length;
+//        ByteBuffer tbibb = ByteBuffer.allocateDirect(trigborderindexlist.length * 2);
+//        tbibb.order(ByteOrder.nativeOrder());
+//        mTriangleBorderIndicesBuffer = tbibb.asShortBuffer();
+//        mTriangleBorderIndicesBuffer.put(trigborderindexlist);
+//        mTriangleBorderIndicesBuffer.position(0);
     }
 
     @Override
@@ -114,15 +114,15 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
 
         gl.glRotatef(alpha, 1.0f, 0, 0);
         gl.glRotatef(theta, 0, 0, 1.0f);
-
-
-        gl.glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
-        gl.glVertexPointer(3, GL10.GL_FLOAT, 0, mVertexBuffer);
-
-        gl.glLineWidth(10);
-
-        gl.glDrawElements(GL10.GL_LINES, mNumOfTriangleBorderIndices,
-                GL10.GL_UNSIGNED_SHORT, mTriangleBorderIndicesBuffer);
+//
+//
+//        gl.glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+//        gl.glVertexPointer(3, GL10.GL_FLOAT, 0, mVertexBuffer);
+//
+//        gl.glLineWidth(10);
+//
+//        gl.glDrawElements(GL10.GL_LINES, mNumOfTriangleBorderIndices,
+//                GL10.GL_UNSIGNED_SHORT, mTriangleBorderIndicesBuffer);
 
         draw(gl);
     }
