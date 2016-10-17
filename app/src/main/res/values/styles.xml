@@ -36,7 +36,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:imeOptions">actionDone</item>
-        <item name="android:inputType">numberDecimal</item>
+        <!--<item name="android:inputType">numberDecimal</item>-->
         <item name="android:ems">5</item>
 
     </style>

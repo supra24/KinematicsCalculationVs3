@@ -1,7 +1,10 @@
 package com.example.damian.kinematicscalculatorvs3.activities;
 
+import android.icu.math.BigDecimal;
 import android.opengl.GLSurfaceView;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +24,8 @@ import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoi
 
 import java.util.ArrayList;
 
+import static java.lang.Math.rint;
+
 /**
  * Created by Damian on 2016-10-15.
  */
@@ -34,6 +39,7 @@ public class KinematicsSimpleDraw extends AppCompatActivity {
 
     private DrawerLayout drawer;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,15 +59,15 @@ public class KinematicsSimpleDraw extends AppCompatActivity {
         }
 
         CalculationCoordinatesEndEffector calculationCoordinatesEndEffector = new CalculationCoordinatesEndEffector(tableParameters);
-        float[] coordinates = calculationCoordinatesEndEffector.getCoordinatesEndEffector();
+        ArrayList<float[][]> coordinates = calculationCoordinatesEndEffector.getCoordinatesEndEffector();
 
         TextView textX = (TextView) findViewById(R.id.textX);
         TextView textY = (TextView) findViewById(R.id.textY);
         TextView textZ = (TextView) findViewById(R.id.textZ);
-        textX.setText(String.valueOf(coordinates[0]));
-        textY.setText(String.valueOf(coordinates[1]));
-        textZ.setText(String.valueOf(coordinates[2]));
 
+        textX.setText(String.valueOf(new BigDecimal(coordinates.get(coordinates.size() - 1)[0][3]).setScale(5, BigDecimal.ROUND_HALF_EVEN).doubleValue()));
+        textY.setText(String.valueOf(new BigDecimal(coordinates.get(coordinates.size() - 1)[1][3]).setScale(5, BigDecimal.ROUND_HALF_EVEN).doubleValue()));
+        textZ.setText(String.valueOf(new BigDecimal(coordinates.get(coordinates.size() - 1)[2][3]).setScale(5, BigDecimal.ROUND_HALF_EVEN).doubleValue()));
 
         // openGlES
         mTestHarness = (GLSurfaceView) findViewById(R.id.GLView);

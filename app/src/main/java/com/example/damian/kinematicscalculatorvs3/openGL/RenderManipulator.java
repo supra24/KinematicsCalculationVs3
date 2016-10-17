@@ -1,6 +1,7 @@
 package com.example.damian.kinematicscalculatorvs3.openGL;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.damian.kinematicscalculatorvs3.calculations.SingeltonMatrix;
 //import com.example.damian.kinematicscalculatorvs3.openGL.objects.Cube;
@@ -25,11 +26,11 @@ public class RenderManipulator extends AbstractRenderer {
 
     private float[][] tableParameter;
     private float[] effectorCoord;
-    private float[] effectorEndCoord;
+    private ArrayList<float[][]> effectorEndCoord;
 
     private ArrayList<ObjectParent> object = new ArrayList<>();
 
-    public RenderManipulator(Context context, float[][] tableParameter, float[] effectorEndCoord) {
+    public RenderManipulator(Context context, float[][] tableParameter, ArrayList<float[][]> effectorEndCoord) {
         this.tableParameter = tableParameter;
         this.effectorEndCoord = effectorEndCoord;
         render();
@@ -40,8 +41,22 @@ public class RenderManipulator extends AbstractRenderer {
         object.add(new CoordinateXAxes());
         object.add(new CoordinateYAxes());
         object.add(new CoordinateZAxes());
-        object.add(new Vector(new float[]{0, 0, 0}, new float[]{5, 0, 10}));
 
+//        Log.v("coo X= ", String.valueOf(Aa.get(Aa.size()-1)[0][3]));
+//        Log.v("coo Y= ", String.valueOf(Aa.get(Aa.size()-1)[1][3]));
+//        Log.v("coo Z= ", String.valueOf(Aa.get(Aa.size()-1)[2][3]));
+//
+        for (int i = 0; i < effectorEndCoord.size()-1; i++) {
+            object.add(new Vector(
+                    new float[]{
+                            effectorEndCoord.get(i)[0][3],
+                            effectorEndCoord.get(i)[1][3],
+                            effectorEndCoord.get(i)[2][3]},
+                    new float[]{
+                            effectorEndCoord.get(i+1)[0][3],
+                            effectorEndCoord.get(i+1)[1][3],
+                            effectorEndCoord.get(i+1)[2][3]}));
+        }
 //        for (int i = 0; i < tableParameter.length; i++) {
 //
 //            float[][] MatrixUnit = {

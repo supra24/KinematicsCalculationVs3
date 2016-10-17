@@ -9,27 +9,26 @@
     <TextView
         android:id="@+id/list_view_join_i"
         style="@style/pictureListViewTextView"
-        android:gravity="center_vertical|center_horizontal"
-      />
+        android:gravity="center_vertical|center_horizontal" />
 
     <EditText
         android:id="@+id/list_view_join_alpha"
         style="@style/pictureListViewEditText"
-      />
+        android:inputType="numberSigned" />
 
     <EditText
         android:id="@+id/list_view_join_a"
         style="@style/pictureListViewEditText"
-     />
+        android:inputType="numberSigned" />
 
     <EditText
         android:id="@+id/list_view_join_theta"
         style="@style/pictureListViewEditText"
-       />
+        android:inputType="numberSigned" />
 
     <EditText
         android:id="@+id/list_view_join_d"
         style="@style/pictureListViewEditText"
-    />
+        android:inputType="numberSigned" />
 
 </LinearLayout>
