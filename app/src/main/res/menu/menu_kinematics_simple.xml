@@ -8,11 +8,10 @@
 
         <item
             android:id="@+id/id_end"
-            android:title="Add Effector"></item>
+            android:title="End"></item>
 
         <item
             android:id="@+id/id_undo"
-            android:title="Undo"
-            android:visible="false"></item>
+            android:title="Undo"></item>
     </group>
 </menu>

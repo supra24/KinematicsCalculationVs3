@@ -17,10 +17,10 @@ import butterknife.OnClick;
  */
 public class MenuActivity extends AppCompatActivity {
 
-    @BindView(R.id.b_kinematicsSimple)
-    Button b_kinematics_simple;
-    @BindView(R.id.b_kinematicsReverse)
-    Button b_kinematics_reverse;
+    @BindView(R.id.b_kinematicsForward)
+    Button b_kinematics_forward;
+    @BindView(R.id.b_kinematicsInverse)
+    Button b_kinematics_inverse;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,14 +29,14 @@ public class MenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.b_kinematicsSimple)
-    void openActivityKinematicsSimple(){
+    @OnClick(R.id.b_kinematicsForward)
+    void openActivityKinematicsForward(){
         Intent intent = new Intent(getApplicationContext(), KinematicsSimple.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.b_kinematicsReverse)
-    void openActivityKinematicsReverse(){
+    @OnClick(R.id.b_kinematicsInverse)
+    void openActivityKinematicsInverse(){
         Intent intent = new Intent(getApplicationContext(), KinematicsReverse.class);
         startActivity(intent);
     }

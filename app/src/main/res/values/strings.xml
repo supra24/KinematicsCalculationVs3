@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Kinematics Calculator Vs3</string>
 
-    <string name="name_kinematics_simple">Kinematics Simple</string>
-    <string name="name_kinematics_reverse">Kinematics Reverse</string>
+    <string name="name_kinematics_forward">Forward Kinematics </string>
+    <string name="name_kinematics_inverse">Inverse Kinematics</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="list_header_lp">i</string>
 
