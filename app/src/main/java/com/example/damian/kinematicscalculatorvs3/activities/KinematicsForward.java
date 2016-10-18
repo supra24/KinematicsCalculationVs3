@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.FloatingActionButton;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,8 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.calculations.CalculationCoordinatesEndEffector;
-import com.example.damian.kinematicscalculatorvs3.fragments.JoinCustomListView;
+import com.example.damian.kinematicscalculatorvs3.fragments.JoinCustomListViewKinematicsForward;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,9 +22,9 @@ import butterknife.OnClick;
 /**
  * Created by Damian on 2016-10-12.
  */
-public class KinematicsSimple extends AppCompatActivity {
+public class KinematicsForward extends AppCompatActivity {
 
-    @BindView(R.id.floating_action_button_simple)
+    @BindView(R.id.floating_action_button_forward)
     FloatingActionButton floatingActionButton;
 
     private boolean doubleBackToExitPressedOnce = false;
@@ -35,7 +33,7 @@ public class KinematicsSimple extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data_base_kinematics_simple);
+        setContentView(R.layout.activity_data_base_kinematics_forward);
         ButterKnife.bind(this);
     }
 
@@ -49,17 +47,17 @@ public class KinematicsSimple extends AppCompatActivity {
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
-        JoinCustomListView joinCustomListView = (JoinCustomListView) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view);
+        JoinCustomListViewKinematicsForward joinCustomListViewKinematicsForward = (JoinCustomListViewKinematicsForward) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
 
-        if (joinCustomListView != null) {
+        if (joinCustomListViewKinematicsForward != null) {
 
             switch (item.getItemId()) {
 
                 case R.id.id_add_join:
-                    joinCustomListView.addObjectJoin();
+                    joinCustomListViewKinematicsForward.addObjectJoin();
                     break;
                 case R.id.id_end:
-                    startActivity(new Intent(KinematicsSimple.this, KinematicsSimpleDraw.class));
+                    startActivity(new Intent(KinematicsForward.this, KinematicsForwardDraw.class));
 
 //                    float[][] floats = new float[][]{
 //                            {0, 10, 0, 10},
@@ -75,7 +73,7 @@ public class KinematicsSimple extends AppCompatActivity {
 
                     break;
                 case R.id.id_undo:
-                    joinCustomListView.undoObject();
+                    joinCustomListViewKinematicsForward.undoObject();
                     break;
                 default:
                     return true;
@@ -91,9 +89,9 @@ public class KinematicsSimple extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        JoinCustomListView joinCustomListView = (JoinCustomListView) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view);
+        JoinCustomListViewKinematicsForward joinCustomListViewKinematicsForward = (JoinCustomListViewKinematicsForward) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
 
-        if (!joinCustomListView.undoObject()) {
+        if (!joinCustomListViewKinematicsForward.undoObject()) {
 
             if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
                 getSupportFragmentManager().popBackStack();
@@ -114,7 +112,7 @@ public class KinematicsSimple extends AppCompatActivity {
         }
     }
 
-    @OnClick(R.id.floating_action_button_simple)
+    @OnClick(R.id.floating_action_button_forward)
     public void OnClickFloatingActionButton() {
 
         registerForContextMenu(floatingActionButton);

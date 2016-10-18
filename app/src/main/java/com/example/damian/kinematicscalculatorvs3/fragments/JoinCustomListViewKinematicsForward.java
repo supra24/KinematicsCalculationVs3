@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.adapters.JoinListViewAdapter;
+import com.example.damian.kinematicscalculatorvs3.adapters.JoinKinematicsForwardListViewAdapter;
 import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModel;
 import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsSimple;
 
@@ -14,13 +14,13 @@ import java.util.ArrayList;
  * Created by Damian on 2016-10-12.
  */
 
-public class JoinCustomListView extends FragmentParent {
+public class JoinCustomListViewKinematicsForward extends FragmentParent {
 
-    private JoinListViewAdapter joinListViewAdapter;
+    private JoinKinematicsForwardListViewAdapter joinKinematicsForwardListViewAdapter;
     private ArrayList<JoinListViewModel> joinListViewModels = new ArrayList<>();
 
 
-    public JoinCustomListView() {
+    public JoinCustomListViewKinematicsForward() {
         layoutid = R.layout.fragment_join_list_view;
     }
 
@@ -29,16 +29,16 @@ public class JoinCustomListView extends FragmentParent {
 
         joinListViewModels = StaticVolumesJoinKinematicsSimple.getJoinListViewModels();
 
-        joinListViewAdapter = new JoinListViewAdapter(getContext(), joinListViewModels);
+        joinKinematicsForwardListViewAdapter = new JoinKinematicsForwardListViewAdapter(getContext(), joinListViewModels);
         ListView listView = (ListView) view.findViewById(R.id.list_view_join);
-        listView.setAdapter(joinListViewAdapter);
+        listView.setAdapter(joinKinematicsForwardListViewAdapter);
     }
 
     public void addObjectJoin() {
 
         StaticVolumesJoinKinematicsSimple.addJoin();
 
-        joinListViewAdapter.notifyDataSetInvalidated();
+        joinKinematicsForwardListViewAdapter.notifyDataSetInvalidated();
     }
 
 
@@ -48,7 +48,7 @@ public class JoinCustomListView extends FragmentParent {
             return false;
         } else {
             joinListViewModels.remove(joinListViewModels.size() - 1);
-            joinListViewAdapter.notifyDataSetInvalidated();
+            joinKinematicsForwardListViewAdapter.notifyDataSetInvalidated();
             return true;
         }
     }

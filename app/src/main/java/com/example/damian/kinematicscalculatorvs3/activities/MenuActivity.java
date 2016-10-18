@@ -31,13 +31,13 @@ public class MenuActivity extends AppCompatActivity {
 
     @OnClick(R.id.b_kinematicsForward)
     void openActivityKinematicsForward(){
-        Intent intent = new Intent(getApplicationContext(), KinematicsSimple.class);
+        Intent intent = new Intent(getApplicationContext(), KinematicsForward.class);
         startActivity(intent);
     }
 
     @OnClick(R.id.b_kinematicsInverse)
     void openActivityKinematicsInverse(){
-        Intent intent = new Intent(getApplicationContext(), KinematicsReverse.class);
+        Intent intent = new Intent(getApplicationContext(), KinematicsInverse.class);
         startActivity(intent);
     }
 }

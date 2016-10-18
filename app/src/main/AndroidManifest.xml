@@ -20,13 +20,13 @@
 
         <activity android:name=".activities.MenuActivity" />
 
-        <activity android:name=".activities.KinematicsSimple" />
+        <activity android:name=".activities.KinematicsForward" />
 
         <activity
-            android:name=".activities.KinematicsSimpleDraw"
+            android:name=".activities.KinematicsForwardDraw"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".activities.KinematicsReverse" />
+        <activity android:name=".activities.KinematicsInverse" />
 
     </application>
 

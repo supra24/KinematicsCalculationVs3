@@ -19,15 +19,15 @@ import java.util.ArrayList;
  * Created by Damian on 2016-10-12.
  */
 
-public class JoinListViewAdapter extends ArrayAdapter<JoinListViewModel> {
+public class JoinKinematicsForwardListViewAdapter extends ArrayAdapter<JoinListViewModel> {
 
 
     private Context context;
     private ArrayList<JoinListViewModel> joinListViewModels;
     private LayoutInflater inflater;
 
-    public JoinListViewAdapter(Context context, ArrayList<JoinListViewModel> items) {
-        super(context, R.layout.custom_join_list_view, items);
+    public JoinKinematicsForwardListViewAdapter(Context context, ArrayList<JoinListViewModel> items) {
+        super(context, R.layout.custom_join_list_view_kinematics_forward, items);
 
         this.context = context;
         this.joinListViewModels = items;
@@ -63,7 +63,7 @@ public class JoinListViewAdapter extends ArrayAdapter<JoinListViewModel> {
         if (convertView == null) {
             listViewHolder = new ListViewHolder();
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.custom_join_list_view, null);
+            convertView = inflater.inflate(R.layout.custom_join_list_view_kinematics_forward, null);
 
             listViewHolder.textViewlp = (TextView) convertView.findViewById(R.id.list_view_join_i);
             listViewHolder.editalpha = (EditText) convertView.findViewById(R.id.list_view_join_alpha);

@@ -5,14 +5,11 @@ import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
@@ -24,13 +21,11 @@ import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoi
 
 import java.util.ArrayList;
 
-import static java.lang.Math.rint;
-
 /**
  * Created by Damian on 2016-10-15.
  */
 
-public class KinematicsSimpleDraw extends AppCompatActivity {
+public class KinematicsForwardDraw extends AppCompatActivity {
 
     private GLSurfaceView mTestHarness;
     private VelocityTracker vTracker = null;  // VelocityTracer określa zachowanie sekwencji dotyku
@@ -43,7 +38,7 @@ public class KinematicsSimpleDraw extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_draw_kinematics_simple);
+        setContentView(R.layout.activity_draw_kinematics_forward);
 
         joinListViewModels = StaticVolumesJoinKinematicsSimple.getJoinListViewModels();
 

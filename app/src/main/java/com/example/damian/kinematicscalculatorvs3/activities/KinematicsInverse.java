@@ -5,5 +5,5 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * Created by Damian on 2016-10-12.
  */
-public class KinematicsReverse extends AppCompatActivity{
+public class KinematicsInverse extends AppCompatActivity{
 }
