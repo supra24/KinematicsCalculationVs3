@@ -10,8 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModel;
-import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsSimple;
+import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsForward;
+import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsForward;
 
 import java.util.ArrayList;
 
@@ -19,27 +19,27 @@ import java.util.ArrayList;
  * Created by Damian on 2016-10-12.
  */
 
-public class JoinKinematicsForwardListViewAdapter extends ArrayAdapter<JoinListViewModel> {
+public class JoinKinematicsForwardListViewAdapter extends ArrayAdapter<JoinListViewModelKinematicsForward> {
 
 
     private Context context;
-    private ArrayList<JoinListViewModel> joinListViewModels;
+    private ArrayList<JoinListViewModelKinematicsForward> joinListViewModelKinematicsForwards;
     private LayoutInflater inflater;
 
-    public JoinKinematicsForwardListViewAdapter(Context context, ArrayList<JoinListViewModel> items) {
+    public JoinKinematicsForwardListViewAdapter(Context context, ArrayList<JoinListViewModelKinematicsForward> items) {
         super(context, R.layout.custom_join_list_view_kinematics_forward, items);
 
         this.context = context;
-        this.joinListViewModels = items;
+        this.joinListViewModelKinematicsForwards = items;
 
     }
 
     @Override
     public int getCount() {
-        if (joinListViewModels == null)
+        if (joinListViewModelKinematicsForwards == null)
             return 0;
         else
-            return joinListViewModels.size();
+            return joinListViewModelKinematicsForwards.size();
     }
 
     @Override
@@ -65,11 +65,11 @@ public class JoinKinematicsForwardListViewAdapter extends ArrayAdapter<JoinListV
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.custom_join_list_view_kinematics_forward, null);
 
-            listViewHolder.textViewlp = (TextView) convertView.findViewById(R.id.list_view_join_i);
-            listViewHolder.editalpha = (EditText) convertView.findViewById(R.id.list_view_join_alpha);
-            listViewHolder.edita = (EditText) convertView.findViewById(R.id.list_view_join_a);
-            listViewHolder.edittheta = (EditText) convertView.findViewById(R.id.list_view_join_theta);
-            listViewHolder.editd = (EditText) convertView.findViewById(R.id.list_view_join_d);
+            listViewHolder.textViewlp = (TextView) convertView.findViewById(R.id.list_view_join_i_forward);
+            listViewHolder.editalpha = (EditText) convertView.findViewById(R.id.list_view_join_alpha_forward);
+            listViewHolder.edita = (EditText) convertView.findViewById(R.id.list_view_join_a_forward);
+            listViewHolder.edittheta = (EditText) convertView.findViewById(R.id.list_view_join_theta_forward);
+            listViewHolder.editd = (EditText) convertView.findViewById(R.id.list_view_join_d_forward);
 
             convertView.setTag(listViewHolder);
 
@@ -77,22 +77,22 @@ public class JoinKinematicsForwardListViewAdapter extends ArrayAdapter<JoinListV
             listViewHolder = (ListViewHolder) convertView.getTag();
         }
 
-        listViewHolder.textViewlp.setText(String.valueOf(joinListViewModels.get(position).getTv_lp()));
-        listViewHolder.editalpha.setText(String.valueOf(joinListViewModels.get(position).getEt_alpha()));
-        listViewHolder.edita.setText(String.valueOf(joinListViewModels.get(position).getEt_a()));
-        listViewHolder.edittheta.setText(String.valueOf(joinListViewModels.get(position).getEt_theta()));
-        listViewHolder.editd.setText(String.valueOf(joinListViewModels.get(position).getEt_d()));
+        listViewHolder.textViewlp.setText(String.valueOf(joinListViewModelKinematicsForwards.get(position).getTv_lp()));
+        listViewHolder.editalpha.setText(String.valueOf(joinListViewModelKinematicsForwards.get(position).getEt_alpha()));
+        listViewHolder.edita.setText(String.valueOf(joinListViewModelKinematicsForwards.get(position).getEt_a()));
+        listViewHolder.edittheta.setText(String.valueOf(joinListViewModelKinematicsForwards.get(position).getEt_theta()));
+        listViewHolder.editd.setText(String.valueOf(joinListViewModelKinematicsForwards.get(position).getEt_d()));
 
         listViewHolder.editalpha.setFocusable(true);
-//        listViewHolder.editalpha.setClickable();
+//        listViewHolder.buttonalpha.setClickable();
         listViewHolder.edita.setFocusable(true);
         listViewHolder.edittheta.setFocusable(true);
         listViewHolder.editd.setFocusable(true);
 
-//        listViewHolder.editalpha.setFocusableInTouchMode(true);
-//        listViewHolder.edita.setFocusableInTouchMode(true);
-//        listViewHolder.edittheta.setFocusableInTouchMode(true);
-//        listViewHolder.editd.setFocusableInTouchMode(true);
+//        listViewHolder.buttonalpha.setFocusableInTouchMode(true);
+//        listViewHolder.buttona.setFocusableInTouchMode(true);
+//        listViewHolder.buttontheta.setFocusableInTouchMode(true);
+//        listViewHolder.buttond.setFocusableInTouchMode(true);
 
 
         TextView.OnEditorActionListener onEditorActionListener = new TextView.OnEditorActionListener() {
@@ -100,14 +100,14 @@ public class JoinKinematicsForwardListViewAdapter extends ArrayAdapter<JoinListV
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
-                JoinListViewModel joinListViewModel = new JoinListViewModel();
-                joinListViewModel.setTv_lp(position);
-                joinListViewModel.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
-                joinListViewModel.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
-                joinListViewModel.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
-                joinListViewModel.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
+                JoinListViewModelKinematicsForward joinListViewModelKinematicsForward = new JoinListViewModelKinematicsForward();
+                joinListViewModelKinematicsForward.setTv_lp(position);
+                joinListViewModelKinematicsForward.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
+                joinListViewModelKinematicsForward.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
+                joinListViewModelKinematicsForward.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
+                joinListViewModelKinematicsForward.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
 
-                StaticVolumesJoinKinematicsSimple.setOneJoinModel(joinListViewModel);
+                StaticVolumesJoinKinematicsForward.setOneJoinModel(joinListViewModelKinematicsForward);
                 return false;
             }
         };
@@ -117,17 +117,17 @@ public class JoinKinematicsForwardListViewAdapter extends ArrayAdapter<JoinListV
         listViewHolder.edittheta.setOnEditorActionListener(onEditorActionListener);
         listViewHolder.editd.setOnEditorActionListener(onEditorActionListener);
 
-//        listViewHolder.editalpha.setOnClickListener(new View.OnClickListener() {
+//        listViewHolder.buttonalpha.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                listViewHolder.editalpha.setFocusableInTouchMode(true);
-//                listViewHolder.edita.setFocusableInTouchMode(true);
-//                listViewHolder.edittheta.setFocusableInTouchMode(true);
-//                listViewHolder.editd.setFocusableInTouchMode(true);
+//                listViewHolder.buttonalpha.setFocusableInTouchMode(true);
+//                listViewHolder.buttona.setFocusableInTouchMode(true);
+//                listViewHolder.buttontheta.setFocusableInTouchMode(true);
+//                listViewHolder.buttond.setFocusableInTouchMode(true);
 //            }
 //        });
 
-//        listViewHolder.editalpha.setOnLongClickListener();
+//        listViewHolder.buttonalpha.setOnLongClickListener();
 
         return convertView;
     }

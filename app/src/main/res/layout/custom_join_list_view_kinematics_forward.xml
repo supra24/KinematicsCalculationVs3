@@ -7,27 +7,27 @@
     android:paddingStart="@dimen/listItemStartPadding">
 
     <TextView
-        android:id="@+id/list_view_join_i"
+        android:id="@+id/list_view_join_i_forward"
         style="@style/pictureListViewTextView"
         android:gravity="center_vertical|center_horizontal" />
 
     <EditText
-        android:id="@+id/list_view_join_alpha"
+        android:id="@+id/list_view_join_alpha_forward"
         style="@style/pictureListViewEditText"
         android:inputType="numberSigned" />
 
     <EditText
-        android:id="@+id/list_view_join_a"
+        android:id="@+id/list_view_join_a_forward"
         style="@style/pictureListViewEditText"
         android:inputType="numberSigned" />
 
     <EditText
-        android:id="@+id/list_view_join_theta"
+        android:id="@+id/list_view_join_theta_forward"
         style="@style/pictureListViewEditText"
         android:inputType="numberSigned" />
 
     <EditText
-        android:id="@+id/list_view_join_d"
+        android:id="@+id/list_view_join_d_forward"
         style="@style/pictureListViewEditText"
         android:inputType="numberSigned" />
 

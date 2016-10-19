@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:id="@+id/list_view_join_i_inverse"
+        style="@style/pictureListViewTextView"
+        android:gravity="center_vertical|center_horizontal" />
+
+    <Button
+        android:id="@+id/b_list_view_alpha"
+        style="@style/pictureListViewButton"
+        android:elevation="0dp" />
+
+    <Button
+        android:id="@+id/b_list_view_a"
+        style="@style/pictureListViewButton" />
+
+    <Button
+        android:id="@+id/b_list_view_theta"
+        style="@style/pictureListViewButton" />
+
+    <Button
+        android:id="@+id/b_list_view_d"
+        style="@style/pictureListViewButton" />
+
 
 </LinearLayout>
