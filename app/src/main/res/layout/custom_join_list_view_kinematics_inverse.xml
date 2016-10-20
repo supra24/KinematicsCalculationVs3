@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
-
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/endPaddingForDate"
+    android:paddingStart="@dimen/listItemStartPadding">
 
     <TextView
         android:id="@+id/list_view_join_i_inverse"
-        style="@style/pictureListViewTextView"
-        android:gravity="center_vertical|center_horizontal" />
+        style="@style/pictureListViewTextViewInverse" />
 
-    <ToggleButton
-        android:id="@+id/b_list_view_alpha"
-        style="@style/pictureListViewToggleButton" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4">
 
-    <ToggleButton
-        android:id="@+id/b_list_view_a"
-        style="@style/pictureListViewToggleButton" />
+        <ToggleButton
+            android:id="@+id/b_list_view_alpha"
+            style="@style/pictureListViewToggleButtonInverse" />
 
-    <ToggleButton
-        android:id="@+id/b_list_view_theta"
-        style="@style/pictureListViewToggleButton" />
+        <ToggleButton
+            android:id="@+id/b_list_view_a"
+            style="@style/pictureListViewToggleButtonInverse" />
 
-    <ToggleButton
-        android:id="@+id/b_list_view_d"
-        style="@style/pictureListViewToggleButton" />
+        <ToggleButton
+            android:id="@+id/b_list_view_theta"
+            style="@style/pictureListViewToggleButtonInverse" />
 
+        <ToggleButton
+            android:id="@+id/b_list_view_d"
+            style="@style/pictureListViewToggleButtonInverse" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -18,7 +18,7 @@
         <item name="android:gravity">center_horizontal</item>
     </style>
 
-    <style name="pictureListViewTextView">
+    <style name="pictureListViewTextViewForward">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/colorBlack</item>
@@ -28,7 +28,7 @@
         <item name="android:ems">5</item>
     </style>
 
-    <style name="pictureListViewEditText">
+    <style name="pictureListViewEditTextForward">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/colorBlack</item>
@@ -36,15 +36,25 @@
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:imeOptions">actionDone</item>
-        <item name="android:ems">5</item>
+        <!--<item name="android:ems">5</item>-->
 
     </style>
 
-    <style name="pictureListViewToggleButton">
+    <style name="pictureListViewTextViewInverse">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/subheading</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:ems">4</item>
+    </style>
+
+    <style name="pictureListViewToggleButtonInverse">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:ems">5</item>
+        <!--<item name="android:ems">4</item>-->
         <item name="android:textOff">S</item>
         <item name="android:textOn">Z</item>
     </style>

@@ -119,7 +119,7 @@ public class JoinKinematicsInverseListViewAdapter extends ArrayAdapter<JoinListV
             @Override
             public void onClick(View v) {
                 listViewHolder.togglebuttond.setChecked(!joinListViewModelKinematicsInverses.get(position).getEt_d());
-                joinListViewModelKinematicsInverses.get(position).setEt_d(!joinListViewModelKinematicsInverses.get(position).getEt_theta());
+                joinListViewModelKinematicsInverses.get(position).setEt_d(!joinListViewModelKinematicsInverses.get(position).getEt_d());
             }
         });
 
