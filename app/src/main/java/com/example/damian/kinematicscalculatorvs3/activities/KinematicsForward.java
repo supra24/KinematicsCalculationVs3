@@ -44,47 +44,47 @@ public class KinematicsForward extends AppCompatActivity {
         menuInflater.inflate(R.menu.menu_kinematics_simple, menu);
     }
 
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-
-        JoinCustomListViewKinematicsForward joinCustomListViewKinematicsForward = (JoinCustomListViewKinematicsForward) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
-
-        if (joinCustomListViewKinematicsForward != null) {
-
-            switch (item.getItemId()) {
-
-                case R.id.id_add_join:
-                    joinCustomListViewKinematicsForward.addObjectJoin();
-                    break;
-                case R.id.id_end:
-                    startActivity(new Intent(KinematicsForward.this, KinematicsForwardDraw.class));
-
-//                    float[][] floats = new float[][]{
-//                            {0, 10, 0, 10},
-//                            {0, 10, 0, 10}
-//                    };
+//    @Override
+//    public boolean onContextItemSelected(MenuItem item) {
 //
-//                    CalculationCoordinatesEndEffector calculationCoordinatesEndEffector = new CalculationCoordinatesEndEffector(floats);
-////                    calculationCoordinatesEndEffector.Calculation();
-//                    float[] coordinates = calculationCoordinatesEndEffector.getCoordinatesEndEffector();
-//                    Log.v("X = ", String.valueOf(coordinates[0]));
-//                    Log.v("Y = ", String.valueOf(coordinates[1]));
-//                    Log.v("Z = ", String.valueOf(coordinates[2]));
-
-                    break;
-                case R.id.id_undo:
-                    joinCustomListViewKinematicsForward.undoObject();
-                    break;
-                default:
-                    return true;
-            }
-        } else {
-            Toast.makeText(this, "Error Sending Message", Toast.LENGTH_SHORT).show();
-        }
-        return true;
-
-
-    }
+//        JoinCustomListViewKinematicsForward joinCustomListViewKinematicsForward = (JoinCustomListViewKinematicsForward) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
+//
+//        if (joinCustomListViewKinematicsForward != null) {
+//
+//            switch (item.getItemId()) {
+//
+//                case R.id.id_add_join:
+//                    joinCustomListViewKinematicsForward.addObjectJoin();
+//                    break;
+//                case R.id.id_end:
+//                    startActivity(new Intent(KinematicsForward.this, KinematicsForwardDraw.class));
+//
+////                    float[][] floats = new float[][]{
+////                            {0, 10, 0, 10},
+////                            {0, 10, 0, 10}
+////                    };
+////
+////                    CalculationCoordinatesEndEffector calculationCoordinatesEndEffector = new CalculationCoordinatesEndEffector(floats);
+//////                    calculationCoordinatesEndEffector.Calculation();
+////                    float[] coordinates = calculationCoordinatesEndEffector.getCoordinatesEndEffector();
+////                    Log.v("X = ", String.valueOf(coordinates[0]));
+////                    Log.v("Y = ", String.valueOf(coordinates[1]));
+////                    Log.v("Z = ", String.valueOf(coordinates[2]));
+//
+//                    break;
+//                case R.id.id_undo:
+//                    joinCustomListViewKinematicsForward.undoObject();
+//                    break;
+//                default:
+//                    return true;
+//            }
+//        } else {
+//            Toast.makeText(this, "Error Sending Message", Toast.LENGTH_SHORT).show();
+//        }
+//        return true;
+//
+//
+//    }
 
     @Override
     public void onBackPressed() {
@@ -113,9 +113,18 @@ public class KinematicsForward extends AppCompatActivity {
     }
 
     @OnClick(R.id.floating_action_button_forward)
-    public void OnClickFloatingActionButton() {
+    public void OnClickFloatingActionButtonAdd() {
 
-        registerForContextMenu(floatingActionButton);
-        openContextMenu(floatingActionButton);
+        JoinCustomListViewKinematicsForward joinCustomListViewKinematicsForward = (JoinCustomListViewKinematicsForward) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
+        joinCustomListViewKinematicsForward.addObjectJoin();
+
+//        registerForContextMenu(floatingActionButton);
+//        openContextMenu(floatingActionButton);
+    }
+
+    @OnClick(R.id.floating_action_button_forward_play)
+    public void OnClickFloatingActionButtonPlay() {
+
+        startActivity(new Intent(KinematicsForward.this, KinematicsForwardDraw.class));
     }
 }

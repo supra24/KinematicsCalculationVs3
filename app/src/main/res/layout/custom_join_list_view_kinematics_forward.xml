@@ -31,4 +31,5 @@
         style="@style/pictureListViewEditText"
         android:inputType="numberSigned" />
 
+
 </LinearLayout>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -83,11 +84,11 @@ public class JoinKinematicsForwardListViewAdapter extends ArrayAdapter<JoinListV
         listViewHolder.edittheta.setText(String.valueOf(joinListViewModelKinematicsForwards.get(position).getEt_theta()));
         listViewHolder.editd.setText(String.valueOf(joinListViewModelKinematicsForwards.get(position).getEt_d()));
 
-        listViewHolder.editalpha.setFocusable(true);
-//        listViewHolder.buttonalpha.setClickable();
-        listViewHolder.edita.setFocusable(true);
-        listViewHolder.edittheta.setFocusable(true);
-        listViewHolder.editd.setFocusable(true);
+//        listViewHolder.editalpha.setFocusable(true);
+////        listViewHolder.buttonalpha.setClickable();
+//        listViewHolder.edita.setFocusable(true);
+//        listViewHolder.edittheta.setFocusable(true);
+//        listViewHolder.editd.setFocusable(true);
 
 //        listViewHolder.buttonalpha.setFocusableInTouchMode(true);
 //        listViewHolder.buttona.setFocusableInTouchMode(true);

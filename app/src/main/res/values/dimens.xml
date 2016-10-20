@@ -2,9 +2,9 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_margin">5dp</dimen>
     <dimen name="subheading">25sp</dimen>
 
-    <dimen name="endPaddingForDate">40dp</dimen>
+    <dimen name="endPaddingForDate">50dp</dimen>
     <dimen name="listItemStartPadding">16dp</dimen>
 </resources>
