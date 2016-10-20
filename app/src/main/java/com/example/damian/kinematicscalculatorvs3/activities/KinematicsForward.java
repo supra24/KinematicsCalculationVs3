@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.FloatingActionButton;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,7 +23,7 @@ import butterknife.OnClick;
  */
 public class KinematicsForward extends AppCompatActivity {
 
-    @BindView(R.id.floating_action_button_forward)
+    @BindView(R.id.floating_action_button_forward_add)
     FloatingActionButton floatingActionButton;
 
     private boolean doubleBackToExitPressedOnce = false;
@@ -112,7 +111,7 @@ public class KinematicsForward extends AppCompatActivity {
         }
     }
 
-    @OnClick(R.id.floating_action_button_forward)
+    @OnClick(R.id.floating_action_button_forward_add)
     public void OnClickFloatingActionButtonAdd() {
 
         JoinCustomListViewKinematicsForward joinCustomListViewKinematicsForward = (JoinCustomListViewKinematicsForward) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);

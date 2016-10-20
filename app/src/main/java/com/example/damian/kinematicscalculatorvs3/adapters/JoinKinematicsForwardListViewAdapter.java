@@ -85,15 +85,15 @@ public class JoinKinematicsForwardListViewAdapter extends ArrayAdapter<JoinListV
         listViewHolder.editd.setText(String.valueOf(joinListViewModelKinematicsForwards.get(position).getEt_d()));
 
 //        listViewHolder.editalpha.setFocusable(true);
-////        listViewHolder.buttonalpha.setClickable();
+////        listViewHolder.togglebuttonalpha.setClickable();
 //        listViewHolder.edita.setFocusable(true);
 //        listViewHolder.edittheta.setFocusable(true);
 //        listViewHolder.editd.setFocusable(true);
 
-//        listViewHolder.buttonalpha.setFocusableInTouchMode(true);
-//        listViewHolder.buttona.setFocusableInTouchMode(true);
-//        listViewHolder.buttontheta.setFocusableInTouchMode(true);
-//        listViewHolder.buttond.setFocusableInTouchMode(true);
+//        listViewHolder.togglebuttonalpha.setFocusableInTouchMode(true);
+//        listViewHolder.togglebuttona.setFocusableInTouchMode(true);
+//        listViewHolder.togglebuttontheta.setFocusableInTouchMode(true);
+//        listViewHolder.togglebuttond.setFocusableInTouchMode(true);
 
 
         TextView.OnEditorActionListener onEditorActionListener = new TextView.OnEditorActionListener() {
@@ -118,17 +118,17 @@ public class JoinKinematicsForwardListViewAdapter extends ArrayAdapter<JoinListV
         listViewHolder.edittheta.setOnEditorActionListener(onEditorActionListener);
         listViewHolder.editd.setOnEditorActionListener(onEditorActionListener);
 
-//        listViewHolder.buttonalpha.setOnClickListener(new View.OnClickListener() {
+//        listViewHolder.togglebuttonalpha.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                listViewHolder.buttonalpha.setFocusableInTouchMode(true);
-//                listViewHolder.buttona.setFocusableInTouchMode(true);
-//                listViewHolder.buttontheta.setFocusableInTouchMode(true);
-//                listViewHolder.buttond.setFocusableInTouchMode(true);
+//                listViewHolder.togglebuttonalpha.setFocusableInTouchMode(true);
+//                listViewHolder.togglebuttona.setFocusableInTouchMode(true);
+//                listViewHolder.togglebuttontheta.setFocusableInTouchMode(true);
+//                listViewHolder.togglebuttond.setFocusableInTouchMode(true);
 //            }
 //        });
 
-//        listViewHolder.buttonalpha.setOnLongClickListener();
+//        listViewHolder.togglebuttonalpha.setOnLongClickListener();
 
         return convertView;
     }

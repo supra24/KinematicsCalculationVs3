@@ -37,7 +37,7 @@ public class MenuActivity extends AppCompatActivity {
 
     @OnClick(R.id.b_kinematicsInverse)
     void openActivityKinematicsInverse(){
-        Intent intent = new Intent(getApplicationContext(), KinematicsInverse.class);
+        Intent intent = new Intent(getApplicationContext(), KinematicsInverseVariablesConstant.class);
         startActivity(intent);
     }
 }

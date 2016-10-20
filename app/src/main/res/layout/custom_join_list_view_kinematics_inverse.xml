@@ -10,22 +10,21 @@
         style="@style/pictureListViewTextView"
         android:gravity="center_vertical|center_horizontal" />
 
-    <Button
+    <ToggleButton
         android:id="@+id/b_list_view_alpha"
-        style="@style/pictureListViewButton"
-        android:elevation="0dp" />
+        style="@style/pictureListViewToggleButton" />
 
-    <Button
+    <ToggleButton
         android:id="@+id/b_list_view_a"
-        style="@style/pictureListViewButton" />
+        style="@style/pictureListViewToggleButton" />
 
-    <Button
+    <ToggleButton
         android:id="@+id/b_list_view_theta"
-        style="@style/pictureListViewButton" />
+        style="@style/pictureListViewToggleButton" />
 
-    <Button
+    <ToggleButton
         android:id="@+id/b_list_view_d"
-        style="@style/pictureListViewButton" />
+        style="@style/pictureListViewToggleButton" />
 
 
 </LinearLayout>

@@ -6,13 +6,13 @@ package com.example.damian.kinematicscalculatorvs3.models;
 
 public class JoinListViewModelKinematicsInverse {
 
-    private int tv_lp ;
-    private boolean et_alpha;
-    private boolean et_a;
-    private boolean et_theta;
-    private boolean et_d;
+    private int tv_lp;
+    private boolean et_alpha = false;
+    private boolean et_a = false;
+    private boolean et_theta = false;
+    private boolean et_d = false;
 
-    public JoinListViewModelKinematicsInverse(){
+    public JoinListViewModelKinematicsInverse() {
 
     }
 
