@@ -63,7 +63,7 @@ public class KinematicsForwardValue extends AppCompatActivity {
 ////                            {0, 10, 0, 10}
 ////                    };
 ////
-////                    CalculationCoordinatesEndEffector calculationCoordinatesEndEffector = new CalculationCoordinatesEndEffector(floats);
+////                    CalculationKinematicsForward calculationCoordinatesEndEffector = new CalculationKinematicsForward(floats);
 //////                    calculationCoordinatesEndEffector.Calculation();
 ////                    float[] coordinates = calculationCoordinatesEndEffector.getCoordinatesEndEffector();
 ////                    Log.v("X = ", String.valueOf(coordinates[0]));

@@ -3,7 +3,7 @@ package com.example.damian.kinematicscalculatorvs3.calculations;
 /**
  * Created by Damian on 2016-09-13.
  */
-public class SingeltonMatrix {
+public class SingeltonMatrixKinematicsForward {
 
     public static float[][] DHRotZ(float angle) {
 

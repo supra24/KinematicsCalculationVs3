@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.calculations.CalculationCoordinatesEndEffector;
+import com.example.damian.kinematicscalculatorvs3.calculations.CalculationKinematicsForward;
 import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsForwardValue;
 import com.example.damian.kinematicscalculatorvs3.openGL.AbstractRenderer;
 import com.example.damian.kinematicscalculatorvs3.openGL.RenderManipulator;
@@ -53,8 +53,8 @@ public class KinematicsForwardDraw extends AppCompatActivity {
             tableParameters[i][3] = joinListViewModelKinematicsForwardValues.get(i).getEt_d();
         }
 
-        CalculationCoordinatesEndEffector calculationCoordinatesEndEffector = new CalculationCoordinatesEndEffector(tableParameters);
-        ArrayList<float[][]> coordinates = calculationCoordinatesEndEffector.getCoordinatesEndEffector();
+        CalculationKinematicsForward calculationKinematicsForward = new CalculationKinematicsForward(tableParameters);
+        ArrayList<float[][]> coordinates = calculationKinematicsForward.getCoordinatesEndEffector();
 
         TextView textX = (TextView) findViewById(R.id.textX);
         TextView textY = (TextView) findViewById(R.id.textY);
