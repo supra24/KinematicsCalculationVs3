@@ -9,11 +9,10 @@ import java.util.ArrayList;
  */
 public class CalculationKinematicsInverse {
 
-    private float[][] tableParameters;
+    private String[][] tableParameters;
     private String[] coordinatesEndEffector;
-//    private ArrayList<float[][]> Aa = new ArrayList<>();
 
-    public CalculationKinematicsInverse(float[][] tableParameters) {
+    public CalculationKinematicsInverse(String[][] tableParameters) {
         this.tableParameters = tableParameters;
         Calculation();
     }
@@ -39,12 +38,19 @@ public class CalculationKinematicsInverse {
             String[][] xRotX = SingeltonMatrixKinematicsInverse.Multiplication(xTransX, RotX);
 
             A = SingeltonMatrixKinematicsInverse.Multiplication(A, xRotX);
-        }
 
+            Log.v("X = ", A[0][3]);
+            Log.v("X = ", A[1][3]);
+            Log.v("X = ", A[2][3]);
+        }
 
         coordinatesEndEffector = new String[]{
                 A[0][3], A[1][3], A[2][3]
         };
+
+        Log.v("X = ", coordinatesEndEffector[0]);
+        Log.v("Y = ", coordinatesEndEffector[1]);
+        Log.v("Z = ", coordinatesEndEffector[2]);
     }
 
     public String[] getCoordinatesEndEffector() {

@@ -8,8 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.fragments.JoinCustomListViewKinematicsForwardValue;
-import com.example.damian.kinematicscalculatorvs3.fragments.JoinCustomListViewKinematicsInverseValue;
+import com.example.damian.kinematicscalculatorvs3.calculations.CalculationKinematicsInverse;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -54,6 +53,13 @@ public class KinematicsInverseValue extends AppCompatActivity {
     @OnClick(R.id.floating_action_button_inverse_play_value)
     public void OnClickFloatingActionButtonPlayInverse() {
 
-        startActivity(new Intent(KinematicsInverseValue.this, KinematicsForwardDraw.class));
+        String[][] tableParameter = {
+                {"0", "10", "a", "10"},
+                {"0", "10", "b", "10"}
+        };
+
+        CalculationKinematicsInverse calculationKinematicsInverse = new CalculationKinematicsInverse(tableParameter);
+
+//        startActivity(new Intent(KinematicsInverseValue.this, KinematicsForwardDraw.class));
     }
 }

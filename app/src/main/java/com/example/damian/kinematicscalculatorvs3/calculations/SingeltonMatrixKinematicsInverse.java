@@ -5,9 +5,9 @@ package com.example.damian.kinematicscalculatorvs3.calculations;
  */
 public class SingeltonMatrixKinematicsInverse {
 
-    public static String[][] DHRotZ(float angle) {
+    public static String[][] DHRotZ(String angle) {
 
-        String theta = String.valueOf(angle);
+        String theta = angle;
 
         String[][] result = {
 
@@ -20,23 +20,23 @@ public class SingeltonMatrixKinematicsInverse {
         return result;
     }
 
-    public static String[][] DHTransZ(float d) {
+    public static String[][] DHTransZ(String d) {
 
         String[][] result = {
                 {"1", "0", "0", "0"},
                 {"0", "1", "0", "0"},
-                {"0", "0", "1", String.valueOf(d)},
+                {"0", "0", "1", d},
                 {"0", "0", "0", "1"}
         };
 
         return result;
     }
 
-    public static String[][] DHTransX(float a) {
+    public static String[][] DHTransX(String a) {
 
         String[][] result = {
 
-                {"1", "0", "0", String.valueOf(a)},
+                {"1", "0", "0", a},
                 {"0", "1", "0", "0"},
                 {"0", "0", "1", "0"},
                 {"0", "0", "0", "1"}
@@ -45,9 +45,9 @@ public class SingeltonMatrixKinematicsInverse {
         return result;
     }
 
-    public static String[][] DHRotX(float angle) {
+    public static String[][] DHRotX(String angle) {
 
-        String alpha = String.valueOf(angle);
+        String alpha = angle;
 
         String[][] result = {
                 {"1", "0", "0", "0"},
@@ -62,6 +62,11 @@ public class SingeltonMatrixKinematicsInverse {
     public static String[][] Multiplication(String[][] firstMatrix, String[][] secondMatrix) {
 
         String[][] resultMatrix = new String[firstMatrix.length][firstMatrix.length];
+        for (int i = 0; i < resultMatrix.length; i++) {//ilosc wierszy tab1
+            for (int j = 0; j < resultMatrix.length; j++) { //ilosc kolumn tab2
+                resultMatrix[i][j] = "0";
+            }
+        }
 
         for (int i = 0; i < resultMatrix.length; i++) {//ilosc wierszy tab1
             for (int j = 0; j < resultMatrix.length; j++) { //ilosc kolumn tab2
@@ -70,6 +75,7 @@ public class SingeltonMatrixKinematicsInverse {
                 }
             }
         }
+
         for (int i = 0; i < resultMatrix.length; i++) {//ilosc wierszy tab1
             for (int j = 0; j < resultMatrix.length; j++) { //ilosc kolumn tab2
                 resultMatrix[i][j] = "(" + resultMatrix[i][j] + ")";
