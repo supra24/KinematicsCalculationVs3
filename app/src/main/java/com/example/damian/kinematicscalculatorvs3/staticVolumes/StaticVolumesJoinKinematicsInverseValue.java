@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class StaticVolumesJoinKinematicsInverseValue {
 
-    private static ArrayList<JoinListViewModelKinematicsInverseValue> joinListViewModelKinematicsInverseValues= new ArrayList<>();
+    private static ArrayList<JoinListViewModelKinematicsInverseValue> joinListViewModelKinematicsInverseValues = new ArrayList<>();
 
     public static ArrayList<JoinListViewModelKinematicsInverseValue> getJoinListViewModelKinematicsInverseValues() {
         return joinListViewModelKinematicsInverseValues;
@@ -34,5 +34,12 @@ public class StaticVolumesJoinKinematicsInverseValue {
             joinListViewModelKinematicsInverseValue.setTv_lp(joinListViewModelKinematicsInverseValues.get(joinListViewModelKinematicsInverseValues.size() - 1).getTv_lp() + 1);
 
         joinListViewModelKinematicsInverseValues.add(joinListViewModelKinematicsInverseValue);
+    }
+
+    public static void undo() {
+
+        if (!joinListViewModelKinematicsInverseValues.isEmpty()) {
+            joinListViewModelKinematicsInverseValues.remove(joinListViewModelKinematicsInverseValues.size() - 1);
+        }
     }
 }

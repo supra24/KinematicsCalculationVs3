@@ -48,6 +48,7 @@ public class JoinCustomListViewKinematicsInverseVariablesConstant extends Fragme
             return false;
         } else {
             joinListViewModelKinematicsInverseVariablesConstants.remove(joinListViewModelKinematicsInverseVariablesConstants.size() - 1);
+            StaticVolumesJoinKinematicsInverseValue.undo();
             joinKinematicsInverseVariablesConstantListViewAdapter.notifyDataSetInvalidated();
             return true;
         }

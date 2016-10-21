@@ -33,26 +33,21 @@ public class KinematicsInverseValue extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        JoinCustomListViewKinematicsInverseValue joinCustomListViewKinematicsInverseValue = (JoinCustomListViewKinematicsInverseValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
+        } else if (!doubleBackToExitPressedOnce) {
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
 
-        if (!joinCustomListViewKinematicsInverseValue.undoObject()) {
+            new Handler().postDelayed(new Runnable() {
 
-            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                getSupportFragmentManager().popBackStack();
-            } else if (!doubleBackToExitPressedOnce) {
-                this.doubleBackToExitPressedOnce = true;
-                Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
-
-                new Handler().postDelayed(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        doubleBackToExitPressedOnce = false;
-                    }
-                }, CLOSE_APP_ON_BACK);
-            } else {
-                super.onBackPressed();
-            }
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, CLOSE_APP_ON_BACK);
+        } else {
+            super.onBackPressed();
         }
     }
 
