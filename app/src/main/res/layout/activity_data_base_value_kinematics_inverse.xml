@@ -16,10 +16,17 @@
             android:id="@+id/header"
             layout="@layout/database_header" />
 
+        <fragment
+            android:id="@+id/custom_join_list_view_kinematics_inverse"
+            class="com.example.damian.kinematicscalculatorvs3.fragments.JoinCustomListViewKinematicsInverseValue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_join_list_view" />
+
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floating_action_button_forward_play"
+        android:id="@+id/floating_action_button_inverse_play_value"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_alignParentBottom="true"

@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Created by Damian on 2016-10-14.
  */
 
-public class StaticVolumesJoinKinematicsInverse {
+public class StaticVolumesJoinKinematicsInverseVariablesConstant {
 
     private static ArrayList<JoinListViewModelKinematicsInverseVariablesConstant> joinListViewModelKinematicsInverseVariablesConstants = new ArrayList<>();
 

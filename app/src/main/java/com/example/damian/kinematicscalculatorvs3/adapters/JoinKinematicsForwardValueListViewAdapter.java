@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
 import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsForwardValue;
-import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsForward;
+import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsForwardValue;
 
 import java.util.ArrayList;
 
@@ -27,7 +27,7 @@ public class JoinKinematicsForwardValueListViewAdapter extends ArrayAdapter<Join
     private LayoutInflater inflater;
 
     public JoinKinematicsForwardValueListViewAdapter(Context context, ArrayList<JoinListViewModelKinematicsForwardValue> items) {
-        super(context, R.layout.custom_join_list_view_kinematics_forward, items);
+        super(context, R.layout.custom_join_list_view_value_kinematics, items);
 
         this.context = context;
         this.joinListViewModelKinematicsForwardValues = items;
@@ -63,7 +63,7 @@ public class JoinKinematicsForwardValueListViewAdapter extends ArrayAdapter<Join
         if (convertView == null) {
             listViewHolder = new ListViewHolder();
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.custom_join_list_view_kinematics_forward, null);
+            convertView = inflater.inflate(R.layout.custom_join_list_view_value_kinematics, null);
 
             listViewHolder.textViewlp = (TextView) convertView.findViewById(R.id.list_view_join_i_forward);
             listViewHolder.editalpha = (EditText) convertView.findViewById(R.id.list_view_join_alpha_forward);
@@ -107,7 +107,7 @@ public class JoinKinematicsForwardValueListViewAdapter extends ArrayAdapter<Join
                 joinListViewModelKinematicsForwardValue.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
                 joinListViewModelKinematicsForwardValue.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
 
-                StaticVolumesJoinKinematicsForward.setOneJoinModel(joinListViewModelKinematicsForwardValue);
+                StaticVolumesJoinKinematicsForwardValue.setOneJoinModel(joinListViewModelKinematicsForwardValue);
                 return false;
             }
         };

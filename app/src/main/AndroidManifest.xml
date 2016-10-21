@@ -28,6 +28,8 @@
 
         <activity android:name=".activities.KinematicsInverseVariablesConstant" />
 
+        <activity android:name=".activities.KinematicsInverseValue" />
+
     </application>
 
 

@@ -6,7 +6,8 @@ import android.widget.ListView;
 import com.example.damian.kinematicscalculatorvs3.R;
 import com.example.damian.kinematicscalculatorvs3.adapters.JoinKinematicsInverseVariablesConstantListViewAdapter;
 import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsInverseVariablesConstant;
-import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsInverse;
+import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsInverseValue;
+import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsInverseVariablesConstant;
 
 import java.util.ArrayList;
 
@@ -14,19 +15,19 @@ import java.util.ArrayList;
  * Created by Damian on 2016-10-18.
  */
 
-public class JoinCustomListViewKinematicsInverse extends FragmentParent {
+public class JoinCustomListViewKinematicsInverseVariablesConstant extends FragmentParent {
 
     private JoinKinematicsInverseVariablesConstantListViewAdapter joinKinematicsInverseVariablesConstantListViewAdapter;
     private ArrayList<JoinListViewModelKinematicsInverseVariablesConstant> joinListViewModelKinematicsInverseVariablesConstants = new ArrayList<>();
 
-    public JoinCustomListViewKinematicsInverse() {
+    public JoinCustomListViewKinematicsInverseVariablesConstant() {
         layoutid = R.layout.fragment_join_list_view;
     }
 
     @Override
     public void init(View view) {
 
-        joinListViewModelKinematicsInverseVariablesConstants = StaticVolumesJoinKinematicsInverse.getJoinListViewModelKinematicsInverseVariablesConstants();
+        joinListViewModelKinematicsInverseVariablesConstants = StaticVolumesJoinKinematicsInverseVariablesConstant.getJoinListViewModelKinematicsInverseVariablesConstants();
 
         joinKinematicsInverseVariablesConstantListViewAdapter = new JoinKinematicsInverseVariablesConstantListViewAdapter(getContext(), joinListViewModelKinematicsInverseVariablesConstants);
         ListView listView = (ListView) view.findViewById(R.id.list_view_join);
@@ -35,7 +36,8 @@ public class JoinCustomListViewKinematicsInverse extends FragmentParent {
 
     public void addObjectJoin() {
 
-        StaticVolumesJoinKinematicsInverse.addJoin();
+        StaticVolumesJoinKinematicsInverseVariablesConstant.addJoin();
+        StaticVolumesJoinKinematicsInverseValue.addJoin();
 
         joinKinematicsInverseVariablesConstantListViewAdapter.notifyDataSetInvalidated();
     }

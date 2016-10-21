@@ -17,7 +17,7 @@ import com.example.damian.kinematicscalculatorvs3.calculations.CalculationCoordi
 import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsForwardValue;
 import com.example.damian.kinematicscalculatorvs3.openGL.AbstractRenderer;
 import com.example.damian.kinematicscalculatorvs3.openGL.RenderManipulator;
-import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsForward;
+import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsForwardValue;
 
 import java.util.ArrayList;
 
@@ -40,9 +40,9 @@ public class KinematicsForwardDraw extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_draw_kinematics_forward);
 
-        joinListViewModelKinematicsForwardValues = StaticVolumesJoinKinematicsForward.getJoinListViewModelKinematicsForwardValues();
+        joinListViewModelKinematicsForwardValues = StaticVolumesJoinKinematicsForwardValue.getJoinListViewModelKinematicsForwardValues();
 
-        float[][] tableParameters = new float[StaticVolumesJoinKinematicsForward.getJoinListViewModelKinematicsForwardValues().size()][4];
+        float[][] tableParameters = new float[StaticVolumesJoinKinematicsForwardValue.getJoinListViewModelKinematicsForwardValues().size()][4];
 
 //        KinematicsSImpleCustomView.reverseAllObject();
         for (int i = 0; i < tableParameters.length; i++) {

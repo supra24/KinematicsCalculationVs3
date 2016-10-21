@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Created by Damian on 2016-10-14.
  */
 
-public class StaticVolumesJoinKinematicsForward {
+public class StaticVolumesJoinKinematicsForwardValue {
 
     private static ArrayList<JoinListViewModelKinematicsForwardValue> joinListViewModelKinematicsForwardValues = new ArrayList<>();
 

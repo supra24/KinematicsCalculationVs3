@@ -18,7 +18,7 @@
 
         <fragment
             android:id="@+id/custom_join_list_view_kinematics_forward"
-            class="com.example.damian.kinematicscalculatorvs3.fragments.JoinCustomListViewKinematicsForward"
+            class="com.example.damian.kinematicscalculatorvs3.fragments.JoinCustomListViewKinematicsForwardValue"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/fragment_join_list_view" />

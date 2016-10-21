@@ -9,8 +9,9 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.example.damian.kinematicscalculatorvs3.R;
+import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsInverseValue;
 import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsInverseVariablesConstant;
-import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsInverse;
+import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsInverseVariablesConstant;
 
 import java.util.ArrayList;
 
@@ -26,7 +27,7 @@ public class JoinKinematicsInverseVariablesConstantListViewAdapter extends Array
     private LayoutInflater inflater;
 
     public JoinKinematicsInverseVariablesConstantListViewAdapter(Context context, ArrayList<JoinListViewModelKinematicsInverseVariablesConstant> items) {
-        super(context, R.layout.custom_join_list_view_kinematics_forward, items);
+        super(context, R.layout.custom_join_list_view_value_kinematics, items);
 
         this.context = context;
         this.joinListViewModelKinematicsInverseVariablesConstants = items;
@@ -82,11 +83,6 @@ public class JoinKinematicsInverseVariablesConstantListViewAdapter extends Array
         listViewHolder.togglebuttontheta.setChecked(joinListViewModelKinematicsInverseVariablesConstants.get(position).getEt_theta());
         listViewHolder.togglebuttond.setChecked(joinListViewModelKinematicsInverseVariablesConstants.get(position).getEt_d());
 
-//        listViewHolder.togglebuttonalpha.setText(String.valueOf(joinListViewModelKinematicsInverseVariablesConstants.get(position).getEt_alpha()));
-//        listViewHolder.togglebuttona.setText(String.valueOf(joinListViewModelKinematicsInverseVariablesConstants.get(position).getEt_a()));
-//        listViewHolder.togglebuttontheta.setText(String.valueOf(joinListViewModelKinematicsInverseVariablesConstants.get(position).getEt_theta()));
-//        listViewHolder.togglebuttond.setText(String.valueOf(joinListViewModelKinematicsInverseVariablesConstants.get(position).getEt_d()));
-
         listViewHolder.togglebuttonalpha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,7 +122,12 @@ public class JoinKinematicsInverseVariablesConstantListViewAdapter extends Array
         joinListViewModelKinematicsInverseVariablesConstant.setEt_theta(joinListViewModelKinematicsInverseVariablesConstants.get(position).getEt_theta());
         joinListViewModelKinematicsInverseVariablesConstant.setEt_d(joinListViewModelKinematicsInverseVariablesConstants.get(position).getEt_d());
 
-        StaticVolumesJoinKinematicsInverse.setOneJoinModel(joinListViewModelKinematicsInverseVariablesConstant);
+        StaticVolumesJoinKinematicsInverseVariablesConstant.setOneJoinModel(joinListViewModelKinematicsInverseVariablesConstant);
+
+        JoinListViewModelKinematicsInverseValue joinListViewModelKinematicsInverseValue = new JoinListViewModelKinematicsInverseValue();
+        joinListViewModelKinematicsInverseValue.setTv_lp(position);
+
+
         return convertView;
     }
 }

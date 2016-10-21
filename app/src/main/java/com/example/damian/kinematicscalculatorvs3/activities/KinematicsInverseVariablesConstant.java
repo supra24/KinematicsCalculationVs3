@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.fragments.JoinCustomListViewKinematicsInverse;
+import com.example.damian.kinematicscalculatorvs3.fragments.JoinCustomListViewKinematicsInverseVariablesConstant;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -32,9 +32,9 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        JoinCustomListViewKinematicsInverse joinCustomListViewKinematicsInverse = (JoinCustomListViewKinematicsInverse) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
+        JoinCustomListViewKinematicsInverseVariablesConstant joinCustomListViewKinematicsInverseVariablesConstant = (JoinCustomListViewKinematicsInverseVariablesConstant) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
 
-        if (!joinCustomListViewKinematicsInverse.undoObject()) {
+        if (!joinCustomListViewKinematicsInverseVariablesConstant.undoObject()) {
 
             if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
                 getSupportFragmentManager().popBackStack();
@@ -58,15 +58,15 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity {
     @OnClick(R.id.floating_action_button_inverse_add)
     public void OnClickFloatingActionButtonAdd() {
 
-        JoinCustomListViewKinematicsInverse joinCustomListViewKinematicsInverse = (JoinCustomListViewKinematicsInverse) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
-        joinCustomListViewKinematicsInverse.addObjectJoin();
+        JoinCustomListViewKinematicsInverseVariablesConstant joinCustomListViewKinematicsInverseVariablesConstant = (JoinCustomListViewKinematicsInverseVariablesConstant) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
+        joinCustomListViewKinematicsInverseVariablesConstant.addObjectJoin();
 
     }
 
     @OnClick(R.id.floating_action_button_inverse_play)
     public void OnClickFloatingActionButtonPlay() {
 
-        startActivity(new Intent(KinematicsInverseVariablesConstant.this, KinematicsForwardDraw.class));
+        startActivity(new Intent(KinematicsInverseVariablesConstant.this, KinematicsInverseValue.class));
     }
 
 }
