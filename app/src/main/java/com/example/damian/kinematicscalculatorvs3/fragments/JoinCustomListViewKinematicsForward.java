@@ -4,8 +4,8 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.adapters.JoinKinematicsForwardListViewAdapter;
-import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsForward;
+import com.example.damian.kinematicscalculatorvs3.adapters.JoinKinematicsForwardValueListViewAdapter;
+import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsForwardValue;
 import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsForward;
 
 import java.util.ArrayList;
@@ -16,8 +16,8 @@ import java.util.ArrayList;
 
 public class JoinCustomListViewKinematicsForward extends FragmentParent {
 
-    private JoinKinematicsForwardListViewAdapter joinKinematicsForwardListViewAdapter;
-    private ArrayList<JoinListViewModelKinematicsForward> joinListViewModelKinematicsForwards = new ArrayList<>();
+    private JoinKinematicsForwardValueListViewAdapter joinKinematicsForwardValueListViewAdapter;
+    private ArrayList<JoinListViewModelKinematicsForwardValue> joinListViewModelKinematicsForwardValues = new ArrayList<>();
 
 
     public JoinCustomListViewKinematicsForward() {
@@ -27,28 +27,28 @@ public class JoinCustomListViewKinematicsForward extends FragmentParent {
     @Override
     public void init(View view) {
 
-        joinListViewModelKinematicsForwards = StaticVolumesJoinKinematicsForward.getJoinListViewModelKinematicsForwards();
+        joinListViewModelKinematicsForwardValues = StaticVolumesJoinKinematicsForward.getJoinListViewModelKinematicsForwardValues();
 
-        joinKinematicsForwardListViewAdapter = new JoinKinematicsForwardListViewAdapter(getContext(), joinListViewModelKinematicsForwards);
+        joinKinematicsForwardValueListViewAdapter = new JoinKinematicsForwardValueListViewAdapter(getContext(), joinListViewModelKinematicsForwardValues);
         ListView listView = (ListView) view.findViewById(R.id.list_view_join);
-        listView.setAdapter(joinKinematicsForwardListViewAdapter);
+        listView.setAdapter(joinKinematicsForwardValueListViewAdapter);
     }
 
     public void addObjectJoin() {
 
         StaticVolumesJoinKinematicsForward.addJoin();
 
-        joinKinematicsForwardListViewAdapter.notifyDataSetInvalidated();
+        joinKinematicsForwardValueListViewAdapter.notifyDataSetInvalidated();
     }
 
 
     public boolean undoObject() {
 
-        if (joinListViewModelKinematicsForwards.isEmpty()) {
+        if (joinListViewModelKinematicsForwardValues.isEmpty()) {
             return false;
         } else {
-            joinListViewModelKinematicsForwards.remove(joinListViewModelKinematicsForwards.size() - 1);
-            joinKinematicsForwardListViewAdapter.notifyDataSetInvalidated();
+            joinListViewModelKinematicsForwardValues.remove(joinListViewModelKinematicsForwardValues.size() - 1);
+            joinKinematicsForwardValueListViewAdapter.notifyDataSetInvalidated();
             return true;
         }
     }

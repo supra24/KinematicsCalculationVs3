@@ -1,7 +1,6 @@
 package com.example.damian.kinematicscalculatorvs3.staticVolumes;
 
-import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsForward;
-import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsInverse;
+import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsInverseVariablesConstant;
 
 import java.util.ArrayList;
 
@@ -11,29 +10,29 @@ import java.util.ArrayList;
 
 public class StaticVolumesJoinKinematicsInverse {
 
-    private static ArrayList<JoinListViewModelKinematicsInverse> joinListViewModelKinematicsInverses = new ArrayList<>();
+    private static ArrayList<JoinListViewModelKinematicsInverseVariablesConstant> joinListViewModelKinematicsInverseVariablesConstants = new ArrayList<>();
 
-    public static ArrayList<JoinListViewModelKinematicsInverse> getJoinListViewModelKinematicsInverses() {
-        return joinListViewModelKinematicsInverses;
+    public static ArrayList<JoinListViewModelKinematicsInverseVariablesConstant> getJoinListViewModelKinematicsInverseVariablesConstants() {
+        return joinListViewModelKinematicsInverseVariablesConstants;
     }
 
-    public static void setOneJoinModel(JoinListViewModelKinematicsInverse joinListViewModelKinematicsInverse) {
+    public static void setOneJoinModel(JoinListViewModelKinematicsInverseVariablesConstant joinListViewModelKinematicsInverseVariablesConstant) {
 
-        joinListViewModelKinematicsInverses.get(joinListViewModelKinematicsInverse.getTv_lp()).setEt_alpha(joinListViewModelKinematicsInverse.getEt_alpha());
-        joinListViewModelKinematicsInverses.get(joinListViewModelKinematicsInverse.getTv_lp()).setEt_a(joinListViewModelKinematicsInverse.getEt_a());
-        joinListViewModelKinematicsInverses.get(joinListViewModelKinematicsInverse.getTv_lp()).setEt_theta(joinListViewModelKinematicsInverse.getEt_theta());
-        joinListViewModelKinematicsInverses.get(joinListViewModelKinematicsInverse.getTv_lp()).setEt_d(joinListViewModelKinematicsInverse.getEt_d());
+        joinListViewModelKinematicsInverseVariablesConstants.get(joinListViewModelKinematicsInverseVariablesConstant.getTv_lp()).setEt_alpha(joinListViewModelKinematicsInverseVariablesConstant.getEt_alpha());
+        joinListViewModelKinematicsInverseVariablesConstants.get(joinListViewModelKinematicsInverseVariablesConstant.getTv_lp()).setEt_a(joinListViewModelKinematicsInverseVariablesConstant.getEt_a());
+        joinListViewModelKinematicsInverseVariablesConstants.get(joinListViewModelKinematicsInverseVariablesConstant.getTv_lp()).setEt_theta(joinListViewModelKinematicsInverseVariablesConstant.getEt_theta());
+        joinListViewModelKinematicsInverseVariablesConstants.get(joinListViewModelKinematicsInverseVariablesConstant.getTv_lp()).setEt_d(joinListViewModelKinematicsInverseVariablesConstant.getEt_d());
     }
 
 
     public static void addJoin() {
 
-        JoinListViewModelKinematicsInverse joinListViewModelKinematicsInverse = new JoinListViewModelKinematicsInverse();
-        if (joinListViewModelKinematicsInverses.isEmpty())
-            joinListViewModelKinematicsInverse.setTv_lp(1);
+        JoinListViewModelKinematicsInverseVariablesConstant joinListViewModelKinematicsInverseVariablesConstant = new JoinListViewModelKinematicsInverseVariablesConstant();
+        if (joinListViewModelKinematicsInverseVariablesConstants.isEmpty())
+            joinListViewModelKinematicsInverseVariablesConstant.setTv_lp(1);
         else
-            joinListViewModelKinematicsInverse.setTv_lp(joinListViewModelKinematicsInverses.get(joinListViewModelKinematicsInverses.size() - 1).getTv_lp() + 1);
+            joinListViewModelKinematicsInverseVariablesConstant.setTv_lp(joinListViewModelKinematicsInverseVariablesConstants.get(joinListViewModelKinematicsInverseVariablesConstants.size() - 1).getTv_lp() + 1);
 
-        joinListViewModelKinematicsInverses.add(joinListViewModelKinematicsInverse);
+        joinListViewModelKinematicsInverseVariablesConstants.add(joinListViewModelKinematicsInverseVariablesConstant);
     }
 }

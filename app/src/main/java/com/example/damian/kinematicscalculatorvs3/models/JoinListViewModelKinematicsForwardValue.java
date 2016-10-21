@@ -7,7 +7,7 @@ import android.widget.TextView;
  * Created by Damian on 2016-10-12.
  */
 
-public class JoinListViewModelKinematicsForward {
+public class JoinListViewModelKinematicsForwardValue {
 
     private int tv_lp ;
     private int et_alpha;
@@ -15,7 +15,7 @@ public class JoinListViewModelKinematicsForward {
     private int et_theta;
     private int et_d;
 
-    public JoinListViewModelKinematicsForward(){
+    public JoinListViewModelKinematicsForwardValue(){
 
     }
 

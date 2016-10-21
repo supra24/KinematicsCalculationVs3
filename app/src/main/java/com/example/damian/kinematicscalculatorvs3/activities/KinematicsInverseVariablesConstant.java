@@ -25,7 +25,7 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data_base_kinematics_inverse);
+        setContentView(R.layout.activity_data_base_variablesconstant_kinematics_inverse);
         ButterKnife.bind(this);
     }
 

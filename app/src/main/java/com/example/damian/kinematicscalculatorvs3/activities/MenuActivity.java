@@ -31,7 +31,7 @@ public class MenuActivity extends AppCompatActivity {
 
     @OnClick(R.id.b_kinematicsForward)
     void openActivityKinematicsForward(){
-        Intent intent = new Intent(getApplicationContext(), KinematicsForward.class);
+        Intent intent = new Intent(getApplicationContext(), KinematicsForwardValue.class);
         startActivity(intent);
     }
 

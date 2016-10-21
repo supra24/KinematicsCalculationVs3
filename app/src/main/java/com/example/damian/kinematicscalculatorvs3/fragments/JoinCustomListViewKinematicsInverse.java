@@ -4,8 +4,8 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.adapters.JoinKinematicsInverseListViewAdapter;
-import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsInverse;
+import com.example.damian.kinematicscalculatorvs3.adapters.JoinKinematicsInverseVariablesConstantListViewAdapter;
+import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsInverseVariablesConstant;
 import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsInverse;
 
 import java.util.ArrayList;
@@ -16,8 +16,8 @@ import java.util.ArrayList;
 
 public class JoinCustomListViewKinematicsInverse extends FragmentParent {
 
-    private JoinKinematicsInverseListViewAdapter joinKinematicsInverseListViewAdapter;
-    private ArrayList<JoinListViewModelKinematicsInverse> joinListViewModelKinematicsInverses = new ArrayList<>();
+    private JoinKinematicsInverseVariablesConstantListViewAdapter joinKinematicsInverseVariablesConstantListViewAdapter;
+    private ArrayList<JoinListViewModelKinematicsInverseVariablesConstant> joinListViewModelKinematicsInverseVariablesConstants = new ArrayList<>();
 
     public JoinCustomListViewKinematicsInverse() {
         layoutid = R.layout.fragment_join_list_view;
@@ -26,27 +26,27 @@ public class JoinCustomListViewKinematicsInverse extends FragmentParent {
     @Override
     public void init(View view) {
 
-        joinListViewModelKinematicsInverses = StaticVolumesJoinKinematicsInverse.getJoinListViewModelKinematicsInverses();
+        joinListViewModelKinematicsInverseVariablesConstants = StaticVolumesJoinKinematicsInverse.getJoinListViewModelKinematicsInverseVariablesConstants();
 
-        joinKinematicsInverseListViewAdapter = new JoinKinematicsInverseListViewAdapter(getContext(), joinListViewModelKinematicsInverses);
+        joinKinematicsInverseVariablesConstantListViewAdapter = new JoinKinematicsInverseVariablesConstantListViewAdapter(getContext(), joinListViewModelKinematicsInverseVariablesConstants);
         ListView listView = (ListView) view.findViewById(R.id.list_view_join);
-        listView.setAdapter(joinKinematicsInverseListViewAdapter);
+        listView.setAdapter(joinKinematicsInverseVariablesConstantListViewAdapter);
     }
 
     public void addObjectJoin() {
 
         StaticVolumesJoinKinematicsInverse.addJoin();
 
-        joinKinematicsInverseListViewAdapter.notifyDataSetInvalidated();
+        joinKinematicsInverseVariablesConstantListViewAdapter.notifyDataSetInvalidated();
     }
 
     public boolean undoObject() {
 
-        if (joinListViewModelKinematicsInverses.isEmpty()) {
+        if (joinListViewModelKinematicsInverseVariablesConstants.isEmpty()) {
             return false;
         } else {
-            joinListViewModelKinematicsInverses.remove(joinListViewModelKinematicsInverses.size() - 1);
-            joinKinematicsInverseListViewAdapter.notifyDataSetInvalidated();
+            joinListViewModelKinematicsInverseVariablesConstants.remove(joinListViewModelKinematicsInverseVariablesConstants.size() - 1);
+            joinKinematicsInverseVariablesConstantListViewAdapter.notifyDataSetInvalidated();
             return true;
         }
     }

@@ -4,7 +4,7 @@ package com.example.damian.kinematicscalculatorvs3.models;
  * Created by Damian on 2016-10-12.
  */
 
-public class JoinListViewModelKinematicsInverse {
+public class JoinListViewModelKinematicsInverseVariablesConstant {
 
     private int tv_lp;
     private boolean et_alpha = false;
@@ -12,7 +12,7 @@ public class JoinListViewModelKinematicsInverse {
     private boolean et_theta = false;
     private boolean et_d = false;
 
-    public JoinListViewModelKinematicsInverse() {
+    public JoinListViewModelKinematicsInverseVariablesConstant() {
 
     }
 

@@ -6,12 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsForward;
+import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsForwardValue;
 import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsForward;
 
 import java.util.ArrayList;
@@ -20,27 +19,27 @@ import java.util.ArrayList;
  * Created by Damian on 2016-10-12.
  */
 
-public class JoinKinematicsForwardListViewAdapter extends ArrayAdapter<JoinListViewModelKinematicsForward> {
+public class JoinKinematicsForwardValueListViewAdapter extends ArrayAdapter<JoinListViewModelKinematicsForwardValue> {
 
 
     private Context context;
-    private ArrayList<JoinListViewModelKinematicsForward> joinListViewModelKinematicsForwards;
+    private ArrayList<JoinListViewModelKinematicsForwardValue> joinListViewModelKinematicsForwardValues;
     private LayoutInflater inflater;
 
-    public JoinKinematicsForwardListViewAdapter(Context context, ArrayList<JoinListViewModelKinematicsForward> items) {
+    public JoinKinematicsForwardValueListViewAdapter(Context context, ArrayList<JoinListViewModelKinematicsForwardValue> items) {
         super(context, R.layout.custom_join_list_view_kinematics_forward, items);
 
         this.context = context;
-        this.joinListViewModelKinematicsForwards = items;
+        this.joinListViewModelKinematicsForwardValues = items;
 
     }
 
     @Override
     public int getCount() {
-        if (joinListViewModelKinematicsForwards == null)
+        if (joinListViewModelKinematicsForwardValues == null)
             return 0;
         else
-            return joinListViewModelKinematicsForwards.size();
+            return joinListViewModelKinematicsForwardValues.size();
     }
 
     @Override
@@ -78,11 +77,11 @@ public class JoinKinematicsForwardListViewAdapter extends ArrayAdapter<JoinListV
             listViewHolder = (ListViewHolder) convertView.getTag();
         }
 
-        listViewHolder.textViewlp.setText(String.valueOf(joinListViewModelKinematicsForwards.get(position).getTv_lp()));
-        listViewHolder.editalpha.setText(String.valueOf(joinListViewModelKinematicsForwards.get(position).getEt_alpha()));
-        listViewHolder.edita.setText(String.valueOf(joinListViewModelKinematicsForwards.get(position).getEt_a()));
-        listViewHolder.edittheta.setText(String.valueOf(joinListViewModelKinematicsForwards.get(position).getEt_theta()));
-        listViewHolder.editd.setText(String.valueOf(joinListViewModelKinematicsForwards.get(position).getEt_d()));
+        listViewHolder.textViewlp.setText(String.valueOf(joinListViewModelKinematicsForwardValues.get(position).getTv_lp()));
+        listViewHolder.editalpha.setText(String.valueOf(joinListViewModelKinematicsForwardValues.get(position).getEt_alpha()));
+        listViewHolder.edita.setText(String.valueOf(joinListViewModelKinematicsForwardValues.get(position).getEt_a()));
+        listViewHolder.edittheta.setText(String.valueOf(joinListViewModelKinematicsForwardValues.get(position).getEt_theta()));
+        listViewHolder.editd.setText(String.valueOf(joinListViewModelKinematicsForwardValues.get(position).getEt_d()));
 
 //        listViewHolder.editalpha.setFocusable(true);
 ////        listViewHolder.togglebuttonalpha.setClickable();
@@ -101,14 +100,14 @@ public class JoinKinematicsForwardListViewAdapter extends ArrayAdapter<JoinListV
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
-                JoinListViewModelKinematicsForward joinListViewModelKinematicsForward = new JoinListViewModelKinematicsForward();
-                joinListViewModelKinematicsForward.setTv_lp(position);
-                joinListViewModelKinematicsForward.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
-                joinListViewModelKinematicsForward.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
-                joinListViewModelKinematicsForward.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
-                joinListViewModelKinematicsForward.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
+                JoinListViewModelKinematicsForwardValue joinListViewModelKinematicsForwardValue = new JoinListViewModelKinematicsForwardValue();
+                joinListViewModelKinematicsForwardValue.setTv_lp(position);
+                joinListViewModelKinematicsForwardValue.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
+                joinListViewModelKinematicsForwardValue.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
+                joinListViewModelKinematicsForwardValue.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
+                joinListViewModelKinematicsForwardValue.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
 
-                StaticVolumesJoinKinematicsForward.setOneJoinModel(joinListViewModelKinematicsForward);
+                StaticVolumesJoinKinematicsForward.setOneJoinModel(joinListViewModelKinematicsForwardValue);
                 return false;
             }
         };

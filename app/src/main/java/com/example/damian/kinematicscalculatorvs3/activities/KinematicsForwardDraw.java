@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
 import com.example.damian.kinematicscalculatorvs3.calculations.CalculationCoordinatesEndEffector;
-import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsForward;
+import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsForwardValue;
 import com.example.damian.kinematicscalculatorvs3.openGL.AbstractRenderer;
 import com.example.damian.kinematicscalculatorvs3.openGL.RenderManipulator;
 import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsForward;
@@ -30,7 +30,7 @@ public class KinematicsForwardDraw extends AppCompatActivity {
     private GLSurfaceView mTestHarness;
     private VelocityTracker vTracker = null;  // VelocityTracer określa zachowanie sekwencji dotyku
     private float startingDistance;
-    private ArrayList<JoinListViewModelKinematicsForward> joinListViewModelKinematicsForwards;
+    private ArrayList<JoinListViewModelKinematicsForwardValue> joinListViewModelKinematicsForwardValues;
 
     private DrawerLayout drawer;
 
@@ -40,17 +40,17 @@ public class KinematicsForwardDraw extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_draw_kinematics_forward);
 
-        joinListViewModelKinematicsForwards = StaticVolumesJoinKinematicsForward.getJoinListViewModelKinematicsForwards();
+        joinListViewModelKinematicsForwardValues = StaticVolumesJoinKinematicsForward.getJoinListViewModelKinematicsForwardValues();
 
-        float[][] tableParameters = new float[StaticVolumesJoinKinematicsForward.getJoinListViewModelKinematicsForwards().size()][4];
+        float[][] tableParameters = new float[StaticVolumesJoinKinematicsForward.getJoinListViewModelKinematicsForwardValues().size()][4];
 
 //        KinematicsSImpleCustomView.reverseAllObject();
         for (int i = 0; i < tableParameters.length; i++) {
 
-            tableParameters[i][0] = joinListViewModelKinematicsForwards.get(i).getEt_alpha();
-            tableParameters[i][1] = joinListViewModelKinematicsForwards.get(i).getEt_a();
-            tableParameters[i][2] = joinListViewModelKinematicsForwards.get(i).getEt_theta();
-            tableParameters[i][3] = joinListViewModelKinematicsForwards.get(i).getEt_d();
+            tableParameters[i][0] = joinListViewModelKinematicsForwardValues.get(i).getEt_alpha();
+            tableParameters[i][1] = joinListViewModelKinematicsForwardValues.get(i).getEt_a();
+            tableParameters[i][2] = joinListViewModelKinematicsForwardValues.get(i).getEt_theta();
+            tableParameters[i][3] = joinListViewModelKinematicsForwardValues.get(i).getEt_d();
         }
 
         CalculationCoordinatesEndEffector calculationCoordinatesEndEffector = new CalculationCoordinatesEndEffector(tableParameters);

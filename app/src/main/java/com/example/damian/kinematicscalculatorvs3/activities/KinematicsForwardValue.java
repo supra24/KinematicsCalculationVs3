@@ -21,7 +21,7 @@ import butterknife.OnClick;
 /**
  * Created by Damian on 2016-10-12.
  */
-public class KinematicsForward extends AppCompatActivity {
+public class KinematicsForwardValue extends AppCompatActivity {
 
     @BindView(R.id.floating_action_button_forward_add)
     FloatingActionButton floatingActionButton;
@@ -32,7 +32,7 @@ public class KinematicsForward extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data_base_kinematics_forward);
+        setContentView(R.layout.activity_data_base_value_kinematics_forward);
         ButterKnife.bind(this);
     }
 
@@ -56,7 +56,7 @@ public class KinematicsForward extends AppCompatActivity {
 //                    joinCustomListViewKinematicsForward.addObjectJoin();
 //                    break;
 //                case R.id.id_end:
-//                    startActivity(new Intent(KinematicsForward.this, KinematicsForwardDraw.class));
+//                    startActivity(new Intent(KinematicsForwardValue.this, KinematicsForwardDraw.class));
 //
 ////                    float[][] floats = new float[][]{
 ////                            {0, 10, 0, 10},
@@ -124,6 +124,6 @@ public class KinematicsForward extends AppCompatActivity {
     @OnClick(R.id.floating_action_button_forward_play)
     public void OnClickFloatingActionButtonPlay() {
 
-        startActivity(new Intent(KinematicsForward.this, KinematicsForwardDraw.class));
+        startActivity(new Intent(KinematicsForwardValue.this, KinematicsForwardDraw.class));
     }
 }
