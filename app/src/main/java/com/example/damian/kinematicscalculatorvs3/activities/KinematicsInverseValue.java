@@ -55,7 +55,8 @@ public class KinematicsInverseValue extends AppCompatActivity {
 
         String[][] tableParameter = {
                 {"0", "10", "a", "10"},
-                {"0", "10", "b", "10"}
+                {"0", "10", "b", "10"},
+                {"0", "10", "c", "10"}
         };
 
         CalculationKinematicsInverse calculationKinematicsInverse = new CalculationKinematicsInverse(tableParameter);

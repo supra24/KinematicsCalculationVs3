@@ -71,7 +71,29 @@ public class SingeltonMatrixKinematicsInverse {
         for (int i = 0; i < resultMatrix.length; i++) {//ilosc wierszy tab1
             for (int j = 0; j < resultMatrix.length; j++) { //ilosc kolumn tab2
                 for (int w = 0; w < resultMatrix.length; w++) { //ilosc wierszy tab2
-                    resultMatrix[i][j] += "+" + firstMatrix[i][w] + "*" + secondMatrix[w][j];
+
+                    if (!firstMatrix[i][w].equals("0")) {
+                        if (!secondMatrix[w][j].equals("0")) {
+
+                            if (resultMatrix[i][j].equals("0")) {
+                                if (firstMatrix[i][w].equals("1")) {
+                                    resultMatrix[i][j] = secondMatrix[w][j];
+                                } else if (secondMatrix[w][j].equals("1")) {
+                                    resultMatrix[i][j] = firstMatrix[i][w];
+                                } else {
+                                    resultMatrix[i][j] = firstMatrix[i][w] + "*" + secondMatrix[w][j];
+                                }
+                            } else {
+                                if (firstMatrix[i][w].equals("1")) {
+                                    resultMatrix[i][j] += "+" + secondMatrix[w][j];
+                                } else if (secondMatrix[w][j].equals("1")) {
+                                    resultMatrix[i][j] += "+" + firstMatrix[i][w];
+                                } else {
+                                    resultMatrix[i][j] += "+" + firstMatrix[i][w] + "*" + secondMatrix[w][j];
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -40,8 +40,8 @@ public class CalculationKinematicsInverse {
             A = SingeltonMatrixKinematicsInverse.Multiplication(A, xRotX);
 
             Log.v("X = ", A[0][3]);
-            Log.v("X = ", A[1][3]);
-            Log.v("X = ", A[2][3]);
+            Log.v("Y = ", A[1][3]);
+            Log.v("Z = ", A[2][3]);
         }
 
         coordinatesEndEffector = new String[]{
