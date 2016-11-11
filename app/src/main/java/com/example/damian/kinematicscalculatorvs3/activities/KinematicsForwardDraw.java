@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
 import com.example.damian.kinematicscalculatorvs3.calculations.CalculationKinematicsForward;
-import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsForwardValue;
+import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValue;
 import com.example.damian.kinematicscalculatorvs3.openGL.AbstractRenderer;
 import com.example.damian.kinematicscalculatorvs3.openGL.RenderManipulator;
 import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsForwardValue;
@@ -30,7 +30,7 @@ public class KinematicsForwardDraw extends AppCompatActivity {
     private GLSurfaceView mTestHarness;
     private VelocityTracker vTracker = null;  // VelocityTracer określa zachowanie sekwencji dotyku
     private float startingDistance;
-    private ArrayList<JoinListViewModelKinematicsForwardValue> joinListViewModelKinematicsForwardValues;
+    private ArrayList<ModelKinematicsForwardValue> modelKinematicsForwardValues;
 
     private DrawerLayout drawer;
 
@@ -40,17 +40,17 @@ public class KinematicsForwardDraw extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_draw_kinematics_forward);
 
-        joinListViewModelKinematicsForwardValues = StaticVolumesJoinKinematicsForwardValue.getJoinListViewModelKinematicsForwardValues();
+        modelKinematicsForwardValues = StaticVolumesJoinKinematicsForwardValue.getModelKinematicsForwardValues();
 
-        float[][] tableParameters = new float[StaticVolumesJoinKinematicsForwardValue.getJoinListViewModelKinematicsForwardValues().size()][4];
+        float[][] tableParameters = new float[StaticVolumesJoinKinematicsForwardValue.getModelKinematicsForwardValues().size()][4];
 
 //        KinematicsSImpleCustomView.reverseAllObject();
         for (int i = 0; i < tableParameters.length; i++) {
 
-            tableParameters[i][0] = joinListViewModelKinematicsForwardValues.get(i).getEt_alpha();
-            tableParameters[i][1] = joinListViewModelKinematicsForwardValues.get(i).getEt_a();
-            tableParameters[i][2] = joinListViewModelKinematicsForwardValues.get(i).getEt_theta();
-            tableParameters[i][3] = joinListViewModelKinematicsForwardValues.get(i).getEt_d();
+            tableParameters[i][0] = modelKinematicsForwardValues.get(i).getEt_alpha();
+            tableParameters[i][1] = modelKinematicsForwardValues.get(i).getEt_a();
+            tableParameters[i][2] = modelKinematicsForwardValues.get(i).getEt_theta();
+            tableParameters[i][3] = modelKinematicsForwardValues.get(i).getEt_d();
         }
 
         CalculationKinematicsForward calculationKinematicsForward = new CalculationKinematicsForward(tableParameters);

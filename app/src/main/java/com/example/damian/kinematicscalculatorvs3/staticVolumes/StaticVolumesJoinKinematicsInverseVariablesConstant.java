@@ -1,6 +1,6 @@
 package com.example.damian.kinematicscalculatorvs3.staticVolumes;
 
-import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsInverseVariablesConstant;
+import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsInverseVariablesConstant;
 
 import java.util.ArrayList;
 
@@ -10,29 +10,29 @@ import java.util.ArrayList;
 
 public class StaticVolumesJoinKinematicsInverseVariablesConstant {
 
-    private static ArrayList<JoinListViewModelKinematicsInverseVariablesConstant> joinListViewModelKinematicsInverseVariablesConstants = new ArrayList<>();
+    private static ArrayList<ModelKinematicsInverseVariablesConstant> modelKinematicsInverseVariablesConstants = new ArrayList<>();
 
-    public static ArrayList<JoinListViewModelKinematicsInverseVariablesConstant> getJoinListViewModelKinematicsInverseVariablesConstants() {
-        return joinListViewModelKinematicsInverseVariablesConstants;
+    public static ArrayList<ModelKinematicsInverseVariablesConstant> getModelKinematicsInverseVariablesConstants() {
+        return modelKinematicsInverseVariablesConstants;
     }
 
-    public static void setOneJoinModel(JoinListViewModelKinematicsInverseVariablesConstant joinListViewModelKinematicsInverseVariablesConstant) {
+    public static void setOneJoinModel(ModelKinematicsInverseVariablesConstant modelKinematicsInverseVariablesConstant) {
 
-        joinListViewModelKinematicsInverseVariablesConstants.get(joinListViewModelKinematicsInverseVariablesConstant.getTv_lp()).setEt_alpha(joinListViewModelKinematicsInverseVariablesConstant.getEt_alpha());
-        joinListViewModelKinematicsInverseVariablesConstants.get(joinListViewModelKinematicsInverseVariablesConstant.getTv_lp()).setEt_a(joinListViewModelKinematicsInverseVariablesConstant.getEt_a());
-        joinListViewModelKinematicsInverseVariablesConstants.get(joinListViewModelKinematicsInverseVariablesConstant.getTv_lp()).setEt_theta(joinListViewModelKinematicsInverseVariablesConstant.getEt_theta());
-        joinListViewModelKinematicsInverseVariablesConstants.get(joinListViewModelKinematicsInverseVariablesConstant.getTv_lp()).setEt_d(joinListViewModelKinematicsInverseVariablesConstant.getEt_d());
+        modelKinematicsInverseVariablesConstants.get(modelKinematicsInverseVariablesConstant.getTv_lp()).setEt_alpha(modelKinematicsInverseVariablesConstant.getEt_alpha());
+        modelKinematicsInverseVariablesConstants.get(modelKinematicsInverseVariablesConstant.getTv_lp()).setEt_a(modelKinematicsInverseVariablesConstant.getEt_a());
+        modelKinematicsInverseVariablesConstants.get(modelKinematicsInverseVariablesConstant.getTv_lp()).setEt_theta(modelKinematicsInverseVariablesConstant.getEt_theta());
+        modelKinematicsInverseVariablesConstants.get(modelKinematicsInverseVariablesConstant.getTv_lp()).setEt_d(modelKinematicsInverseVariablesConstant.getEt_d());
     }
 
 
     public static void addJoin() {
 
-        JoinListViewModelKinematicsInverseVariablesConstant joinListViewModelKinematicsInverseVariablesConstant = new JoinListViewModelKinematicsInverseVariablesConstant();
-        if (joinListViewModelKinematicsInverseVariablesConstants.isEmpty())
-            joinListViewModelKinematicsInverseVariablesConstant.setTv_lp(1);
+        ModelKinematicsInverseVariablesConstant modelKinematicsInverseVariablesConstant = new ModelKinematicsInverseVariablesConstant();
+        if (modelKinematicsInverseVariablesConstants.isEmpty())
+            modelKinematicsInverseVariablesConstant.setTv_lp(1);
         else
-            joinListViewModelKinematicsInverseVariablesConstant.setTv_lp(joinListViewModelKinematicsInverseVariablesConstants.get(joinListViewModelKinematicsInverseVariablesConstants.size() - 1).getTv_lp() + 1);
+            modelKinematicsInverseVariablesConstant.setTv_lp(modelKinematicsInverseVariablesConstants.get(modelKinematicsInverseVariablesConstants.size() - 1).getTv_lp() + 1);
 
-        joinListViewModelKinematicsInverseVariablesConstants.add(joinListViewModelKinematicsInverseVariablesConstant);
+        modelKinematicsInverseVariablesConstants.add(modelKinematicsInverseVariablesConstant);
     }
 }

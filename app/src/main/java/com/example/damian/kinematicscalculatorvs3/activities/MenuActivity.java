@@ -13,6 +13,7 @@ import org.apache.commons.math3.exception.DimensionMismatchException;
 import org.apache.commons.math3.exception.MaxCountExceededException;
 import org.apache.commons.math3.ode.FirstOrderDifferentialEquations;
 import org.apache.commons.math3.ode.JacobianMatrices;
+import org.apache.commons.math3.ode.MainStateJacobianProvider;
 import org.apache.commons.math3.ode.ParameterJacobianProvider;
 import org.apache.commons.math3.ode.UnknownParameterException;
 
@@ -37,25 +38,6 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         ButterKnife.bind(this);
-
-        ParameterJacobianProvider parameterJacobianProvider = new ParameterJacobianProvider() {
-            @Override
-            public void computeParameterJacobian(double t, double[] y, double[] yDot, String paramName, double[] dFdP) throws DimensionMismatchException, MaxCountExceededException, UnknownParameterException {
-
-            }
-
-            @Override
-            public Collection<String> getParametersNames() {
-                return null;
-            }
-
-            @Override
-            public boolean isSupported(String name) {
-                return false;
-            }
-        };
-//        JacobianMatrices jacobianMatrices = new JacobianMatrices();
-
     }
 
     @OnClick(R.id.b_kinematicsForward)

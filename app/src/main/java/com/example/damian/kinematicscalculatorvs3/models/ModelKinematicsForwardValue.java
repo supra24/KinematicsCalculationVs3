@@ -1,18 +1,21 @@
 package com.example.damian.kinematicscalculatorvs3.models;
 
+import android.widget.EditText;
+import android.widget.TextView;
+
 /**
  * Created by Damian on 2016-10-12.
  */
 
-public class JoinListViewModelKinematicsInverseValue {
+public class ModelKinematicsForwardValue {
 
-    private int tv_lp ;
+    private int tv_lp;
     private int et_alpha;
     private int et_a;
     private int et_theta;
     private int et_d;
 
-    public JoinListViewModelKinematicsInverseValue(){
+    public ModelKinematicsForwardValue() {
 
     }
 

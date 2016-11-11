@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsInverseValue;
+import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsInverseValue;
 import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsInverseValue;
 
 import java.util.ArrayList;
@@ -19,26 +19,26 @@ import java.util.ArrayList;
  * Created by Damian on 2016-10-21.
  */
 
-public class JoinKinematicsInverseValueListViewAdapter extends ArrayAdapter<JoinListViewModelKinematicsInverseValue> {
+public class AdapterInverseValueListView extends ArrayAdapter<ModelKinematicsInverseValue> {
 
     private Context context;
-    private ArrayList<JoinListViewModelKinematicsInverseValue> joinListViewModelKinematicsInverseValues;
+    private ArrayList<ModelKinematicsInverseValue> modelKinematicsInverseValues;
     private LayoutInflater inflater;
 
-    public JoinKinematicsInverseValueListViewAdapter(Context context, ArrayList<JoinListViewModelKinematicsInverseValue> items) {
+    public AdapterInverseValueListView(Context context, ArrayList<ModelKinematicsInverseValue> items) {
         super(context, R.layout.custom_join_list_view_value_kinematics, items);
 
         this.context = context;
-        this.joinListViewModelKinematicsInverseValues = items;
+        this.modelKinematicsInverseValues = items;
 
     }
 
     @Override
     public int getCount() {
-        if (joinListViewModelKinematicsInverseValues == null)
+        if (modelKinematicsInverseValues == null)
             return 0;
         else
-            return joinListViewModelKinematicsInverseValues.size();
+            return modelKinematicsInverseValues.size();
     }
 
     @Override
@@ -58,9 +58,9 @@ public class JoinKinematicsInverseValueListViewAdapter extends ArrayAdapter<Join
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        final JoinKinematicsInverseValueListViewAdapter.ListViewHolder listViewHolder;
+        final AdapterInverseValueListView.ListViewHolder listViewHolder;
         if (convertView == null) {
-            listViewHolder = new JoinKinematicsInverseValueListViewAdapter.ListViewHolder();
+            listViewHolder = new AdapterInverseValueListView.ListViewHolder();
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.custom_join_list_view_value_kinematics, null);
 
@@ -73,21 +73,21 @@ public class JoinKinematicsInverseValueListViewAdapter extends ArrayAdapter<Join
             convertView.setTag(listViewHolder);
 
         } else {
-            listViewHolder = (JoinKinematicsInverseValueListViewAdapter.ListViewHolder) convertView.getTag();
+            listViewHolder = (AdapterInverseValueListView.ListViewHolder) convertView.getTag();
         }
 
-        listViewHolder.textViewlp.setText(String.valueOf(joinListViewModelKinematicsInverseValues.get(position).getTv_lp()));
-        listViewHolder.editalpha.setText(String.valueOf(joinListViewModelKinematicsInverseValues.get(position).getEt_alpha()));
-        listViewHolder.edita.setText(String.valueOf(joinListViewModelKinematicsInverseValues.get(position).getEt_a()));
-        listViewHolder.edittheta.setText(String.valueOf(joinListViewModelKinematicsInverseValues.get(position).getEt_theta()));
-        listViewHolder.editd.setText(String.valueOf(joinListViewModelKinematicsInverseValues.get(position).getEt_d()));
+        listViewHolder.textViewlp.setText(String.valueOf(modelKinematicsInverseValues.get(position).getTv_lp()));
+        listViewHolder.editalpha.setText(String.valueOf(modelKinematicsInverseValues.get(position).getEt_alpha()));
+        listViewHolder.edita.setText(String.valueOf(modelKinematicsInverseValues.get(position).getEt_a()));
+        listViewHolder.edittheta.setText(String.valueOf(modelKinematicsInverseValues.get(position).getEt_theta()));
+        listViewHolder.editd.setText(String.valueOf(modelKinematicsInverseValues.get(position).getEt_d()));
 
         TextView.OnEditorActionListener onEditorActionListener = new TextView.OnEditorActionListener() {
 
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
-                JoinListViewModelKinematicsInverseValue joinListViewModelKinematicsForwardValue = new JoinListViewModelKinematicsInverseValue();
+                ModelKinematicsInverseValue joinListViewModelKinematicsForwardValue = new ModelKinematicsInverseValue();
                 joinListViewModelKinematicsForwardValue.setTv_lp(position);
                 joinListViewModelKinematicsForwardValue.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
                 joinListViewModelKinematicsForwardValue.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));

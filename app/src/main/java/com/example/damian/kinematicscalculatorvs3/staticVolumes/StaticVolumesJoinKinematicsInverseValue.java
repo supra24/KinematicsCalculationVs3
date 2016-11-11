@@ -1,7 +1,6 @@
 package com.example.damian.kinematicscalculatorvs3.staticVolumes;
 
-import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsForwardValue;
-import com.example.damian.kinematicscalculatorvs3.models.JoinListViewModelKinematicsInverseValue;
+import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsInverseValue;
 
 import java.util.ArrayList;
 
@@ -11,35 +10,35 @@ import java.util.ArrayList;
 
 public class StaticVolumesJoinKinematicsInverseValue {
 
-    private static ArrayList<JoinListViewModelKinematicsInverseValue> joinListViewModelKinematicsInverseValues = new ArrayList<>();
+    private static ArrayList<ModelKinematicsInverseValue> modelKinematicsInverseValues = new ArrayList<>();
 
-    public static ArrayList<JoinListViewModelKinematicsInverseValue> getJoinListViewModelKinematicsInverseValues() {
-        return joinListViewModelKinematicsInverseValues;
+    public static ArrayList<ModelKinematicsInverseValue> getModelKinematicsInverseValues() {
+        return modelKinematicsInverseValues;
     }
 
-    public static void setOneJoinModel(JoinListViewModelKinematicsInverseValue joinListViewModelKinematicsInverseValue) {
+    public static void setOneJoinModel(ModelKinematicsInverseValue modelKinematicsInverseValue) {
 
-        joinListViewModelKinematicsInverseValues.get(joinListViewModelKinematicsInverseValue.getTv_lp()).setEt_alpha(joinListViewModelKinematicsInverseValue.getEt_alpha());
-        joinListViewModelKinematicsInverseValues.get(joinListViewModelKinematicsInverseValue.getTv_lp()).setEt_a(joinListViewModelKinematicsInverseValue.getEt_a());
-        joinListViewModelKinematicsInverseValues.get(joinListViewModelKinematicsInverseValue.getTv_lp()).setEt_theta(joinListViewModelKinematicsInverseValue.getEt_theta());
-        joinListViewModelKinematicsInverseValues.get(joinListViewModelKinematicsInverseValue.getTv_lp()).setEt_d(joinListViewModelKinematicsInverseValue.getEt_d());
+        modelKinematicsInverseValues.get(modelKinematicsInverseValue.getTv_lp()).setEt_alpha(modelKinematicsInverseValue.getEt_alpha());
+        modelKinematicsInverseValues.get(modelKinematicsInverseValue.getTv_lp()).setEt_a(modelKinematicsInverseValue.getEt_a());
+        modelKinematicsInverseValues.get(modelKinematicsInverseValue.getTv_lp()).setEt_theta(modelKinematicsInverseValue.getEt_theta());
+        modelKinematicsInverseValues.get(modelKinematicsInverseValue.getTv_lp()).setEt_d(modelKinematicsInverseValue.getEt_d());
     }
 
     public static void addJoin() {
 
-        JoinListViewModelKinematicsInverseValue joinListViewModelKinematicsInverseValue = new JoinListViewModelKinematicsInverseValue();
-        if (joinListViewModelKinematicsInverseValues.isEmpty())
-            joinListViewModelKinematicsInverseValue.setTv_lp(1);
+        ModelKinematicsInverseValue modelKinematicsInverseValue = new ModelKinematicsInverseValue();
+        if (modelKinematicsInverseValues.isEmpty())
+            modelKinematicsInverseValue.setTv_lp(1);
         else
-            joinListViewModelKinematicsInverseValue.setTv_lp(joinListViewModelKinematicsInverseValues.get(joinListViewModelKinematicsInverseValues.size() - 1).getTv_lp() + 1);
+            modelKinematicsInverseValue.setTv_lp(modelKinematicsInverseValues.get(modelKinematicsInverseValues.size() - 1).getTv_lp() + 1);
 
-        joinListViewModelKinematicsInverseValues.add(joinListViewModelKinematicsInverseValue);
+        modelKinematicsInverseValues.add(modelKinematicsInverseValue);
     }
 
     public static void undo() {
 
-        if (!joinListViewModelKinematicsInverseValues.isEmpty()) {
-            joinListViewModelKinematicsInverseValues.remove(joinListViewModelKinematicsInverseValues.size() - 1);
+        if (!modelKinematicsInverseValues.isEmpty()) {
+            modelKinematicsInverseValues.remove(modelKinematicsInverseValues.size() - 1);
         }
     }
 }

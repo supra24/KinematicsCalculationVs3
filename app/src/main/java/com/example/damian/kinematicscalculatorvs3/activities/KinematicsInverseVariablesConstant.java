@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.fragments.JoinCustomListViewKinematicsInverseVariablesConstant;
+import com.example.damian.kinematicscalculatorvs3.fragments.FragmentListViewKinematicsInverseVariablesConstant;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -32,9 +32,9 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        JoinCustomListViewKinematicsInverseVariablesConstant joinCustomListViewKinematicsInverseVariablesConstant = (JoinCustomListViewKinematicsInverseVariablesConstant) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
+        FragmentListViewKinematicsInverseVariablesConstant fragmentListViewKinematicsInverseVariablesConstant = (FragmentListViewKinematicsInverseVariablesConstant) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
 
-        if (!joinCustomListViewKinematicsInverseVariablesConstant.undoObject()) {
+        if (!fragmentListViewKinematicsInverseVariablesConstant.undoObject()) {
 
             if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
                 getSupportFragmentManager().popBackStack();
@@ -58,8 +58,8 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity {
     @OnClick(R.id.floating_action_button_inverse_add)
     public void OnClickFloatingActionButtonAdd() {
 
-        JoinCustomListViewKinematicsInverseVariablesConstant joinCustomListViewKinematicsInverseVariablesConstant = (JoinCustomListViewKinematicsInverseVariablesConstant) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
-        joinCustomListViewKinematicsInverseVariablesConstant.addObjectJoin();
+        FragmentListViewKinematicsInverseVariablesConstant fragmentListViewKinematicsInverseVariablesConstant = (FragmentListViewKinematicsInverseVariablesConstant) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
+        fragmentListViewKinematicsInverseVariablesConstant.addObjectJoin();
 
     }
 

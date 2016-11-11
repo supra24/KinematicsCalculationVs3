@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.fragments.JoinCustomListViewKinematicsForwardValue;
+import com.example.damian.kinematicscalculatorvs3.fragments.FragmentListViewKinematicsForwardValue;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,7 +46,7 @@ public class KinematicsForwardValue extends AppCompatActivity {
 //    @Override
 //    public boolean onContextItemSelected(MenuItem item) {
 //
-//        JoinCustomListViewKinematicsForwardValue joinCustomListViewKinematicsForward = (JoinCustomListViewKinematicsForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_value_kinematics);
+//        FragmentListViewKinematicsForwardValue joinCustomListViewKinematicsForward = (FragmentListViewKinematicsForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_value_kinematics);
 //
 //        if (joinCustomListViewKinematicsForward != null) {
 //
@@ -88,9 +88,9 @@ public class KinematicsForwardValue extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        JoinCustomListViewKinematicsForwardValue joinCustomListViewKinematicsForwardValue = (JoinCustomListViewKinematicsForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
+        FragmentListViewKinematicsForwardValue fragmentListViewKinematicsForwardValue = (FragmentListViewKinematicsForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
 
-        if (!joinCustomListViewKinematicsForwardValue.undoObject()) {
+        if (!fragmentListViewKinematicsForwardValue.undoObject()) {
 
             if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
                 getSupportFragmentManager().popBackStack();
@@ -114,8 +114,8 @@ public class KinematicsForwardValue extends AppCompatActivity {
     @OnClick(R.id.floating_action_button_forward_add)
     public void OnClickFloatingActionButtonAdd() {
 
-        JoinCustomListViewKinematicsForwardValue joinCustomListViewKinematicsForwardValue = (JoinCustomListViewKinematicsForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
-        joinCustomListViewKinematicsForwardValue.addObjectJoin();
+        FragmentListViewKinematicsForwardValue fragmentListViewKinematicsForwardValue = (FragmentListViewKinematicsForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
+        fragmentListViewKinematicsForwardValue.addObjectJoin();
 
 //        registerForContextMenu(floatingActionButton);
 //        openContextMenu(floatingActionButton);
