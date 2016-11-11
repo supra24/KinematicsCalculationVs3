@@ -6,7 +6,6 @@ import android.widget.ListView;
 import com.example.damian.kinematicscalculatorvs3.R;
 import com.example.damian.kinematicscalculatorvs3.adapters.AdapterInverseValueListView;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsInverseValue;
-import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsForwardValue;
 import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesJoinKinematicsInverseValue;
 
 import java.util.ArrayList;
@@ -37,8 +36,8 @@ public class FragmentListViewKinematicsInverseValue extends FragmentParent {
 
     public void addObjectJoin() {
 
-        StaticVolumesJoinKinematicsForwardValue.addJoin();
-
+//        StaticVolumesJoinKinematicsForwardValue.addJoin();
+//
         adapterInverseValueListView.notifyDataSetInvalidated();
     }
 

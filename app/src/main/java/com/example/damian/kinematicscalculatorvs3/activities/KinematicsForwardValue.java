@@ -8,11 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.FloatingActionButton;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.fragments.FragmentListViewKinematicsForwardValue;
+import com.example.damian.kinematicscalculatorvs3.fragments.FragmentListForward;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,9 +44,9 @@ public class KinematicsForwardValue extends AppCompatActivity {
         menuInflater.inflate(R.menu.menu_kinematics_simple, menu);
     }
 
-//    @Override
-//    public boolean onContextItemSelected(MenuItem item) {
-//
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
 //        FragmentListViewKinematicsForwardValue joinCustomListViewKinematicsForward = (FragmentListViewKinematicsForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_value_kinematics);
 //
 //        if (joinCustomListViewKinematicsForward != null) {
@@ -82,15 +83,37 @@ public class KinematicsForwardValue extends AppCompatActivity {
 //        }
 //        return true;
 //
-//
-//    }
+
+        FragmentListForward fragmentById = (FragmentListForward) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
+
+        if (fragmentById != null) {
+
+            switch (item.getItemId()) {
+
+                case R.id.id_add_join:
+                    fragmentById.addObjectJoin(1);
+                    break;
+                case R.id.id_end:
+                    fragmentById.addObjectJoin(2);
+                    break;
+                case R.id.id_undo:
+                    fragmentById.undoObject();
+                    break;
+                default:
+                    return true;
+            }
+        } else {
+            Toast.makeText(this, "Error Sending Message", Toast.LENGTH_SHORT).show();
+        }
+        return true;
+    }
 
     @Override
     public void onBackPressed() {
 
-        FragmentListViewKinematicsForwardValue fragmentListViewKinematicsForwardValue = (FragmentListViewKinematicsForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
+        FragmentListForward fragmentById = (FragmentListForward) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
 
-        if (!fragmentListViewKinematicsForwardValue.undoObject()) {
+        if (!fragmentById.undoObject()) {
 
             if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
                 getSupportFragmentManager().popBackStack();
@@ -114,11 +137,11 @@ public class KinematicsForwardValue extends AppCompatActivity {
     @OnClick(R.id.floating_action_button_forward_add)
     public void OnClickFloatingActionButtonAdd() {
 
-        FragmentListViewKinematicsForwardValue fragmentListViewKinematicsForwardValue = (FragmentListViewKinematicsForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
-        fragmentListViewKinematicsForwardValue.addObjectJoin();
+//        FragmentListViewKinematicsForwardValue fragmentListViewKinematicsForwardValue = (FragmentListViewKinematicsForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
+//        fragmentListViewKinematicsForwardValue.addObjectJoin();
 
-//        registerForContextMenu(floatingActionButton);
-//        openContextMenu(floatingActionButton);
+        registerForContextMenu(floatingActionButton);
+        openContextMenu(floatingActionButton);
     }
 
     @OnClick(R.id.floating_action_button_forward_play)

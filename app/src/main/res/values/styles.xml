@@ -59,6 +59,12 @@
         <item name="android:textOn">Z</item>
     </style>
 
+    <style name="modelEffector">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:textSize">40dp</item>
+    </style>
+
     <style name="coordinatesTextView">
 
         <item name="android:layout_width">match_parent</item>
