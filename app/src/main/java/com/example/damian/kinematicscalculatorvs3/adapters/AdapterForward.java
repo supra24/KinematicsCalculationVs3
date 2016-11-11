@@ -14,7 +14,7 @@ import com.example.damian.kinematicscalculatorvs3.R;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueEffector;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueJoin;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueParent;
-import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesKinematicsForward;
+import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesKinematicsForwardValue;
 
 import java.util.ArrayList;
 
@@ -127,7 +127,7 @@ public class AdapterForward extends ArrayAdapter<ModelKinematicsForwardValuePare
                         model.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
                         model.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
 
-                        StaticVolumesKinematicsForward.setOneModel(model);
+                        StaticVolumesKinematicsForwardValue.setOneModel(model);
                         return false;
                     }
                 };
@@ -160,7 +160,7 @@ public class AdapterForward extends ArrayAdapter<ModelKinematicsForwardValuePare
                         model.setEt_y(Integer.parseInt(listViewHolder.editY.getText().toString()));
                         model.setEt_z(Integer.parseInt(listViewHolder.editZ.getText().toString()));
 
-                        StaticVolumesKinematicsForward.setOneModel(model);
+                        StaticVolumesKinematicsForwardValue.setOneModel(model);
                         return false;
                     }
                 };

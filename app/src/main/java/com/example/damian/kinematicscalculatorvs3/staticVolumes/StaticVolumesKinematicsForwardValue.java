@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Created by Damian on 2016-11-11.
  */
 
-public class StaticVolumesKinematicsForward {
+public class StaticVolumesKinematicsForwardValue {
 
     private static ArrayList<ModelKinematicsForwardValueParent> modelKinematicsForwardValueParents = new ArrayList<>();
 

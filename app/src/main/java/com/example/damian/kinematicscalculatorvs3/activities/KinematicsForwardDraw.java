@@ -18,7 +18,7 @@ import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardV
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueParent;
 import com.example.damian.kinematicscalculatorvs3.openGL.AbstractRenderer;
 import com.example.damian.kinematicscalculatorvs3.openGL.RenderManipulator;
-import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesKinematicsForward;
+import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesKinematicsForwardValue;
 
 import java.util.ArrayList;
 
@@ -41,7 +41,7 @@ public class KinematicsForwardDraw extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_draw_kinematics_forward);
 
-        kinematicsForwardValueParents = StaticVolumesKinematicsForward.getModels();
+        kinematicsForwardValueParents = StaticVolumesKinematicsForwardValue.getModels();
 
         float[][] tableParameters = new float[kinematicsForwardValueParents.size()][4];
 

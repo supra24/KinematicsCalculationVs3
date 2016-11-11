@@ -7,8 +7,8 @@
             android:title="Add Join"></item>
 
         <item
-            android:id="@+id/id_end"
-            android:title="End"></item>
+            android:id="@+id/id_add_effector"
+            android:title="Add Effector"></item>
 
         <item
             android:id="@+id/id_undo"

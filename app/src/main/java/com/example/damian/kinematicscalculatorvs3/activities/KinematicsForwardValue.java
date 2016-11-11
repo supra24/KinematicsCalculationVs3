@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.fragments.FragmentListForward;
+import com.example.damian.kinematicscalculatorvs3.fragments.FragmentListForwardValue;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -84,7 +84,7 @@ public class KinematicsForwardValue extends AppCompatActivity {
 //        return true;
 //
 
-        FragmentListForward fragmentById = (FragmentListForward) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
+        FragmentListForwardValue fragmentById = (FragmentListForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
 
         if (fragmentById != null) {
 
@@ -93,7 +93,7 @@ public class KinematicsForwardValue extends AppCompatActivity {
                 case R.id.id_add_join:
                     fragmentById.addObjectJoin(1);
                     break;
-                case R.id.id_end:
+                case R.id.id_add_effector:
                     fragmentById.addObjectJoin(2);
                     break;
                 case R.id.id_undo:
@@ -111,7 +111,7 @@ public class KinematicsForwardValue extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        FragmentListForward fragmentById = (FragmentListForward) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
+        FragmentListForwardValue fragmentById = (FragmentListForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
 
         if (!fragmentById.undoObject()) {
 
