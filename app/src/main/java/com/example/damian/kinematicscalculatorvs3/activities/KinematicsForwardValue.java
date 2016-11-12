@@ -100,9 +100,6 @@ public class KinematicsForwardValue extends AppCompatActivity {
     @OnClick(R.id.floating_action_button_forward_add)
     public void OnClickFloatingActionButtonAdd() {
 
-//        FragmentListViewKinematicsForwardValue fragmentListViewKinematicsForwardValue = (FragmentListViewKinematicsForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
-//        fragmentListViewKinematicsForwardValue.addObjectJoin();
-
         registerForContextMenu(floatingActionButton);
         openContextMenu(floatingActionButton);
     }

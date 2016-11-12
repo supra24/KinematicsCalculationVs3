@@ -26,7 +26,6 @@ public class StartActivity extends AppCompatActivity{
                 Intent activityMenu = new Intent(StartActivity.this,MenuActivity.class);
                 StartActivity.this.startActivity(activityMenu);
                 StartActivity.this.finish();
-//                overridePendingTransition(R.anim.activity_start_fadein, R.anim.activity_start_fadeout);
             }
         }, 2000);
     }

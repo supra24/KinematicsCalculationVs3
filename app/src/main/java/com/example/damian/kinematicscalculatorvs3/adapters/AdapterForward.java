@@ -140,9 +140,9 @@ public class AdapterForward extends ArrayAdapter<ModelKinematicsForwardValuePare
             break;
             case 2: {
 
-                listViewHolder.editX = (EditText) convertView.findViewById(R.id.model_effector_edit_text_x);
-                listViewHolder.editY = (EditText) convertView.findViewById(R.id.model_effector_edit_text_y);
-                listViewHolder.editZ = (EditText) convertView.findViewById(R.id.model_effector_edit_text_z);
+                listViewHolder.editX = (EditText) convertView.findViewById(R.id.model_forward_effector_edit_text_x);
+                listViewHolder.editY = (EditText) convertView.findViewById(R.id.model_forward_effector_edit_text_y);
+                listViewHolder.editZ = (EditText) convertView.findViewById(R.id.model_forward_effector_edit_text_z);
 
                 ModelKinematicsForwardValueEffector modelKinematicsForwardValueEffector = (ModelKinematicsForwardValueEffector) modelKinematicsForwardValueParents.get(position);
 

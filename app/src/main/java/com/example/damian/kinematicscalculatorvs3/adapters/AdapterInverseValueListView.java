@@ -104,18 +104,6 @@ public class AdapterInverseValueListView extends ArrayAdapter<ModelKinematicsInv
         listViewHolder.edittheta.setOnEditorActionListener(onEditorActionListener);
         listViewHolder.editd.setOnEditorActionListener(onEditorActionListener);
 
-//        listViewHolder.togglebuttonalpha.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                listViewHolder.togglebuttonalpha.setFocusableInTouchMode(true);
-//                listViewHolder.togglebuttona.setFocusableInTouchMode(true);
-//                listViewHolder.togglebuttontheta.setFocusableInTouchMode(true);
-//                listViewHolder.togglebuttond.setFocusableInTouchMode(true);
-//            }
-//        });
-
-//        listViewHolder.togglebuttonalpha.setOnLongClickListener();
-
         return convertView;
     }
 }

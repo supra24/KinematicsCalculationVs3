@@ -12,17 +12,17 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/model_forward_effector_text_view_x"
+            android:id="@+id/model_inverse_effector_text_view_x"
             style="@style/modelEffector"
             android:text="x = " />
 
         <TextView
-            android:id="@+id/model_forward_effector_text_view_y"
+            android:id="@+id/model_inverse_effector_text_view_y"
             style="@style/modelEffector"
             android:text="y = " />
 
         <TextView
-            android:id="@+id/model_forward_effector_text_view_z"
+            android:id="@+id/model_inverse_effector_text_view_z"
             style="@style/modelEffector"
             android:text="z = " />
 
@@ -33,17 +33,17 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/model_forward_effector_edit_text_x"
-            style="@style/modelEffector" />
+        <ToggleButton
+            android:id="@+id/model_inverse_effector_toggle_x"
+            style="@style/pictureListViewToggleButtonInverseEffector" />
 
-        <EditText
-            android:id="@+id/model_forward_effector_edit_text_y"
-            style="@style/modelEffector" />
+        <ToggleButton
+            android:id="@+id/model_inverse_effector_toggle_y"
+            style="@style/pictureListViewToggleButtonInverseEffector" />
 
-        <EditText
-            android:id="@+id/model_forward_effector_edit_text_z"
-            style="@style/modelEffector" />
+        <ToggleButton
+            android:id="@+id/model_inverse_effector_toggle_z"
+            style="@style/pictureListViewToggleButtonInverseEffector" />
 
     </LinearLayout>
 

@@ -50,11 +50,18 @@
         <item name="android:ems">1</item>
     </style>
 
-    <style name="pictureListViewToggleButtonInverse">
+    <style name="pictureListViewToggleButtonInverseJoin">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:ems">4</item>
+        <item name="android:textOff">S</item>
+        <item name="android:textOn">Z</item>
+    </style>
+
+    <style name="pictureListViewToggleButtonInverseEffector">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">70dp</item>
         <item name="android:textOff">S</item>
         <item name="android:textOn">Z</item>
     </style>

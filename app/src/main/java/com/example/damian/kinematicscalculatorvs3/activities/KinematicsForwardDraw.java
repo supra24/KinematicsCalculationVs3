@@ -45,7 +45,6 @@ public class KinematicsForwardDraw extends AppCompatActivity {
 
         float[][] tableParameters = new float[kinematicsForwardValueParents.size()][4];
 
-//        KinematicsSImpleCustomView.reverseAllObject();
         for (int i = 0; i < tableParameters.length; i++) {
 
             ModelKinematicsForwardValueJoin modelKinematicsForwardValueJoin = (ModelKinematicsForwardValueJoin) kinematicsForwardValueParents.get(i);
@@ -94,16 +93,6 @@ public class KinematicsForwardDraw extends AppCompatActivity {
         super.onPause();
         mTestHarness.onPause();
     }
-
-//    @Override
-//    public void onBackPressed() {
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START);
-//        } else {
-//            super.onBackPressed();
-//        }
-//    }
-
 
     @Override
     public void onBackPressed() {

@@ -61,6 +61,5 @@ public class KinematicsInverseValue extends AppCompatActivity {
 
         CalculationKinematicsInverse calculationKinematicsInverse = new CalculationKinematicsInverse(tableParameter);
 
-//        startActivity(new Intent(KinematicsInverseValue.this, KinematicsForwardDraw.class));
     }
 }
