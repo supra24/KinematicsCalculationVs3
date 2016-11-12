@@ -35,15 +35,18 @@
 
         <EditText
             android:id="@+id/model_forward_effector_edit_text_x"
-            style="@style/modelEffector" />
+            style="@style/modelEffector"
+            android:inputType="numberSigned" />
 
         <EditText
             android:id="@+id/model_forward_effector_edit_text_y"
-            style="@style/modelEffector" />
+            style="@style/modelEffector"
+            android:inputType="numberSigned" />
 
         <EditText
             android:id="@+id/model_forward_effector_edit_text_z"
-            style="@style/modelEffector" />
+            style="@style/modelEffector"
+            android:inputType="numberSigned" />
 
     </LinearLayout>
 
