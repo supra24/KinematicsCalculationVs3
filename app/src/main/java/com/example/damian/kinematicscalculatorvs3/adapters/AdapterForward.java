@@ -107,7 +107,7 @@ public class AdapterForward extends ArrayAdapter<ModelKinematicsForwardValuePare
                 listViewHolder.edittheta = (EditText) convertView.findViewById(R.id.list_view_join_theta_forward);
                 listViewHolder.editd = (EditText) convertView.findViewById(R.id.list_view_join_d_forward);
 
-                ModelKinematicsForwardValueJoin modelKinematicsForwardValueJoin = (ModelKinematicsForwardValueJoin) modelKinematicsForwardValueParents.get(position);
+                final ModelKinematicsForwardValueJoin modelKinematicsForwardValueJoin = (ModelKinematicsForwardValueJoin) modelKinematicsForwardValueParents.get(position);
 
                 listViewHolder.textViewlp.setText(String.valueOf(modelKinematicsForwardValueJoin.getTv_lp()));
                 listViewHolder.editalpha.setText(String.valueOf(modelKinematicsForwardValueJoin.getEt_alpha()));
@@ -121,7 +121,7 @@ public class AdapterForward extends ArrayAdapter<ModelKinematicsForwardValuePare
                     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
                         ModelKinematicsForwardValueJoin model = new ModelKinematicsForwardValueJoin(position);
-                        model.setTv_lp(position);
+                        model.setTv_lp(modelKinematicsForwardValueJoin.getTv_lp());
                         model.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
                         model.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
                         model.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));

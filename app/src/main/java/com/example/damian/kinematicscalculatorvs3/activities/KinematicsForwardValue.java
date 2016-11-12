@@ -47,43 +47,6 @@ public class KinematicsForwardValue extends AppCompatActivity {
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
-//        FragmentListViewKinematicsForwardValue joinCustomListViewKinematicsForward = (FragmentListViewKinematicsForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_value_kinematics);
-//
-//        if (joinCustomListViewKinematicsForward != null) {
-//
-//            switch (item.getItemId()) {
-//
-//                case R.id.id_add_join:
-//                    joinCustomListViewKinematicsForward.addObjectJoin();
-//                    break;
-//                case R.id.id_end:
-//                    startActivity(new Intent(KinematicsForwardValue.this, KinematicsForwardDraw.class));
-//
-////                    float[][] floats = new float[][]{
-////                            {0, 10, 0, 10},
-////                            {0, 10, 0, 10}
-////                    };
-////
-////                    CalculationKinematicsForward calculationCoordinatesEndEffector = new CalculationKinematicsForward(floats);
-//////                    calculationCoordinatesEndEffector.Calculation();
-////                    float[] coordinates = calculationCoordinatesEndEffector.getCoordinatesEndEffector();
-////                    Log.v("X = ", String.valueOf(coordinates[0]));
-////                    Log.v("Y = ", String.valueOf(coordinates[1]));
-////                    Log.v("Z = ", String.valueOf(coordinates[2]));
-//
-//                    break;
-//                case R.id.id_undo:
-//                    joinCustomListViewKinematicsForward.undoObject();
-//                    break;
-//                default:
-//                    return true;
-//            }
-//        } else {
-//            Toast.makeText(this, "Error Sending Message", Toast.LENGTH_SHORT).show();
-//        }
-//        return true;
-//
-
         FragmentListForwardValue fragmentById = (FragmentListForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
 
         if (fragmentById != null) {
