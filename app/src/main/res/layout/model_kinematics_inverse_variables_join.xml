@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_linear_layout_first"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/endPaddingForDate"
+    android:paddingStart="@dimen/listItemStartPadding">
+
+    <TextView
+        android:id="@+id/list_view_join_i_inverse_variables"
+        style="@style/pictureListViewTextViewForward"
+        android:gravity="center_vertical|center_horizontal" />
+
+    <ToggleButton
+        android:id="@+id/list_view_join_alpha_inverse_variables"
+        style="@style/pictureListViewToggleButtonInverseJoin"
+        android:inputType="numberSigned" />
+
+    <ToggleButton
+        android:id="@+id/list_view_join_a_inverse_variables"
+        style="@style/pictureListViewToggleButtonInverseJoin"
+        android:inputType="numberSigned" />
+
+    <ToggleButton
+        android:id="@+id/list_view_join_theta_inverse_variables"
+        style="@style/pictureListViewToggleButtonInverseJoin"
+        android:inputType="numberSigned" />
+
+    <ToggleButton
+        android:id="@+id/list_view_join_d_inverse_variables"
+        style="@style/pictureListViewToggleButtonInverseJoin"
+        android:inputType="numberSigned"
+        tools:ignore="LabelFor" />
+</LinearLayout>

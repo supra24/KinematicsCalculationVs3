@@ -23,13 +23,13 @@ import java.util.ArrayList;
  */
 
 
-public class AdapterForward extends ArrayAdapter<ModelKinematicsForwardValueParent> {
+public class AdapterForwardValue extends ArrayAdapter<ModelKinematicsForwardValueParent> {
 
     private Context context;
     private ArrayList<ModelKinematicsForwardValueParent> modelKinematicsForwardValueParents;
     private LayoutInflater inflater;
 
-    public AdapterForward(Context context, ArrayList<ModelKinematicsForwardValueParent> modelKinematicsForwardValueParents) {
+    public AdapterForwardValue(Context context, ArrayList<ModelKinematicsForwardValueParent> modelKinematicsForwardValueParents) {
         super(context, 0, modelKinematicsForwardValueParents);
 
         this.context = context;
@@ -87,12 +87,12 @@ public class AdapterForward extends ArrayAdapter<ModelKinematicsForwardValuePare
 
         switch (getItemViewType(position)) {
             case 1: {
-                convertView = inflater.inflate(R.layout.model_kinematics_forward_join, parent, false);
+                convertView = inflater.inflate(R.layout.model_kinematics_forward_value_join, parent, false);
                 convertView.setTag(listViewHolder);
             }
             break;
             case 2: {
-                convertView = inflater.inflate(R.layout.model_kinematics_forward_effector, parent, false);
+                convertView = inflater.inflate(R.layout.model_kinematics_forward_value_effector, parent, false);
                 convertView.setTag(listViewHolder);
             }
             break;

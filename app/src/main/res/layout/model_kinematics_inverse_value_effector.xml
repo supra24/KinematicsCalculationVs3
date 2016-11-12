@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/endPaddingForDate"
+    android:paddingStart="@dimen/listItemStartPadding">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/model_inverse_value_effector_text_view_x"
+            style="@style/modelEffector"
+            android:text="x = " />
+
+        <TextView
+            android:id="@+id/model_inverse_value_effector_text_view_y"
+            style="@style/modelEffector"
+            android:text="y = " />
+
+        <TextView
+            android:id="@+id/model_inverse_value_effector_text_view_z"
+            style="@style/modelEffector"
+            android:text="z = " />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/model_inverse_value_effector_edit_text_x"
+            style="@style/modelEffector"
+            android:inputType="numberSigned" />
+
+        <EditText
+            android:id="@+id/model_inverse_value_effector_edit_text_y"
+            style="@style/modelEffector"
+            android:inputType="numberSigned" />
+
+        <EditText
+            android:id="@+id/model_inverse_value_effector_edit_text_z"
+            style="@style/modelEffector"
+            android:inputType="numberSigned" />
+
+    </LinearLayout>
+
+</LinearLayout>

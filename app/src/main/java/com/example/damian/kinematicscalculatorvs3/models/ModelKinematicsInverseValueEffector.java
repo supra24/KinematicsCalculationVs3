@@ -4,14 +4,14 @@ package com.example.damian.kinematicscalculatorvs3.models;
  * Created by Damian on 2016-11-11.
  */
 
-public class ModelKinematicsForwardValueEffector extends ModelKinematicsForwardValueParent {
+public class ModelKinematicsInverseValueEffector extends ModelKinematicsInverseValueParent {
 
     private int index;
     private int et_x;
     private int et_y;
     private int et_z;
 
-    public ModelKinematicsForwardValueEffector(int index) {
+    public ModelKinematicsInverseValueEffector(int index) {
         this.index = index;
     }
 

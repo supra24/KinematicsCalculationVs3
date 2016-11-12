@@ -12,17 +12,17 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/model_inverse_effector_text_view_x"
+            android:id="@+id/model_inverse_variables_effector_text_view_x"
             style="@style/modelEffector"
             android:text="x = " />
 
         <TextView
-            android:id="@+id/model_inverse_effector_text_view_y"
+            android:id="@+id/model_inverse_variables_effector_text_view_y"
             style="@style/modelEffector"
             android:text="y = " />
 
         <TextView
-            android:id="@+id/model_inverse_effector_text_view_z"
+            android:id="@+id/model_inverse_variables_effector_text_view_z"
             style="@style/modelEffector"
             android:text="z = " />
 
@@ -34,15 +34,15 @@
         android:orientation="vertical">
 
         <ToggleButton
-            android:id="@+id/model_inverse_effector_toggle_x"
+            android:id="@+id/model_inverse_variables_effector_toggle_x"
             style="@style/pictureListViewToggleButtonInverseEffector" />
 
         <ToggleButton
-            android:id="@+id/model_inverse_effector_toggle_y"
+            android:id="@+id/model_inverse_variables_effector_toggle_y"
             style="@style/pictureListViewToggleButtonInverseEffector" />
 
         <ToggleButton
-            android:id="@+id/model_inverse_effector_toggle_z"
+            android:id="@+id/model_inverse_variables_effector_toggle_z"
             style="@style/pictureListViewToggleButtonInverseEffector" />
 
     </LinearLayout>

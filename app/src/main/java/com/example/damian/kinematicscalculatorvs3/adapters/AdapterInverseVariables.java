@@ -2,24 +2,18 @@ package com.example.damian.kinematicscalculatorvs3.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueEffector;
-import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueJoin;
-import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueParent;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsInverseVariablesEffector;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsInverseVariablesJoin;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsInverseVariablwsParent;
 import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesInverseVariables;
-import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesKinematicsForwardValue;
 
 import java.util.ArrayList;
 
@@ -92,12 +86,12 @@ public class AdapterInverseVariables extends ArrayAdapter<ModelKinematicsInverse
 
         switch (getItemViewType(position)) {
             case 1: {
-                convertView = inflater.inflate(R.layout.model_kinematics_inverse_join, parent, false);
+                convertView = inflater.inflate(R.layout.model_kinematics_inverse_variables_join, parent, false);
                 convertView.setTag(listViewHolder);
             }
             break;
             case 2: {
-                convertView = inflater.inflate(R.layout.model_kinematics_inverse_effector, parent, false);
+                convertView = inflater.inflate(R.layout.model_kinematics_inverse_variables_effector, parent, false);
                 convertView.setTag(listViewHolder);
             }
             break;
@@ -106,11 +100,11 @@ public class AdapterInverseVariables extends ArrayAdapter<ModelKinematicsInverse
         switch (getItemViewType(position)) {
             case 1: {
 
-                listViewHolder.textViewlp = (TextView) convertView.findViewById(R.id.list_view_join_i_inverse);
-                listViewHolder.togglealpha = (ToggleButton) convertView.findViewById(R.id.list_view_join_alpha_inverse);
-                listViewHolder.togglea = (ToggleButton) convertView.findViewById(R.id.list_view_join_a_inverse);
-                listViewHolder.toggletheta = (ToggleButton) convertView.findViewById(R.id.list_view_join_theta_inverse);
-                listViewHolder.toggled = (ToggleButton) convertView.findViewById(R.id.list_view_join_d_inverse);
+                listViewHolder.textViewlp = (TextView) convertView.findViewById(R.id.list_view_join_i_inverse_variables);
+                listViewHolder.togglealpha = (ToggleButton) convertView.findViewById(R.id.list_view_join_alpha_inverse_variables);
+                listViewHolder.togglea = (ToggleButton) convertView.findViewById(R.id.list_view_join_a_inverse_variables);
+                listViewHolder.toggletheta = (ToggleButton) convertView.findViewById(R.id.list_view_join_theta_inverse_variables);
+                listViewHolder.toggled = (ToggleButton) convertView.findViewById(R.id.list_view_join_d_inverse_variables);
 
                 final ModelKinematicsInverseVariablesJoin modelKinematicsInverseVariablesJoin = (ModelKinematicsInverseVariablesJoin) modelKinematicsInverseVariablwsParents.get(position);
 
@@ -142,9 +136,9 @@ public class AdapterInverseVariables extends ArrayAdapter<ModelKinematicsInverse
             break;
             case 2: {
 
-                listViewHolder.toggleX = (ToggleButton) convertView.findViewById(R.id.model_inverse_effector_toggle_x);
-                listViewHolder.toggleY = (ToggleButton) convertView.findViewById(R.id.model_inverse_effector_toggle_y);
-                listViewHolder.toggleZ = (ToggleButton) convertView.findViewById(R.id.model_inverse_effector_toggle_z);
+                listViewHolder.toggleX = (ToggleButton) convertView.findViewById(R.id.model_inverse_variables_effector_toggle_x);
+                listViewHolder.toggleY = (ToggleButton) convertView.findViewById(R.id.model_inverse_variables_effector_toggle_y);
+                listViewHolder.toggleZ = (ToggleButton) convertView.findViewById(R.id.model_inverse_variables_effector_toggle_z);
 
                 ModelKinematicsInverseVariablesEffector modelKinematicsInverseVariablesEffector = (ModelKinematicsInverseVariablesEffector) modelKinematicsInverseVariablwsParents.get(position);
                 listViewHolder.toggleX.setChecked(modelKinematicsInverseVariablesEffector.isEt_x());

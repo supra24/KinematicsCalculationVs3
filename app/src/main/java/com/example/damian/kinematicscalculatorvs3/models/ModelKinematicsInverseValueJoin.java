@@ -1,22 +1,33 @@
 package com.example.damian.kinematicscalculatorvs3.models;
 
 /**
- * Created by Damian on 2016-10-12.
+ * Created by Damian on 2016-11-11.
  */
 
-public class ModelKinematicsInverseValue {
+public class ModelKinematicsInverseValueJoin extends ModelKinematicsInverseValueParent {
 
-    private int tv_lp ;
+    private int index;
+    private int tv_lp;
     private int et_alpha;
     private int et_a;
     private int et_theta;
     private int et_d;
 
-    public ModelKinematicsInverseValue(){
+    public ModelKinematicsInverseValueJoin(int index) {
 
+        this.index = index;
+        tv_lp = index + 1;
     }
 
-    // set metods
+    @Override
+    public int getTypeObject() {
+        return 1;
+    }
+
+    @Override
+    public int getObjectIndex() {
+        return index;
+    }
 
     public void setTv_lp(int tv_lp) {
         this.tv_lp = tv_lp;
@@ -40,8 +51,6 @@ public class ModelKinematicsInverseValue {
 
 
     // get metods
-
-
     public int getTv_lp() {
         return tv_lp;
     }
@@ -61,4 +70,5 @@ public class ModelKinematicsInverseValue {
     public int getEt_d() {
         return et_d;
     }
+
 }

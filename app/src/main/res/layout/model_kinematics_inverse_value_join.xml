@@ -9,28 +9,28 @@
     android:paddingStart="@dimen/listItemStartPadding">
 
     <TextView
-        android:id="@+id/list_view_join_i_inverse"
+        android:id="@+id/list_view_join_i_inverse_value"
         style="@style/pictureListViewTextViewForward"
         android:gravity="center_vertical|center_horizontal" />
 
-    <ToggleButton
-        android:id="@+id/list_view_join_alpha_inverse"
-        style="@style/pictureListViewToggleButtonInverseJoin"
+    <EditText
+        android:id="@+id/list_view_join_alpha_inverse_value"
+        style="@style/pictureListViewEditTextForward"
         android:inputType="numberSigned" />
 
-    <ToggleButton
-        android:id="@+id/list_view_join_a_inverse"
-        style="@style/pictureListViewToggleButtonInverseJoin"
+    <EditText
+        android:id="@+id/list_view_join_a_inverse_value"
+        style="@style/pictureListViewEditTextForward"
         android:inputType="numberSigned" />
 
-    <ToggleButton
-        android:id="@+id/list_view_join_theta_inverse"
-        style="@style/pictureListViewToggleButtonInverseJoin"
+    <EditText
+        android:id="@+id/list_view_join_theta_inverse_value"
+        style="@style/pictureListViewEditTextForward"
         android:inputType="numberSigned" />
 
-    <ToggleButton
-        android:id="@+id/list_view_join_d_inverse"
-        style="@style/pictureListViewToggleButtonInverseJoin"
+    <EditText
+        android:id="@+id/list_view_join_d_inverse_value"
+        style="@style/pictureListViewEditTextForward"
         android:inputType="numberSigned"
         tools:ignore="LabelFor" />
 </LinearLayout>

@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.adapters.AdapterForward;
+import com.example.damian.kinematicscalculatorvs3.adapters.AdapterForwardValue;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueParent;
 import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesKinematicsForwardValue;
 
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class FragmentListForwardValue extends FragmentParent {
 
-    private AdapterForward adapterForward;
+    private AdapterForwardValue adapterForwardValue;
     private ArrayList<ModelKinematicsForwardValueParent> modelKinematicsForwardValueParents = new ArrayList<>();
 
     public FragmentListForwardValue(){
@@ -28,9 +28,9 @@ public class FragmentListForwardValue extends FragmentParent {
 
         modelKinematicsForwardValueParents = StaticVolumesKinematicsForwardValue.getModels();
 
-        adapterForward = new AdapterForward(getContext(), modelKinematicsForwardValueParents);
+        adapterForwardValue = new AdapterForwardValue(getContext(), modelKinematicsForwardValueParents);
         ListView listView = (ListView) view.findViewById(R.id.list_view_join);
-        listView.setAdapter(adapterForward);
+        listView.setAdapter(adapterForwardValue);
 
     }
 
@@ -38,7 +38,7 @@ public class FragmentListForwardValue extends FragmentParent {
 
         StaticVolumesKinematicsForwardValue.addObjects(typeObject);
 
-        adapterForward.notifyDataSetInvalidated();
+        adapterForwardValue.notifyDataSetInvalidated();
     }
 
     public boolean undoObject() {
@@ -47,7 +47,7 @@ public class FragmentListForwardValue extends FragmentParent {
             return false;
         } else {
             modelKinematicsForwardValueParents.remove(modelKinematicsForwardValueParents.size() - 1);
-            adapterForward.notifyDataSetInvalidated();
+            adapterForwardValue.notifyDataSetInvalidated();
             return true;
         }
     }

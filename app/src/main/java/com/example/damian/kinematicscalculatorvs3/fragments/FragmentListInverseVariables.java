@@ -4,12 +4,10 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.adapters.AdapterForward;
 import com.example.damian.kinematicscalculatorvs3.adapters.AdapterInverseVariables;
-import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueParent;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsInverseVariablwsParent;
 import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesInverseVariables;
-import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesKinematicsForwardValue;
+import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesKinematicsInverseValue;
 
 import java.util.ArrayList;
 
@@ -40,6 +38,7 @@ public class FragmentListInverseVariables extends FragmentParent {
     public void addObjectJoin(int typeObject) {
 
         StaticVolumesInverseVariables.addObjects(typeObject);
+        StaticVolumesKinematicsInverseValue.addObjects(typeObject);
 
         adapterInverseVariables.notifyDataSetInvalidated();
     }
@@ -50,6 +49,7 @@ public class FragmentListInverseVariables extends FragmentParent {
             return false;
         } else {
             modelKinematicsInverseVariablwsParents.remove(modelKinematicsInverseVariablwsParents.size() - 1);
+            StaticVolumesKinematicsInverseValue.removeEnd();
             adapterInverseVariables.notifyDataSetInvalidated();
             return true;
         }
