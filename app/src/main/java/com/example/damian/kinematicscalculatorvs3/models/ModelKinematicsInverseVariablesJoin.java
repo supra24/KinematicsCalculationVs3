@@ -6,6 +6,7 @@ package com.example.damian.kinematicscalculatorvs3.models;
 
 public class ModelKinematicsInverseVariablesJoin extends ModelKinematicsInverseVariablwsParent {
 
+    private static final int TYPE_OBJECT = 1;
     private int index;
     private int tv_lp;
     private boolean et_alpha;
@@ -21,7 +22,7 @@ public class ModelKinematicsInverseVariablesJoin extends ModelKinematicsInverseV
 
     @Override
     public int getTypeObject() {
-        return 1;
+        return TYPE_OBJECT;
     }
 
     @Override

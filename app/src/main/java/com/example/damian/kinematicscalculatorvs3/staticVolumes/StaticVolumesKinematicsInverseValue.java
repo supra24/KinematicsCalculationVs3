@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 public class StaticVolumesKinematicsInverseValue {
 
+    private static final int FIRST_TYPE_OBJECT = 1;
+    private static final int SECOND_TYPE_OBJECT = 2;
     private static ArrayList<ModelKinematicsInverseValueParent> modelKinematicsInverseValueParents = new ArrayList<>();
 
     public static ArrayList<ModelKinematicsInverseValueParent> getModels() {
@@ -27,16 +29,16 @@ public class StaticVolumesKinematicsInverseValue {
         ModelKinematicsInverseValueParent modelKinematicsInverseValueParent = null;
 
         if (modelKinematicsInverseValueParents.isEmpty()) {
-            if (typeObject == 1) {
+            if (typeObject == FIRST_TYPE_OBJECT) {
                 modelKinematicsInverseValueParent = new ModelKinematicsInverseValueJoin(0);
-            } else if (typeObject == 2) {
+            } else if (typeObject == SECOND_TYPE_OBJECT) {
                 modelKinematicsInverseValueParent = new ModelKinematicsInverseValueEffector(0);
             }
         } else {
-            if (typeObject == 1) {
-                modelKinematicsInverseValueParent = new ModelKinematicsInverseValueJoin(modelKinematicsInverseValueParents.get(modelKinematicsInverseValueParents.size() - 1).getObjectIndex() + 1);
-            } else if (typeObject == 2) {
-                modelKinematicsInverseValueParent = new ModelKinematicsInverseValueEffector(modelKinematicsInverseValueParents.get(modelKinematicsInverseValueParents.size() - 1).getObjectIndex() + 1);
+            if (typeObject == FIRST_TYPE_OBJECT) {
+                modelKinematicsInverseValueParent = new ModelKinematicsInverseValueJoin(modelKinematicsInverseValueParents.get(modelKinematicsInverseValueParents.size() - FIRST_TYPE_OBJECT).getObjectIndex() + FIRST_TYPE_OBJECT);
+            } else if (typeObject == SECOND_TYPE_OBJECT) {
+                modelKinematicsInverseValueParent = new ModelKinematicsInverseValueEffector(modelKinematicsInverseValueParents.get(modelKinematicsInverseValueParents.size() - FIRST_TYPE_OBJECT).getObjectIndex() + FIRST_TYPE_OBJECT);
             }
         }
 

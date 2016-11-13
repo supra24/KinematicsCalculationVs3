@@ -36,22 +36,4 @@ public class FragmentListInverseValue extends FragmentParent {
         listView.setAdapter(adapterForwardValue);
 
     }
-
-//    public void addObjectJoin(int typeObject) {
-//
-//        StaticVolumesKinematicsForwardValue.addObjects(typeObject);
-//
-//        adapterForwardValue.notifyDataSetInvalidated();
-//    }
-
-//    public boolean undoObject() {
-//
-//        if (modelKinematicsForwardValueParents.isEmpty()) {
-//            return false;
-//        } else {
-//            modelKinematicsForwardValueParents.remove(modelKinematicsForwardValueParents.size() - 1);
-//            adapterForwardValue.notifyDataSetInvalidated();
-//            return true;
-//        }
-//    }
 }

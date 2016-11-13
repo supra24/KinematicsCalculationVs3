@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.damian.kinematicscalculatorvs3.R;
 import com.example.damian.kinematicscalculatorvs3.calculations.CalculationKinematicsForward;
+import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueEffector;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueJoin;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueParent;
 import com.example.damian.kinematicscalculatorvs3.openGL.AbstractRenderer;
@@ -26,7 +27,15 @@ import java.util.ArrayList;
  * Created by Damian on 2016-10-15.
  */
 
+
 public class KinematicsForwardDraw extends AppCompatActivity {
+
+    private static final int AMOUNT_VARIABLES = 4;
+    private static final int SCALE_TEXT = 5;
+    private static final int ONE_TOUCH_POINTER = 1;
+    private static final int TWO_TOUCH_POINTER = 2;
+    private static final int AMOUNT_COORDINATES = 4;
+
 
     private GLSurfaceView mTestHarness;
     private VelocityTracker vTracker = null;  // VelocityTracer określa zachowanie sekwencji dotyku
@@ -35,6 +44,10 @@ public class KinematicsForwardDraw extends AppCompatActivity {
 
     private DrawerLayout drawer;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +56,10 @@ public class KinematicsForwardDraw extends AppCompatActivity {
 
         kinematicsForwardValueParents = StaticVolumesKinematicsForwardValue.getModels();
 
-        float[][] tableParameters = new float[kinematicsForwardValueParents.size()][4];
+        float[][] tableParameters = new float[kinematicsForwardValueParents.size()][AMOUNT_VARIABLES];
 
-        for (int i = 0; i < tableParameters.length; i++) {
+        // dodanie do tablcy wartosci z wybranych czlonow
+        for (int i = 0; i < tableParameters.length - 1; i++) {
 
             ModelKinematicsForwardValueJoin modelKinematicsForwardValueJoin = (ModelKinematicsForwardValueJoin) kinematicsForwardValueParents.get(i);
 
@@ -55,16 +69,25 @@ public class KinematicsForwardDraw extends AppCompatActivity {
             tableParameters[i][3] = modelKinematicsForwardValueJoin.getEt_d();
         }
 
-        CalculationKinematicsForward calculationKinematicsForward = new CalculationKinematicsForward(tableParameters);
+        // stworzenei nowej tablicy do wartosci effectora
+        float [] tableEffector = new float[AMOUNT_COORDINATES];
+        ModelKinematicsForwardValueEffector modelKinematicsForwardValueEffector = (ModelKinematicsForwardValueEffector) kinematicsForwardValueParents.get(kinematicsForwardValueParents.size()-1);
+        tableEffector[0] = modelKinematicsForwardValueEffector.getEt_x();
+        tableEffector[1] = modelKinematicsForwardValueEffector.getEt_y();
+        tableEffector[2] = modelKinematicsForwardValueEffector.getEt_z();
+        tableEffector[3] = 0;
+
+
+        CalculationKinematicsForward calculationKinematicsForward = new CalculationKinematicsForward(tableParameters, tableEffector);
         ArrayList<float[][]> coordinates = calculationKinematicsForward.getCoordinatesEndEffector();
 
         TextView textX = (TextView) findViewById(R.id.textX);
         TextView textY = (TextView) findViewById(R.id.textY);
         TextView textZ = (TextView) findViewById(R.id.textZ);
 
-        textX.setText(String.valueOf(new BigDecimal(coordinates.get(coordinates.size() - 1)[0][3]).setScale(5, BigDecimal.ROUND_HALF_EVEN).doubleValue()));
-        textY.setText(String.valueOf(new BigDecimal(coordinates.get(coordinates.size() - 1)[1][3]).setScale(5, BigDecimal.ROUND_HALF_EVEN).doubleValue()));
-        textZ.setText(String.valueOf(new BigDecimal(coordinates.get(coordinates.size() - 1)[2][3]).setScale(5, BigDecimal.ROUND_HALF_EVEN).doubleValue()));
+        textX.setText(String.valueOf(new BigDecimal(coordinates.get(coordinates.size() - 1)[0][3]).setScale(SCALE_TEXT, BigDecimal.ROUND_HALF_EVEN).doubleValue()));
+        textY.setText(String.valueOf(new BigDecimal(coordinates.get(coordinates.size() - 1)[1][3]).setScale(SCALE_TEXT, BigDecimal.ROUND_HALF_EVEN).doubleValue()));
+        textZ.setText(String.valueOf(new BigDecimal(coordinates.get(coordinates.size() - 1)[2][3]).setScale(SCALE_TEXT, BigDecimal.ROUND_HALF_EVEN).doubleValue()));
 
         // openGlES
         mTestHarness = (GLSurfaceView) findViewById(R.id.GLView);
@@ -82,6 +105,7 @@ public class KinematicsForwardDraw extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -93,6 +117,7 @@ public class KinematicsForwardDraw extends AppCompatActivity {
         super.onPause();
         mTestHarness.onPause();
     }
+
 
     @Override
     public void onBackPressed() {
@@ -106,7 +131,7 @@ public class KinematicsForwardDraw extends AppCompatActivity {
 
         int action = event.getAction() & MotionEvent.ACTION_MASK;
 
-        if (event.getPointerCount() == 1) {
+        if (event.getPointerCount() == ONE_TOUCH_POINTER) {
             switch (action) {
                 case MotionEvent.ACTION_DOWN:
                     if (vTracker == null) {
@@ -126,7 +151,7 @@ public class KinematicsForwardDraw extends AppCompatActivity {
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_CANCEL:
             }
-        } else if (event.getPointerCount() == 2) {
+        } else if (event.getPointerCount() == TWO_TOUCH_POINTER) {
             switch (action) {
                 case MotionEvent.ACTION_POINTER_DOWN: // przygotowanie do gestu ściskania/rozciągania
                     startingDistance = distanceBetweenTwoFingers(event); // zapamiętania początkowej odległości mięszy palcami
@@ -144,6 +169,11 @@ public class KinematicsForwardDraw extends AppCompatActivity {
         return true;
     }
 
+    /**
+     *
+     * @param e
+     * @return
+     */
     private float distanceBetweenTwoFingers(MotionEvent e) {
 
         float x = e.getX(0) - e.getX(1);

@@ -19,6 +19,7 @@ import butterknife.OnClick;
 
 public class KinematicsInverseValue extends AppCompatActivity {
 
+    private static final int RETURN_BACK_STACK = 0;
     private boolean doubleBackToExitPressedOnce = false;
     private static int CLOSE_APP_ON_BACK = 2000;
 
@@ -32,7 +33,7 @@ public class KinematicsInverseValue extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+        if (getSupportFragmentManager().getBackStackEntryCount() > RETURN_BACK_STACK) {
             getSupportFragmentManager().popBackStack();
         } else if (!doubleBackToExitPressedOnce) {
             this.doubleBackToExitPressedOnce = true;

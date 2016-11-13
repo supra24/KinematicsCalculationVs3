@@ -6,6 +6,7 @@ package com.example.damian.kinematicscalculatorvs3.models;
 
 public class ModelKinematicsForwardValueEffector extends ModelKinematicsForwardValueParent {
 
+    private static final int TYPE_OBJECT = 2;
     private int index;
     private int et_x;
     private int et_y;
@@ -17,7 +18,7 @@ public class ModelKinematicsForwardValueEffector extends ModelKinematicsForwardV
 
     @Override
     public int getTypeObject() {
-        return 2;
+        return TYPE_OBJECT;
     }
 
     @Override

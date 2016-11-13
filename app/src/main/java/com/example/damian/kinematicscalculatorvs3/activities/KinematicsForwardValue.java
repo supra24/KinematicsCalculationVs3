@@ -24,11 +24,16 @@ import butterknife.OnClick;
  */
 public class KinematicsForwardValue extends AppCompatActivity {
 
+    private static final int RETURN_BACK_STACK = 0;
+    private static int CLOSE_APP_ON_BACK = 2000;
+    private static final int FIRST_TYPE_OBJECT = 1;
+    private static final int SECOND_TYPE_OBJECT = 2;
+
     @BindView(R.id.floating_action_button_forward_add)
     FloatingActionButton floatingActionButton;
 
     private boolean doubleBackToExitPressedOnce = false;
-    private static int CLOSE_APP_ON_BACK = 2000;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,10 +59,10 @@ public class KinematicsForwardValue extends AppCompatActivity {
             switch (item.getItemId()) {
 
                 case R.id.id_add_join:
-                    fragmentById.addObjectJoin(1);
+                    fragmentById.addObjectJoin(FIRST_TYPE_OBJECT);
                     break;
                 case R.id.id_add_effector:
-                    fragmentById.addObjectJoin(2);
+                    fragmentById.addObjectJoin(SECOND_TYPE_OBJECT);
                     break;
                 case R.id.id_undo:
                     fragmentById.undoObject();
@@ -78,7 +83,7 @@ public class KinematicsForwardValue extends AppCompatActivity {
 
         if (!fragmentById.undoObject()) {
 
-            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            if (getSupportFragmentManager().getBackStackEntryCount() > RETURN_BACK_STACK) {
                 getSupportFragmentManager().popBackStack();
             } else if (!doubleBackToExitPressedOnce) {
                 this.doubleBackToExitPressedOnce = true;

@@ -10,11 +10,14 @@ import java.util.ArrayList;
 public class CalculationKinematicsForward {
 
     private float[][] tableParameters;
+    private float [] tableEffector;
+
     //    private float[] coordinatesEndEffector;
     private ArrayList<float[][]> Aa = new ArrayList<>();
 
-    public CalculationKinematicsForward(float[][] tableParameters) {
+    public CalculationKinematicsForward(float[][] tableParameters, float [] tableEffector) {
         this.tableParameters = tableParameters;
+        this.tableEffector = tableEffector;
         Calculation();
     }
 
@@ -66,9 +69,14 @@ public class CalculationKinematicsForward {
             Log.v("coo Z= ", String.valueOf(Aa.get(Aa.size() - 1)[2][3]));
         }
 
-//        coordinatesEndEffector = new float[]{
-//                A[0][3], A[1][3], A[2][3]
-//        };
+        float [][] effecotr = {
+                {1,0,0,tableEffector[0]},
+                {0,1,0,tableEffector[1]},
+                {0,0,1,tableEffector[2]},
+                {0,0,0,1}
+        };
+
+        Aa.add(SingeltonMatrixKinematicsForward.Multiplication(Aa.get(Aa.size()-1), effecotr));
     }
 
     public ArrayList<float[][]> getCoordinatesEndEffector() {

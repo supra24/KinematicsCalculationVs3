@@ -24,6 +24,10 @@ import butterknife.OnClick;
  */
 public class KinematicsInverseVariablesConstant extends AppCompatActivity {
 
+    private static final int RETURN_BACK_STACK = 0;
+    private static final int FIRST_TYPE_OBJECT = 1;
+    private static final int SECOND_TYPE_OBJECT = 2;
+
     @BindView(R.id.floating_action_button_inverse_add)
     FloatingActionButton floatingActionButton;
 
@@ -54,10 +58,10 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity {
             switch (item.getItemId()) {
 
                 case R.id.id_add_join:
-                    fragmentListInverseVariables.addObjectJoin(1);
+                    fragmentListInverseVariables.addObjectJoin(FIRST_TYPE_OBJECT);
                     break;
                 case R.id.id_add_effector:
-                    fragmentListInverseVariables.addObjectJoin(2);
+                    fragmentListInverseVariables.addObjectJoin(SECOND_TYPE_OBJECT);
                     break;
                 case R.id.id_undo:
                     fragmentListInverseVariables.undoObject();
@@ -78,7 +82,7 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity {
 
         if (!fragmentListInverseVariables.undoObject()) {
 
-            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            if (getSupportFragmentManager().getBackStackEntryCount() > RETURN_BACK_STACK) {
                 getSupportFragmentManager().popBackStack();
             } else if (!doubleBackToExitPressedOnce) {
                 this.doubleBackToExitPressedOnce = true;

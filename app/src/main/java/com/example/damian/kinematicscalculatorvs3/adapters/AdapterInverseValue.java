@@ -29,12 +29,16 @@ import java.util.ArrayList;
 
 public class AdapterInverseValue extends ArrayAdapter<ModelKinematicsInverseValueParent> {
 
+    private static final int LAYOUT_RESOURCE = 0;
+    private static final int TYPE_COUNT = 1;
+
+
     private Context context;
     private ArrayList<ModelKinematicsInverseValueParent> modelKinematicsInverseValueParents;
     private LayoutInflater inflater;
 
     public AdapterInverseValue(Context context, ArrayList<ModelKinematicsInverseValueParent> modelKinematicsInverseValueParents) {
-        super(context, 0, modelKinematicsInverseValueParents);
+        super(context, LAYOUT_RESOURCE, modelKinematicsInverseValueParents);
 
         this.context = context;
         this.modelKinematicsInverseValueParents = modelKinematicsInverseValueParents;
@@ -61,7 +65,7 @@ public class AdapterInverseValue extends ArrayAdapter<ModelKinematicsInverseValu
 
     @Override
     public int getViewTypeCount() {
-        return 1;
+        return TYPE_COUNT;
     }
 
     public class ListViewHolder {

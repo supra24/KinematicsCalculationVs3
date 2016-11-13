@@ -14,6 +14,8 @@ import com.example.damian.kinematicscalculatorvs3.R;
 
 public class StartActivity extends AppCompatActivity{
 
+    private static final int DELAY_MILLIS = 2000;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,6 @@ public class StartActivity extends AppCompatActivity{
                 StartActivity.this.startActivity(activityMenu);
                 StartActivity.this.finish();
             }
-        }, 2000);
+        }, DELAY_MILLIS);
     }
 }
