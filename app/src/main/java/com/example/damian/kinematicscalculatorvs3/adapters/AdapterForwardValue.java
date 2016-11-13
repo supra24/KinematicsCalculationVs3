@@ -28,7 +28,6 @@ public class AdapterForwardValue extends ArrayAdapter<ModelKinematicsForwardValu
     private static final int TYPE_COUNT = 1;
     private static final int LAYOUT_RESOURCE = 0;
 
-
     private Context context;
     private ArrayList<ModelKinematicsForwardValueParent> modelKinematicsForwardValueParents;
     private LayoutInflater inflater;
