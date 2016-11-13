@@ -124,15 +124,19 @@ public class AdapterForwardValue extends ArrayAdapter<ModelKinematicsForwardValu
                     @Override
                     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
-                        ModelKinematicsForwardValueJoin model = new ModelKinematicsForwardValueJoin(position);
-                        model.setTv_lp(modelKinematicsForwardValueJoin.getTv_lp());
-                        model.setEt_alpha(Float.parseFloat(listViewHolder.editalpha.getText().toString()));
-                        model.setEt_a(Float.parseFloat(listViewHolder.edita.getText().toString()));
-                        model.setEt_theta(Float.parseFloat(listViewHolder.edittheta.getText().toString()));
-                        model.setEt_d(Float.parseFloat(listViewHolder.editd.getText().toString()));
+                        try {
+                            ModelKinematicsForwardValueJoin model = new ModelKinematicsForwardValueJoin(position);
+                            model.setTv_lp(modelKinematicsForwardValueJoin.getTv_lp());
+                            model.setEt_alpha(Float.parseFloat(listViewHolder.editalpha.getText().toString()));
+                            model.setEt_a(Float.parseFloat(listViewHolder.edita.getText().toString()));
+                            model.setEt_theta(Float.parseFloat(listViewHolder.edittheta.getText().toString()));
+                            model.setEt_d(Float.parseFloat(listViewHolder.editd.getText().toString()));
 
-                        StaticVolumesKinematicsForwardValue.setOneModel(model);
-                        return false;
+                            StaticVolumesKinematicsForwardValue.setOneModel(model);
+                            return false;
+                        } catch (Exception e) {
+                            return true;
+                        }
                     }
                 };
 

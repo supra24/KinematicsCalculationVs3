@@ -28,7 +28,6 @@ public class KinematicsForwardValue extends AppCompatActivity {
     private static int CLOSE_APP_ON_BACK = 2000;
     private static final int FIRST_TYPE_OBJECT = 1;
 
-    private boolean CAN_YOU_TURN = false;
     private static final int SECOND_TYPE_OBJECT = 2;
 
     @BindView(R.id.floating_action_button_forward_add)
