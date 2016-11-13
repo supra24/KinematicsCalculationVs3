@@ -27,13 +27,17 @@ public class KinematicsForwardValue extends AppCompatActivity {
     private static final int RETURN_BACK_STACK = 0;
     private static int CLOSE_APP_ON_BACK = 2000;
     private static final int FIRST_TYPE_OBJECT = 1;
+
+    private boolean CAN_YOU_TURN = false;
     private static final int SECOND_TYPE_OBJECT = 2;
 
     @BindView(R.id.floating_action_button_forward_add)
-    FloatingActionButton floatingActionButton;
+    FloatingActionButton floatingActionButtonAdd;
+
+    @BindView(R.id.floating_action_button_forward_play)
+    FloatingActionButton floatingActionButtonPlay;
 
     private boolean doubleBackToExitPressedOnce = false;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,12 +65,18 @@ public class KinematicsForwardValue extends AppCompatActivity {
                 case R.id.id_add_join:
                     fragmentById.addObjectJoin(FIRST_TYPE_OBJECT);
                     break;
-                case R.id.id_add_effector:
+                case R.id.id_add_effector: {
                     fragmentById.addObjectJoin(SECOND_TYPE_OBJECT);
-                    break;
-                case R.id.id_undo:
+                    floatingActionButtonAdd.setVisibility(View.INVISIBLE);
+                    floatingActionButtonPlay.setVisibility(View.VISIBLE);
+                }
+                break;
+                case R.id.id_undo: {
                     fragmentById.undoObject();
-                    break;
+                    floatingActionButtonAdd.setVisibility(View.VISIBLE);
+                    floatingActionButtonPlay.setVisibility(View.INVISIBLE);
+                }
+                break;
                 default:
                     return true;
             }
@@ -99,14 +109,17 @@ public class KinematicsForwardValue extends AppCompatActivity {
             } else {
                 super.onBackPressed();
             }
+        } else {
+            floatingActionButtonAdd.setVisibility(View.VISIBLE);
+            floatingActionButtonPlay.setVisibility(View.INVISIBLE);
         }
     }
 
     @OnClick(R.id.floating_action_button_forward_add)
     public void OnClickFloatingActionButtonAdd() {
 
-        registerForContextMenu(floatingActionButton);
-        openContextMenu(floatingActionButton);
+        registerForContextMenu(floatingActionButtonAdd);
+        openContextMenu(floatingActionButtonAdd);
     }
 
     @OnClick(R.id.floating_action_button_forward_play)

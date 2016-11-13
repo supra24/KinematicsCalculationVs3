@@ -1,5 +1,6 @@
 package com.example.damian.kinematicscalculatorvs3.fragments;
 
+import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.ListView;
 
@@ -9,6 +10,8 @@ import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardV
 import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesKinematicsForwardValue;
 
 import java.util.ArrayList;
+
+import butterknife.BindView;
 
 /**
  * Created by Damian on 2016-11-11.
