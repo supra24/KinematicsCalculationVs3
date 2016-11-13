@@ -130,10 +130,10 @@ public class AdapterInverseValue extends ArrayAdapter<ModelKinematicsInverseValu
 
                         ModelKinematicsInverseValueJoin model = new ModelKinematicsInverseValueJoin(position);
                         model.setTv_lp(modelKinematicsInverseValueJoin.getTv_lp());
-                        model.setEt_alpha(Integer.parseInt(listViewHolder.editalpha.getText().toString()));
-                        model.setEt_a(Integer.parseInt(listViewHolder.edita.getText().toString()));
-                        model.setEt_theta(Integer.parseInt(listViewHolder.edittheta.getText().toString()));
-                        model.setEt_d(Integer.parseInt(listViewHolder.editd.getText().toString()));
+                        model.setEt_alpha(Float.parseFloat(listViewHolder.editalpha.getText().toString()));
+                        model.setEt_a(Float.parseFloat(listViewHolder.edita.getText().toString()));
+                        model.setEt_theta(Float.parseFloat(listViewHolder.edittheta.getText().toString()));
+                        model.setEt_d(Float.parseFloat(listViewHolder.editd.getText().toString()));
 
                         StaticVolumesKinematicsInverseValue.setOneModel(model);
                         return false;
@@ -164,9 +164,9 @@ public class AdapterInverseValue extends ArrayAdapter<ModelKinematicsInverseValu
                     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
                         ModelKinematicsInverseValueEffector model = new ModelKinematicsInverseValueEffector(position);
-                        model.setEt_x(Integer.parseInt(listViewHolder.editX.getText().toString()));
-                        model.setEt_y(Integer.parseInt(listViewHolder.editY.getText().toString()));
-                        model.setEt_z(Integer.parseInt(listViewHolder.editZ.getText().toString()));
+                        model.setEt_x(Float.parseFloat(listViewHolder.editX.getText().toString()));
+                        model.setEt_y(Float.parseFloat(listViewHolder.editY.getText().toString()));
+                        model.setEt_z(Float.parseFloat(listViewHolder.editZ.getText().toString()));
 
                         StaticVolumesKinematicsInverseValue.setOneModel(model);
                         return false;

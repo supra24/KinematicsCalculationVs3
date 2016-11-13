@@ -9,10 +9,10 @@ public class ModelKinematicsForwardValueJoin extends ModelKinematicsForwardValue
     private static final int TYPE_OBJECT = 1;
     private int index;
     private int tv_lp;
-    private int et_alpha;
-    private int et_a;
-    private int et_theta;
-    private int et_d;
+    private float et_alpha;
+    private float et_a;
+    private float et_theta;
+    private float et_d;
 
     public ModelKinematicsForwardValueJoin(int index) {
 
@@ -34,19 +34,19 @@ public class ModelKinematicsForwardValueJoin extends ModelKinematicsForwardValue
         this.tv_lp = tv_lp;
     }
 
-    public void setEt_alpha(int et_alpha) {
+    public void setEt_alpha(float et_alpha) {
         this.et_alpha = et_alpha;
     }
 
-    public void setEt_a(int et_a) {
+    public void setEt_a(float et_a) {
         this.et_a = et_a;
     }
 
-    public void setEt_theta(int et_theta) {
+    public void setEt_theta(float et_theta) {
         this.et_theta = et_theta;
     }
 
-    public void setEt_d(int et_d) {
+    public void setEt_d(float et_d) {
         this.et_d = et_d;
     }
 
@@ -56,19 +56,19 @@ public class ModelKinematicsForwardValueJoin extends ModelKinematicsForwardValue
         return tv_lp;
     }
 
-    public int getEt_alpha() {
+    public float getEt_alpha() {
         return et_alpha;
     }
 
-    public int getEt_a() {
+    public float getEt_a() {
         return et_a;
     }
 
-    public int getEt_theta() {
+    public float getEt_theta() {
         return et_theta;
     }
 
-    public int getEt_d() {
+    public float getEt_d() {
         return et_d;
     }
 

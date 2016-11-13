@@ -8,9 +8,9 @@ public class ModelKinematicsInverseValueEffector extends ModelKinematicsInverseV
 
     private static final int TYPE_OBJECT = 2;
     private int index;
-    private int et_x;
-    private int et_y;
-    private int et_z;
+    private float et_x;
+    private float et_y;
+    private float et_z;
 
     public ModelKinematicsInverseValueEffector(int index) {
         this.index = index;
@@ -26,27 +26,27 @@ public class ModelKinematicsInverseValueEffector extends ModelKinematicsInverseV
         return index;
     }
 
-    public int getEt_x() {
+    public float getEt_x() {
         return et_x;
     }
 
-    public void setEt_x(int et_x) {
+    public void setEt_x(float et_x) {
         this.et_x = et_x;
     }
 
-    public int getEt_y() {
+    public float getEt_y() {
         return et_y;
     }
 
-    public void setEt_y(int et_y) {
+    public void setEt_y(float et_y) {
         this.et_y = et_y;
     }
 
-    public int getEt_z() {
+    public float getEt_z() {
         return et_z;
     }
 
-    public void setEt_z(int et_z) {
+    public void setEt_z(float et_z) {
         this.et_z = et_z;
     }
 }

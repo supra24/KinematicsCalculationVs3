@@ -37,7 +37,7 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:imeOptions">actionDone</item>
         <item name="android:ems">5</item>
-
+        <item name="android:inputType">numberDecimal</item>
     </style>
 
     <style name="pictureListViewTextViewInverse">
@@ -70,6 +70,7 @@
         <item name="android:layout_width">50dp</item>
         <item name="android:layout_height">70dp</item>
         <item name="android:textSize">40dp</item>
+        <item name="android:inputType">numberDecimal</item>
     </style>
 
     <style name="coordinatesTextView">

@@ -53,6 +53,7 @@ public class RenderManipulator extends AbstractRenderer {
 
         for (int i = 0; i < object.size(); i++) {
             object.get(i).draw(gl);
+//            object.get(i).
         }
     }
 }
