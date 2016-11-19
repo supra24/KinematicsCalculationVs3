@@ -45,7 +45,6 @@ public class KinematicsForwardDraw extends AppCompatActivity {
     private DrawerLayout drawer;
 
     /**
-     *
      * @param savedInstanceState
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -70,8 +69,8 @@ public class KinematicsForwardDraw extends AppCompatActivity {
         }
 
         // stworzenei nowej tablicy do wartosci effectora
-        float [] tableEffector = new float[AMOUNT_COORDINATES];
-        ModelKinematicsForwardValueEffector modelKinematicsForwardValueEffector = (ModelKinematicsForwardValueEffector) kinematicsForwardValueParents.get(kinematicsForwardValueParents.size()-1);
+        float[] tableEffector = new float[AMOUNT_COORDINATES];
+        ModelKinematicsForwardValueEffector modelKinematicsForwardValueEffector = (ModelKinematicsForwardValueEffector) kinematicsForwardValueParents.get(kinematicsForwardValueParents.size() - 1);
         tableEffector[0] = modelKinematicsForwardValueEffector.getEt_x();
         tableEffector[1] = modelKinematicsForwardValueEffector.getEt_y();
         tableEffector[2] = modelKinematicsForwardValueEffector.getEt_z();
@@ -126,8 +125,8 @@ public class KinematicsForwardDraw extends AppCompatActivity {
 
     public boolean onTouchEventGLSurfaceView(MotionEvent event) {
 
-        float x = event.getX();
-        float y = event.getY();
+//        float x = event.getX();
+//        float y = event.getY();
 
         int action = event.getAction() & MotionEvent.ACTION_MASK;
 
@@ -142,27 +141,64 @@ public class KinematicsForwardDraw extends AppCompatActivity {
                     vTracker.addMovement(event);
                     break;
                 case MotionEvent.ACTION_MOVE:
-
                     vTracker.addMovement(event);
                     vTracker.computeCurrentVelocity(1000);
-
                     AbstractRenderer.setRotate(vTracker.getXVelocity(), vTracker.getYVelocity());
                     break;
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_CANCEL:
             }
         } else if (event.getPointerCount() == TWO_TOUCH_POINTER) {
+
+//            switch (action) {
+//                case MotionEvent.ACTION_POINTER_DOWN: // przygotowanie do gestu ściskania/rozciągania
+//                    startingDistance = distanceBetweenTwoFingers(event); // zapamiętania początkowej odległości mięszy palcami
+//                    break;
+//                case MotionEvent.ACTION_POINTER_UP:
+//                case MotionEvent.ACTION_MOVE:
+//                    float newDistance = distanceBetweenTwoFingers(event);
+//                    if (newDistance != startingDistance) { // palce się oddalają
+//
+//                        AbstractRenderer.setRadiusDistance(newDistance - startingDistance);
+//                    }
+//                    break;
+//            }
+
+
             switch (action) {
                 case MotionEvent.ACTION_POINTER_DOWN: // przygotowanie do gestu ściskania/rozciągania
                     startingDistance = distanceBetweenTwoFingers(event); // zapamiętania początkowej odległości mięszy palcami
+
+                    if (vTracker == null) {
+                        vTracker = VelocityTracker.obtain();
+                    } else {
+                        vTracker.clear();
+                    }
+                    vTracker.addMovement(event);
+
                     break;
                 case MotionEvent.ACTION_POINTER_UP:
                 case MotionEvent.ACTION_MOVE:
+
+                    vTracker.addMovement(event);
+                    vTracker.computeCurrentVelocity(1000);
+
+//                    if ((vTracker.getXVelocity(0) < 5 && vTracker.getYVelocity(0) < 5) || (vTracker.getXVelocity(1) < 5 && vTracker.getYVelocity(1) < 5)) {
+//
+//                        if (vTracker.getXVelocity(0) < 5 && vTracker.getYVelocity(0) < 5) {
+//                            AbstractRenderer.setShiftOneSide(vTracker.getXVelocity(1), vTracker.getYVelocity(1));
+//                        } else if (vTracker.getXVelocity(1) < 5 && vTracker.getYVelocity(1) < 5) {
+//                            AbstractRenderer.setShiftOneSide(vTracker.getXVelocity(0), vTracker.getYVelocity(0));
+//                        }
+//
+//                    } else {
+
                     float newDistance = distanceBetweenTwoFingers(event);
                     if (newDistance != startingDistance) { // palce się oddalają
 
                         AbstractRenderer.setRadiusDistance(newDistance - startingDistance);
                     }
+//                    }
                     break;
             }
         }
@@ -170,7 +206,6 @@ public class KinematicsForwardDraw extends AppCompatActivity {
     }
 
     /**
-     *
      * @param e
      * @return
      */

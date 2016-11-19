@@ -23,6 +23,8 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
     // zmienne do ustawienia kamery:
     private static float alpha = -90;   // 0-PI
     private static float theta = 0;   // 0-2PI
+    private static float transX = 0;
+    private static float transY = 0;
     private static float radius = (float) 9;
     private static float EYE_X = 0;
     private static float EYE_Y = 0;
@@ -90,6 +92,8 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
 
         gl.glRotatef(alpha, 1.0f, 0, 0);
         gl.glRotatef(theta, 0, 0, 1.0f);
+//        gl.glTranslatef(transX, 0, 0);
+//        gl.glTranslatef(0, transY, 0);
         draw(gl);
     }
 
@@ -113,5 +117,20 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
             EYE_Z = 120;
         if (EYE_Z < 7)
             EYE_Z = 7;
+    }
+
+    public static void setShiftOneSide(float speedX, float speedY) {
+
+//        CENTER_X = CENTER_X + speedX / 700;
+//        CENTER_Y = CENTER_Y + speedY / 700;
+
+
+//        transX = transX + speedX / 500;
+//        transY = transY + speedY / 500;
+
+//        if (EYE_X > 120)
+//            EYE_X = 120;
+//        if (EYE_X < 7)
+//            EYE_X = 7;
     }
 }
