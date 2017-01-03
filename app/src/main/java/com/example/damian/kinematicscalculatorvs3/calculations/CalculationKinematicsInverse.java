@@ -1,6 +1,7 @@
 package com.example.damian.kinematicscalculatorvs3.calculations;
 
 import android.util.Log;
+
 import org.apache.commons.math3.ode.JacobianMatrices;
 
 import java.util.ArrayList;
@@ -10,51 +11,61 @@ import java.util.ArrayList;
  */
 public class CalculationKinematicsInverse {
 
-    private String[][] tableParameters;
-    private String[] coordinatesEndEffector;
+    private float[][] tableParameters;
+    private float[] coordinatesEndEffector;
+    private float amountA = 0, amountB = 0, amountC = 0;
+    private float angleBetweenBaseEnd, theta = 0, alpha_a = 0, alpha_b = 0;
 
-    public CalculationKinematicsInverse(String[][] tableParameters) {
+    public CalculationKinematicsInverse(float[][] tableParameters, float[] coordinatesEndEffector) {
         this.tableParameters = tableParameters;
+        this.coordinatesEndEffector = coordinatesEndEffector;
         Calculation();
     }
 
     public void Calculation() {
+        int size = tableParameters.length;
 
-        String[][] A = {
-                {"1", "0", "0", "0"},
-                {"0", "1", "0", "0"},
-                {"0", "0", "1", "0"},
-                {"0", "0", "0", "1"}
-        };
+        if (size > 1) {
 
-        for (int i = 0; i < tableParameters.length; i++) {
+            for (int i = 1; i < size / 2; i++) {
+                amountA += tableParameters[i][1];
+            }
 
-            String[][] RotZ = SingeltonMatrixKinematicsInverse.DHRotZ(tableParameters[i][2]);
-            String[][] TransZ = SingeltonMatrixKinematicsInverse.DHTransZ(tableParameters[i][3]);
-            String[][] TransX = SingeltonMatrixKinematicsInverse.DHTransX(tableParameters[i][1]);
-            String[][] RotX = SingeltonMatrixKinematicsInverse.DHRotX(tableParameters[i][0]);
+            for (int i = size / 2; i < size - 1; i++) {
+                amountB += tableParameters[i][1];
+            }
+            amountC = (float) Math.sqrt((coordinatesEndEffector[0] * coordinatesEndEffector[0]) + (coordinatesEndEffector[1] * coordinatesEndEffector[1]) + ((coordinatesEndEffector[2] - tableParameters[0][3]) * (coordinatesEndEffector[2] - tableParameters[0][3])));
 
-            String[][] RotZxTransZ = SingeltonMatrixKinematicsInverse.Multiplication(RotZ, TransZ);
-            String[][] xTransX = SingeltonMatrixKinematicsInverse.Multiplication(RotZxTransZ, TransX);
-            String[][] xRotX = SingeltonMatrixKinematicsInverse.Multiplication(xTransX, RotX);
+            if (amountC <= Math.abs(amountA + amountB)) {
 
-            A = SingeltonMatrixKinematicsInverse.Multiplication(A, xRotX);
+                float vectorAO[] = {
+                        100,
+                        0,
+                        0
+                };
+                float vectorAB[] = {
+                        coordinatesEndEffector[0],
+                        coordinatesEndEffector[1],
+                        coordinatesEndEffector[2] - tableParameters[0][3]
+                };
 
-            Log.v("X = ", A[0][3]);
-            Log.v("Y = ", A[1][3]);
-            Log.v("Z = ", A[2][3]);
+                float multiplicationScalar = vectorAO[0] * vectorAB[0];
+                float lengthAO = (float) Math.sqrt(vectorAO[0] * vectorAO[0]);
+                float lengthAB =(float) Math.sqrt(vectorAB[0] * vectorAB[0] + vectorAB[1] * vectorAB[1] + vectorAB[2] * vectorAB[2]);
+
+                angleBetweenBaseEnd = (float) (Math.acos(multiplicationScalar / (lengthAO * lengthAB)) * 180 / Math.PI);
+                theta = (float) (Math.acos((amountA * amountA - amountB * amountB + amountC * amountC) / (2 * amountA * amountC)) * 180 / Math.PI);
+                alpha_a = angleBetweenBaseEnd - theta;
+                alpha_b = (float) (180 - Math.acos((amountA * amountA + amountB * amountB - amountC * amountC) / (2 * amountA * amountB)) * 180 / Math.PI);
+            }
         }
-
-        coordinatesEndEffector = new String[]{
-                A[0][3], A[1][3], A[2][3]
-        };
-
-        Log.v("X = ", coordinatesEndEffector[0]);
-        Log.v("Y = ", coordinatesEndEffector[1]);
-        Log.v("Z = ", coordinatesEndEffector[2]);
     }
 
-    public String[] getCoordinatesEndEffector() {
-        return coordinatesEndEffector;
+    public float getAlpha_a() {
+        return alpha_a;
+    }
+
+    public float getAlpha_b() {
+        return alpha_b;
     }
 }
