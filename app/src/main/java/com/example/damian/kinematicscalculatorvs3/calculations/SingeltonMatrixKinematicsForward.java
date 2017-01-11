@@ -5,6 +5,17 @@ package com.example.damian.kinematicscalculatorvs3.calculations;
  */
 public class SingeltonMatrixKinematicsForward {
 
+    private static SingeltonMatrixKinematicsForward instance;
+
+    public SingeltonMatrixKinematicsForward() {
+    }
+
+    public SingeltonMatrixKinematicsForward getInstance(){
+        if(instance==null)
+            instance = new SingeltonMatrixKinematicsForward();
+        return instance;
+    }
+
     public static float[][] DHRotZ(float angle) {
 
         float theta = (float) (Math.PI * angle / 180);

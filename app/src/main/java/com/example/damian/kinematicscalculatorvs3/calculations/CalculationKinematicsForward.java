@@ -12,8 +12,7 @@ public class CalculationKinematicsForward {
     private float[][] tableParameters;
     private float [] tableEffector;
 
-    //    private float[] coordinatesEndEffector;
-    private ArrayList<float[][]> Aa = new ArrayList<>();
+    private ArrayList<float[][]> matrixLinks = new ArrayList<>();
 
     public CalculationKinematicsForward(float[][] tableParameters, float [] tableEffector) {
         this.tableParameters = tableParameters;
@@ -23,16 +22,16 @@ public class CalculationKinematicsForward {
 
     public void Calculation() {
 
-        float[][] A = {
+        float[][] matrixHomogeneous = {
                 {1, 0, 0, 0},
                 {0, 1, 0, 0},
                 {0, 0, 1, 0},
                 {0, 0, 0, 1}
         };
 
-        float[][] B;
+        float[][] matrixFinal;
 
-        Aa.add(A);
+        matrixLinks.add(matrixHomogeneous);
 
         for (int i = 0; i < tableParameters.length; i++) {
 
@@ -45,12 +44,12 @@ public class CalculationKinematicsForward {
             float[][] xTransX = SingeltonMatrixKinematicsForward.Multiplication(RotZxTransZ, TransX);
             float[][] xRotX = SingeltonMatrixKinematicsForward.Multiplication(xTransX, RotX);
 
-            B = SingeltonMatrixKinematicsForward.Multiplication(A, xRotX);
-            Aa.add(B);
+            matrixFinal = SingeltonMatrixKinematicsForward.Multiplication(matrixHomogeneous, xRotX);
+            matrixLinks.add(matrixFinal);
 
-            Log.v("coo X= ", String.valueOf(Aa.get(Aa.size() - 1)[0][3]));
-            Log.v("coo Y= ", String.valueOf(Aa.get(Aa.size() - 1)[1][3]));
-            Log.v("coo Z= ", String.valueOf(Aa.get(Aa.size() - 1)[2][3]));
+            Log.v("coo X= ", String.valueOf(matrixLinks.get(matrixLinks.size() - 1)[0][3]));
+            Log.v("coo Y= ", String.valueOf(matrixLinks.get(matrixLinks.size() - 1)[1][3]));
+            Log.v("coo Z= ", String.valueOf(matrixLinks.get(matrixLinks.size() - 1)[2][3]));
 //---------------------------------------------------------------------------------------
 
             RotZ = SingeltonMatrixKinematicsForward.DHRotZ(tableParameters[i][2]);
@@ -62,11 +61,11 @@ public class CalculationKinematicsForward {
             xTransX = SingeltonMatrixKinematicsForward.Multiplication(RotZxTransZ, TransX);
             xRotX = SingeltonMatrixKinematicsForward.Multiplication(xTransX, RotX);
 
-            A = SingeltonMatrixKinematicsForward.Multiplication(A, xRotX);
-            Aa.add(A);
-            Log.v("coo X= ", String.valueOf(Aa.get(Aa.size() - 1)[0][3]));
-            Log.v("coo Y= ", String.valueOf(Aa.get(Aa.size() - 1)[1][3]));
-            Log.v("coo Z= ", String.valueOf(Aa.get(Aa.size() - 1)[2][3]));
+            matrixHomogeneous = SingeltonMatrixKinematicsForward.Multiplication(matrixHomogeneous, xRotX);
+            matrixLinks.add(matrixHomogeneous);
+            Log.v("coo X= ", String.valueOf(matrixLinks.get(matrixLinks.size() - 1)[0][3]));
+            Log.v("coo Y= ", String.valueOf(matrixLinks.get(matrixLinks.size() - 1)[1][3]));
+            Log.v("coo Z= ", String.valueOf(matrixLinks.get(matrixLinks.size() - 1)[2][3]));
         }
 
         float [][] effecotr = {
@@ -76,10 +75,10 @@ public class CalculationKinematicsForward {
                 {0,0,0,1}
         };
 
-        Aa.add(SingeltonMatrixKinematicsForward.Multiplication(Aa.get(Aa.size()-1), effecotr));
+        matrixLinks.add(SingeltonMatrixKinematicsForward.Multiplication(matrixLinks.get(matrixLinks.size()-1), effecotr));
     }
 
     public ArrayList<float[][]> getCoordinatesEndEffector() {
-        return Aa;
+        return matrixLinks;
     }
 }

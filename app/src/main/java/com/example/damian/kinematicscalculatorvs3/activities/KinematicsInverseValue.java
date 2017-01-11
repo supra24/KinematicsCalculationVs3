@@ -63,7 +63,7 @@ public class KinematicsInverseValue extends AppCompatActivity {
     }
 
     @OnClick(R.id.floating_action_button_inverse_play_value_play)
-    public void OnClickFloatingActionButtonPlayValuePlay(){
+    public void OnClickFloatingActionButtonPlayValuePlay() {
 
 
     }
@@ -71,42 +71,50 @@ public class KinematicsInverseValue extends AppCompatActivity {
     @OnClick(R.id.floating_action_button_inverse_play_value)
     public void OnClickFloatingActionButtonPlayInverse() {
 
-        final int AMOUNT_VARIABLES = 4;
-        final int AMOUNT_COORDINATES = 4;
+//        final int AMOUNT_VARIABLES = 4;
+//        final int AMOUNT_COORDINATES = 4;
+//
+//        ArrayList<ModelKinematicsInverseValueParent> modelKinematicsInverseValueParents = StaticVolumesKinematicsInverseValue.getModels();
+//
+//        float[][] tableParameters = new float[modelKinematicsInverseValueParents.size()][AMOUNT_VARIABLES];
+//
+//        // dodanie do tablcy wartosci z wybranych czlonow
+//        for (int i = 0; i < tableParameters.length - 1; i++) {
+//
+//            ModelKinematicsInverseValueJoin modelKinematicsInverseValueJoin = (ModelKinematicsInverseValueJoin) modelKinematicsInverseValueParents.get(i);
+//
+//            tableParameters[i][0] = modelKinematicsInverseValueJoin.getEt_alpha();
+//            tableParameters[i][1] = modelKinematicsInverseValueJoin.getEt_a();
+//            tableParameters[i][2] = modelKinematicsInverseValueJoin.getEt_theta();
+//            tableParameters[i][3] = modelKinematicsInverseValueJoin.getEt_d();
+//        }
+//
+//        // stworzenei nowej tablicy do wartosci effectora
+//        float[] tableEffector = new float[AMOUNT_COORDINATES];
+//        ModelKinematicsInverseValueEffector kinematicsInverseValueEffector = (ModelKinematicsInverseValueEffector) modelKinematicsInverseValueParents.get(modelKinematicsInverseValueParents.size() - 1);
+//        tableEffector[0] = kinematicsInverseValueEffector.getEt_x();
+//        tableEffector[1] = kinematicsInverseValueEffector.getEt_y();
+//        tableEffector[2] = kinematicsInverseValueEffector.getEt_z();
+//        tableEffector[3] = 0;
+//
+//        CalculationKinematicsInverse calculationKinematicsInverse = new CalculationKinematicsInverse(tableParameters, tableEffector);
+//
+//        ModelKinematicsInverseValueJoin modelKinematicsInverseValueJoin = (ModelKinematicsInverseValueJoin) modelKinematicsInverseValueParents.get(1);
+//        modelKinematicsInverseValueJoin.setEt_theta(90-calculationKinematicsInverse.getAlpha_a());
+//
+//        StaticVolumesKinematicsInverseValue.setOneModel(modelKinematicsInverseValueJoin);
+//
+//        modelKinematicsInverseValueJoin = (ModelKinematicsInverseValueJoin) modelKinematicsInverseValueParents.get(tableParameters.length/2);
+//        modelKinematicsInverseValueJoin.setEt_theta(calculationKinematicsInverse.getAlpha_b());
+//
+//        StaticVolumesKinematicsInverseValue.setOneModel(modelKinematicsInverseValueJoin);
 
-        ArrayList<ModelKinematicsInverseValueParent> modelKinematicsInverseValueParents = StaticVolumesKinematicsInverseValue.getModels();
+        String[][] tableParameter = {
+                {"0", "10", "a", "10"},
+                {"0", "10", "b", "10"},
+                {"0", "10", "c", "10"}
+        };
 
-        float[][] tableParameters = new float[modelKinematicsInverseValueParents.size()][AMOUNT_VARIABLES];
-
-        // dodanie do tablcy wartosci z wybranych czlonow
-        for (int i = 0; i < tableParameters.length - 1; i++) {
-
-            ModelKinematicsInverseValueJoin modelKinematicsInverseValueJoin = (ModelKinematicsInverseValueJoin) modelKinematicsInverseValueParents.get(i);
-
-            tableParameters[i][0] = modelKinematicsInverseValueJoin.getEt_alpha();
-            tableParameters[i][1] = modelKinematicsInverseValueJoin.getEt_a();
-            tableParameters[i][2] = modelKinematicsInverseValueJoin.getEt_theta();
-            tableParameters[i][3] = modelKinematicsInverseValueJoin.getEt_d();
-        }
-
-        // stworzenei nowej tablicy do wartosci effectora
-        float[] tableEffector = new float[AMOUNT_COORDINATES];
-        ModelKinematicsInverseValueEffector kinematicsInverseValueEffector = (ModelKinematicsInverseValueEffector) modelKinematicsInverseValueParents.get(modelKinematicsInverseValueParents.size() - 1);
-        tableEffector[0] = kinematicsInverseValueEffector.getEt_x();
-        tableEffector[1] = kinematicsInverseValueEffector.getEt_y();
-        tableEffector[2] = kinematicsInverseValueEffector.getEt_z();
-        tableEffector[3] = 0;
-
-        CalculationKinematicsInverse calculationKinematicsInverse = new CalculationKinematicsInverse(tableParameters, tableEffector);
-
-        ModelKinematicsInverseValueJoin modelKinematicsInverseValueJoin = (ModelKinematicsInverseValueJoin) modelKinematicsInverseValueParents.get(1);
-        modelKinematicsInverseValueJoin.setEt_theta(90-calculationKinematicsInverse.getAlpha_a());
-
-        StaticVolumesKinematicsInverseValue.setOneModel(modelKinematicsInverseValueJoin);
-
-        modelKinematicsInverseValueJoin = (ModelKinematicsInverseValueJoin) modelKinematicsInverseValueParents.get(tableParameters.length/2);
-        modelKinematicsInverseValueJoin.setEt_theta(calculationKinematicsInverse.getAlpha_b());
-
-        StaticVolumesKinematicsInverseValue.setOneModel(modelKinematicsInverseValueJoin);
+        CalculationKinematicsInverse calculationKinematicsInverse = new CalculationKinematicsInverse(tableParameter);
     }
 }

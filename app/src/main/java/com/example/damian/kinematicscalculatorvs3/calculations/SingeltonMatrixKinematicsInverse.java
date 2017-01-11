@@ -61,6 +61,7 @@ public class SingeltonMatrixKinematicsInverse {
 
     public static String[][] Multiplication(String[][] firstMatrix, String[][] secondMatrix) {
 
+
         String[][] resultMatrix = new String[firstMatrix.length][firstMatrix.length];
         for (int i = 0; i < resultMatrix.length; i++) {//ilosc wierszy tab1
             for (int j = 0; j < resultMatrix.length; j++) { //ilosc kolumn tab2
@@ -100,7 +101,11 @@ public class SingeltonMatrixKinematicsInverse {
 
         for (int i = 0; i < resultMatrix.length; i++) {//ilosc wierszy tab1
             for (int j = 0; j < resultMatrix.length; j++) { //ilosc kolumn tab2
-                resultMatrix[i][j] = "(" + resultMatrix[i][j] + ")";
+
+                if ((!firstMatrix[i][j].equals("0")) || (!secondMatrix[i][j].equals("0"))) {
+                    if (!(firstMatrix[i][j].equals(resultMatrix[i][j]) || secondMatrix[i][j].equals(resultMatrix[i][j])))
+                        resultMatrix[i][j] = "(" + resultMatrix[i][j] + ")";
+                }
             }
         }
 
