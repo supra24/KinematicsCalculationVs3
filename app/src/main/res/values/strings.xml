@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kinematics Calculator Vs4</string>
+    <string name="app_name">Kinematics Calculator</string>
 
     <string name="name_kinematics_forward">Forward Kinematics </string>
     <string name="name_kinematics_inverse">Inverse Kinematics</string>

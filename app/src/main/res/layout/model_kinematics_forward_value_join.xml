@@ -16,21 +16,21 @@
     <EditText
         android:id="@+id/list_view_join_alpha_forward"
         style="@style/pictureListViewEditTextForward"
-        android:inputType="numberDecimal" />
+        android:inputType="numberSigned" />
 
     <EditText
         android:id="@+id/list_view_join_a_forward"
         style="@style/pictureListViewEditTextForward"
-        android:inputType="numberDecimal" />
+        android:inputType="numberSigned" />
 
     <EditText
         android:id="@+id/list_view_join_theta_forward"
         style="@style/pictureListViewEditTextForward"
-        android:inputType="numberDecimal" />
+        android:inputType="numberSigned" />
 
     <EditText
         android:id="@+id/list_view_join_d_forward"
         style="@style/pictureListViewEditTextForward"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned"
         tools:ignore="LabelFor" />
 </LinearLayout>
