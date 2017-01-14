@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.damian.kinematicscalculatorvs3.R;
 import com.example.damian.kinematicscalculatorvs3.calculations.CalculationKinematicsInverse;
+import com.example.damian.kinematicscalculatorvs3.fragments.FragmentListInverseVariables;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueEffector;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueJoin;
 import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueParent;
@@ -46,6 +47,7 @@ public class KinematicsInverseValue extends AppCompatActivity {
 
         if (getSupportFragmentManager().getBackStackEntryCount() > RETURN_BACK_STACK) {
             getSupportFragmentManager().popBackStack();
+
         } else if (!doubleBackToExitPressedOnce) {
             this.doubleBackToExitPressedOnce = true;
             Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
@@ -57,6 +59,7 @@ public class KinematicsInverseValue extends AppCompatActivity {
                     doubleBackToExitPressedOnce = false;
                 }
             }, CLOSE_APP_ON_BACK);
+
         } else {
             super.onBackPressed();
         }
@@ -109,12 +112,14 @@ public class KinematicsInverseValue extends AppCompatActivity {
 //
 //        StaticVolumesKinematicsInverseValue.setOneModel(modelKinematicsInverseValueJoin);
 
-        String[][] tableParameter = {
-                {"0", "10", "a", "10"},
-                {"0", "10", "b", "10"},
-                {"0", "10", "c", "10"}
-        };
+//        String[][] tableParameter = {
+//                {"0", "10", "a", "10"},
+//                {"0", "10", "b", "10"},
+//                {"0", "10", "c", "10"}
+//        };
+//
+//        CalculationKinematicsInverse calculationKinematicsInverse = new CalculationKinematicsInverse(tableParameter);
 
-        CalculationKinematicsInverse calculationKinematicsInverse = new CalculationKinematicsInverse(tableParameter);
+        startActivity(new Intent(KinematicsInverseValue.this, KinematicsInverseSystemOfEquation.class));
     }
 }

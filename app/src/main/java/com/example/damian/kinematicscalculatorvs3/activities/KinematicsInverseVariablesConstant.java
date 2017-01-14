@@ -42,6 +42,13 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        FragmentListInverseVariables fragmentListInverseVariables = (FragmentListInverseVariables) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
+        fragmentListInverseVariables.undoObject();
+    }
+
+    @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         MenuInflater menuInflater = getMenuInflater();
@@ -110,6 +117,9 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity {
 
     @OnClick(R.id.floating_action_button_inverse_play)
     public void OnClickFloatingActionButtonPlay() {
+
+        FragmentListInverseVariables fragmentListInverseVariables = (FragmentListInverseVariables) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
+        fragmentListInverseVariables.addObjectJoin(SECOND_TYPE_OBJECT);
 
         startActivity(new Intent(KinematicsInverseVariablesConstant.this, KinematicsInverseValue.class));
     }

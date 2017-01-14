@@ -12,14 +12,16 @@ import java.util.ArrayList;
 public class CalculationKinematicsInverse {
 
     private String[][] tableParametersString;
+    private String[] tableEffector;
     private String[] coordinatesEndEffectorString;
     private float[][] tableParameters;
     private float[] coordinatesEndEffector;
     private float amountA = 0, amountB = 0, amountC = 0;
     private float angleBetweenBaseEnd, theta = 0, alpha_a = 0, alpha_b = 0;
 
-    public CalculationKinematicsInverse(String[][] tableParameters) {
+    public CalculationKinematicsInverse(String[][] tableParameters, String[] tableEffector) {
         this.tableParametersString = tableParameters;
+        this.tableEffector = tableEffector;
         CalculationString();
     }
 
@@ -44,19 +46,20 @@ public class CalculationKinematicsInverse {
             String[][] xRotX = SingeltonMatrixKinematicsInverse.Multiplication(xTransX, RotX);
 
             A = SingeltonMatrixKinematicsInverse.Multiplication(A, xRotX);
-
-            Log.v("X = ", A[0][3]);
-            Log.v("Y = ", A[1][3]);
-            Log.v("Z = ", A[2][3]);
         }
+
+        String [][] effecotr = {
+                {"1","0","0",tableEffector[0]},
+                {"0","1","0",tableEffector[1]},
+                {"0","0","1",tableEffector[2]},
+                {"0","0","0","1"}
+        };
+
+        A = SingeltonMatrixKinematicsInverse.Multiplication(A, effecotr);
 
         coordinatesEndEffectorString = new String[]{
                 A[0][3], A[1][3], A[2][3]
         };
-
-        Log.v("X = ", coordinatesEndEffectorString[0]);
-        Log.v("Y = ", coordinatesEndEffectorString[1]);
-        Log.v("Z = ", coordinatesEndEffectorString[2]);
     }
 
     public String[] getCoordinatesEndEffector() {

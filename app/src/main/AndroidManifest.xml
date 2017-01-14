@@ -30,6 +30,8 @@
 
         <activity android:name=".activities.KinematicsInverseValue" />
 
+        <activity android:name=".activities.KinematicsInverseSystemOfEquation" />
+
     </application>
 
 

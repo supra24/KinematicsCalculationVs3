@@ -95,6 +95,7 @@ public class SingeltonMatrixKinematicsInverse {
                             }
                         }
                     }
+//                    resultMatrix[i][j] += "+" + firstMatrix[i][w] + "*" + secondMatrix[w][j];
                 }
             }
         }
