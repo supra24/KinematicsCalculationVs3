@@ -65,12 +65,6 @@ public class KinematicsInverseValue extends AppCompatActivity {
         }
     }
 
-    @OnClick(R.id.floating_action_button_inverse_play_value_play)
-    public void OnClickFloatingActionButtonPlayValuePlay() {
-
-
-    }
-
     @OnClick(R.id.floating_action_button_inverse_play_value)
     public void OnClickFloatingActionButtonPlayInverse() {
 
