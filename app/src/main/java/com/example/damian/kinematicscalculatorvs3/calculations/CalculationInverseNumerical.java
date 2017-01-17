@@ -1,5 +1,7 @@
 package com.example.damian.kinematicscalculatorvs3.calculations;
 
+import android.util.Log;
+
 import org.apache.commons.math3.linear.RealMatrix;
 
 /**
@@ -10,13 +12,15 @@ public class CalculationInverseNumerical {
 
     private float[][] tableParameters;
     private boolean[][] tableParametersBool;
+    private float[] coordinatesEnd;
     private float precision;
     private float[][] jacobianFloat;
 
-    public CalculationInverseNumerical(float[][] tableParameters, boolean[][] tableParametersBool, float precision) {
+    public CalculationInverseNumerical(float[][] tableParameters, boolean[][] tableParametersBool, float[] coordinatesEnd, float precision) {
 
         this.tableParameters = tableParameters;
         this.tableParametersBool = tableParametersBool;
+        this.coordinatesEnd = coordinatesEnd;
         this.precision = precision;
         jacobianFloat = new float[tableParameters.length][tableParameters.length];
 
@@ -28,12 +32,56 @@ public class CalculationInverseNumerical {
         calculation();
     }
 
-    private void calculation() {
-
-
+    public CalculationInverseNumerical(float[][] jacobianFloat) {
+        this.jacobianFloat = jacobianFloat;
+        calculation();
     }
 
-    private float[] forwardKinematics() {
+    private void calculation() {
+
+        float[] differentCoordinates = new float[3];
+        differentCoordinates[0] = 30;
+        differentCoordinates[1] = 30;
+        differentCoordinates[2] = 30;
+
+        do {
+
+            float det;
+            float[] coordinatesNow, differentJoin;
+
+            float[][] inverseJacobian;
+            jacobian();
+            det = detJacobian();
+            if (det != 0) {
+                inverseJacobian = inverseJacobian(det);
+                coordinatesNow = forwardKinematics(tableParameters);
+
+                differentCoordinates[0] = coordinatesEnd[0] - coordinatesNow[0];
+                differentCoordinates[1] = coordinatesEnd[1] - coordinatesNow[1];
+                differentCoordinates[2] = coordinatesEnd[2] - coordinatesNow[2];
+
+                differentJoin = SingeltonMatrixKinematicsForward.Multiplication(inverseJacobian, differentCoordinates);
+
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        if (tableParametersBool[i][j] == true)
+                            tableParameters[i][j] = tableParameters[i][j] + differentJoin[i];
+                    }
+                }
+            } else {
+
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        if (tableParametersBool[i][j] == true)
+                            tableParameters[i][j] = (float) (tableParameters[i][j] + 0.00001);
+                    }
+                }
+            }
+        }
+        while (differentCoordinates[0] > precision || differentCoordinates[1] > precision || differentCoordinates[2] > precision);
+    }
+
+    private float[] forwardKinematics( float [][] tab) {
 
         float[][] matrixHomogeneous = {
                 {1, 0, 0, 0},
@@ -42,12 +90,12 @@ public class CalculationInverseNumerical {
                 {0, 0, 0, 1}
         };
 
-        for (int i = 0; i < tableParameters.length; i++) {
+        for (int i = 0; i < tab.length; i++) {
 
-            float[][] RotZ = SingeltonMatrixKinematicsForward.DHRotZ(tableParameters[i][2]);
-            float[][] TransZ = SingeltonMatrixKinematicsForward.DHTransZ(tableParameters[i][3]);
-            float[][] TransX = SingeltonMatrixKinematicsForward.DHTransX(tableParameters[i][1]);
-            float[][] RotX = SingeltonMatrixKinematicsForward.DHRotX(tableParameters[i][0]);
+            float[][] RotZ = SingeltonMatrixKinematicsForward.DHRotZ(tab[i][2]);
+            float[][] TransZ = SingeltonMatrixKinematicsForward.DHTransZ(tab[i][3]);
+            float[][] TransX = SingeltonMatrixKinematicsForward.DHTransX(tab[i][1]);
+            float[][] RotX = SingeltonMatrixKinematicsForward.DHRotX(tab[i][0]);
 
             float[][] RotZxTransZ = SingeltonMatrixKinematicsForward.Multiplication(RotZ, TransZ);
             float[][] xTransX = SingeltonMatrixKinematicsForward.Multiplication(RotZxTransZ, TransX);
@@ -65,14 +113,14 @@ public class CalculationInverseNumerical {
 
         for (int i = 0; i < tableParameters.length; i++) {
 
-            float[] firstCoordinates = forwardKinematics();
+            float[] firstCoordinates = forwardKinematics(tableParameters);
 
             for (int j = 0; j < 4; j++) {
                 if (tableParametersBool[i][j] == true)
-                    tableParameters[i][j] = (float) (tableParameters[i][j] + 0.00001);
+                    tableParameters[i][j] = tableParameters[i][j] + (0.001f);
             }
 
-            float[] secondCoordinates = forwardKinematics();
+            float[] secondCoordinates = forwardKinematics(tableParameters);
             float[] difference = {
                     firstCoordinates[0] - secondCoordinates[0],
                     firstCoordinates[1] - secondCoordinates[1],
@@ -81,15 +129,15 @@ public class CalculationInverseNumerical {
 
             for (int j = 0; j < 4; j++) {
                 if (tableParametersBool[i][j] == true)
-                    tableParameters[i][j] = (float) (tableParameters[i][j] - 0.00001);
+                    tableParameters[i][j] = (float) (tableParameters[i][j] - (0.001));
             }
 
             if (i == 0)
-                singleColumnJacobian(i, difference[0], difference[1], difference[2], 0.00001f, 0, 0);
+                singleColumnJacobian(i, difference[0], difference[1], difference[2], 0.001f, 0, 0);
             else if (i == 1)
-                singleColumnJacobian(i, difference[0], difference[1], difference[2], 0, 0.00001f, 0);
+                singleColumnJacobian(i, difference[0], difference[1], difference[2], 0, 0.001f, 0);
             else if (i == 2)
-                singleColumnJacobian(i, difference[0], difference[1], difference[2], 0, 0, 0.00001f);
+                singleColumnJacobian(i, difference[0], difference[1], difference[2], 0, 0, 0.001f);
         }
     }
 
@@ -111,6 +159,46 @@ public class CalculationInverseNumerical {
 
     }
 
-    private void inverseJacobian() {
+    private float detJacobian() {
+
+        float det = 0;
+        det = jacobianFloat[0][0] * jacobianFloat[1][1] * jacobianFloat[2][2];
+        det = det + jacobianFloat[0][1] * jacobianFloat[1][2] * jacobianFloat[2][0];
+        det = det + jacobianFloat[0][2] * jacobianFloat[1][0] * jacobianFloat[2][1];
+
+        det = det - jacobianFloat[0][2] * jacobianFloat[1][1] * jacobianFloat[2][0];
+        det = det - jacobianFloat[0][0] * jacobianFloat[2][1] * jacobianFloat[1][2];
+        det = det - jacobianFloat[1][0] * jacobianFloat[0][1] * jacobianFloat[2][2];
+
+        return det;
+    }
+
+    private float[][] inverseJacobian(float det) {
+
+        float dopelnienie[][] = new float[3][3];
+
+        dopelnienie[0][0] = jacobianFloat[1][1] * jacobianFloat[2][2] - jacobianFloat[1][2] * jacobianFloat[2][1];
+        dopelnienie[0][1] = (-1) * (jacobianFloat[1][0] * jacobianFloat[2][2] - jacobianFloat[2][0] * jacobianFloat[1][2]);
+        dopelnienie[0][2] = jacobianFloat[1][0] * jacobianFloat[2][1] - jacobianFloat[2][0] * jacobianFloat[1][1];
+
+        dopelnienie[1][0] = (-1) * (jacobianFloat[0][1] * jacobianFloat[2][2] - jacobianFloat[2][1] * jacobianFloat[0][2]);
+        dopelnienie[1][1] = jacobianFloat[0][0] * jacobianFloat[2][2] - jacobianFloat[0][2] * jacobianFloat[2][0];
+        dopelnienie[1][2] = (-1) * (jacobianFloat[0][0] * jacobianFloat[2][1] - jacobianFloat[0][1] * jacobianFloat[2][0]);
+
+        dopelnienie[2][0] = jacobianFloat[0][1] * jacobianFloat[1][2] - jacobianFloat[0][2] * jacobianFloat[1][1];
+        dopelnienie[2][1] = (-1) * (jacobianFloat[0][0] * jacobianFloat[1][2] - jacobianFloat[1][0] * jacobianFloat[0][2]);
+        dopelnienie[2][2] = jacobianFloat[0][0] * jacobianFloat[1][1] - jacobianFloat[1][0] * jacobianFloat[0][1];
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                dopelnienie[i][j] = dopelnienie[i][j] / det;
+            }
+        }
+
+        return dopelnienie;
+    }
+
+    public float[][] getTableParam() {
+        return tableParameters;
     }
 }

@@ -72,12 +72,12 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity {
                     break;
                 case R.id.id_add_effector: {
                     fragmentListInverseVariables.addObjectJoin(SECOND_TYPE_OBJECT);
-                    floatingActionButton.setVisibility(View.INVISIBLE);
+//                    floatingActionButton.setVisibility(View.INVISIBLE);
                 }
                     break;
                 case R.id.id_undo: {
                     fragmentListInverseVariables.undoObject();
-                    floatingActionButton.setVisibility(View.VISIBLE);
+//                    floatingActionButton.setVisibility(View.VISIBLE);
                 }
                     break;
                 default:
@@ -113,7 +113,7 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity {
                 super.onBackPressed();
             }
         } else {
-            floatingActionButton.setVisibility(View.VISIBLE);
+//            floatingActionButton.setVisibility(View.VISIBLE);
         }
     }
 

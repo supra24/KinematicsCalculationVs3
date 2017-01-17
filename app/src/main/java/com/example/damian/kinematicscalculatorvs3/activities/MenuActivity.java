@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
 import com.example.damian.kinematicscalculatorvs3.R;
+import com.example.damian.kinematicscalculatorvs3.calculations.CalculationInverseNumerical;
 
 import org.apache.commons.math3.analysis.UnivariateFunction;
 import org.apache.commons.math3.exception.DimensionMismatchException;
@@ -42,6 +43,7 @@ public class MenuActivity extends AppCompatActivity {
 
     @OnClick(R.id.b_kinematicsForward)
     void openActivityKinematicsForward(){
+
         Intent intent = new Intent(getApplicationContext(), KinematicsForwardValue.class);
         startActivity(intent);
     }

@@ -10,8 +10,8 @@ public class SingeltonMatrixKinematicsForward {
     public SingeltonMatrixKinematicsForward() {
     }
 
-    public SingeltonMatrixKinematicsForward getInstance(){
-        if(instance==null)
+    public SingeltonMatrixKinematicsForward getInstance() {
+        if (instance == null)
             instance = new SingeltonMatrixKinematicsForward();
         return instance;
     }

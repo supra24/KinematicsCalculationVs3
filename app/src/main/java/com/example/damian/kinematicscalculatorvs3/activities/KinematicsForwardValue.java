@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.damian.kinematicscalculatorvs3.R;
+import com.example.damian.kinematicscalculatorvs3.calculations.CalculationInverseNumerical;
 import com.example.damian.kinematicscalculatorvs3.fragments.FragmentListForwardValue;
 
 import butterknife.BindView;
@@ -125,5 +126,6 @@ public class KinematicsForwardValue extends AppCompatActivity {
     public void OnClickFloatingActionButtonPlay() {
 
         startActivity(new Intent(KinematicsForwardValue.this, KinematicsForwardDraw.class));
+
     }
 }
