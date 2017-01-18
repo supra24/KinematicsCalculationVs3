@@ -18,7 +18,7 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
     public static final int cameraBOTTOM = -1;
     public static final int cameraTOP = 1;
     public static final int cameraZ_NEAR = 3;
-    public static final int cameraZ_FAR = 128;
+    public static final int cameraZ_FAR = 2000;
 
     // zmienne do ustawienia kamery:
     private static float alpha = -90;   // 0-PI
@@ -101,8 +101,8 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
 
     public static void setRotate(float speedX, float speedY) {
 
-        alpha = alpha + speedY / 250;
-        theta = theta + speedX / 250;
+        alpha = alpha + speedY / 100;
+        theta = theta + speedX / 100;
 
         if (alpha > 0)
             alpha = 0;
@@ -113,8 +113,8 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
     public static void setRadiusDistance(float difference) {
 
         EYE_Z = EYE_Z - difference / 500;
-        if (EYE_Z > 120)
-            EYE_Z = 120;
+        if (EYE_Z > 1500)
+            EYE_Z = 1500;
         if (EYE_Z < 7)
             EYE_Z = 7;
     }

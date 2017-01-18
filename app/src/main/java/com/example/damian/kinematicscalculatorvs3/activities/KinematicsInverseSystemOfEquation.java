@@ -40,44 +40,46 @@ public class KinematicsInverseSystemOfEquation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_system_of_equation_inverse);
 
-//        list = (ListView) findViewById(R.id.list_view_inverse_system_of_equation);
+        list = (ListView) findViewById(R.id.list_view_inverse_system_of_equation);
+
+        adapter = new ArrayAdapter<String>(this, R.layout.model_system_of_equation_inverse, Calculation());
+        list.setAdapter(adapter);
+
+//        ArrayList<ModelKinematicsInverseValueParent> modelKinematicsInverseValueParents = StaticVolumesKinematicsInverseValue.getModels();
+//        ArrayList<ModelKinematicsInverseVariablwsParent> modelKinematicsInverseVariablwsParents = StaticVolumesInverseVariables.getModels();
 //
-//        adapter = new ArrayAdapter<String>(this, R.layout.model_system_of_equation_inverse, Calculation());
-//        list.setAdapter(adapter);
-        ArrayList<ModelKinematicsInverseValueParent> modelKinematicsInverseValueParents = StaticVolumesKinematicsInverseValue.getModels();
-        ArrayList<ModelKinematicsInverseVariablwsParent> modelKinematicsInverseVariablwsParents = StaticVolumesInverseVariables.getModels();
-
-        float[][] tableParameters = new float[3][4];
-        for (int i = 0; i < tableParameters.length; i++) {
-
-            ModelKinematicsInverseValueJoin modelKinematicsForwardValueJoin = (ModelKinematicsInverseValueJoin) modelKinematicsInverseValueParents.get(i);
-
-            tableParameters[i][0] = modelKinematicsForwardValueJoin.getEt_alpha();
-            tableParameters[i][1] = modelKinematicsForwardValueJoin.getEt_a();
-            tableParameters[i][2] = modelKinematicsForwardValueJoin.getEt_theta();
-            tableParameters[i][3] = modelKinematicsForwardValueJoin.getEt_d();
-        }
-
-        ModelKinematicsInverseValueEffector kinematicsInverseValueEffector = (ModelKinematicsInverseValueEffector) modelKinematicsInverseValueParents.get(3);
-        float[] endCoordinates = {
-                kinematicsInverseValueEffector.getEt_x(),
-                kinematicsInverseValueEffector.getEt_y(),
-                kinematicsInverseValueEffector.getEt_z()
-        };
-
-        boolean[][] tableParametersBool = new boolean[3][4];
-        for (int i = 0; i < tableParametersBool.length; i++) {
-
-            ModelKinematicsInverseVariablesJoin modelKinematicsInverseVariablesJoin = (ModelKinematicsInverseVariablesJoin) modelKinematicsInverseVariablwsParents.get(i);
-
-            tableParametersBool[i][0] = modelKinematicsInverseVariablesJoin.isEt_alpha();
-            tableParametersBool[i][1] = modelKinematicsInverseVariablesJoin.isEt_a();
-            tableParametersBool[i][2] = modelKinematicsInverseVariablesJoin.isEt_theta();
-            tableParametersBool[i][3] = modelKinematicsInverseVariablesJoin.isEt_d();
-        }
-
-        CalculationInverseNumerical calculationInverseNumerical = new CalculationInverseNumerical(tableParameters, tableParametersBool, endCoordinates, 1);
-        calculationInverseNumerical.getTableParam();
+//        float[][] tableParameters = new float[3][4];
+//        for (int i = 0; i < tableParameters.length; i++) {
+//
+//            ModelKinematicsInverseValueJoin modelKinematicsForwardValueJoin = (ModelKinematicsInverseValueJoin) modelKinematicsInverseValueParents.get(i);
+//
+//            tableParameters[i][0] = modelKinematicsForwardValueJoin.getEt_alpha();
+//            tableParameters[i][1] = modelKinematicsForwardValueJoin.getEt_a();
+//            tableParameters[i][2] = modelKinematicsForwardValueJoin.getEt_theta();
+//            tableParameters[i][3] = modelKinematicsForwardValueJoin.getEt_d();
+//        }
+//
+//        ModelKinematicsInverseValueEffector kinematicsInverseValueEffector = (ModelKinematicsInverseValueEffector) modelKinematicsInverseValueParents.get(3);
+//        float[] endCoordinates = {
+//                kinematicsInverseValueEffector.getEt_x(),
+//                kinematicsInverseValueEffector.getEt_y(),
+//                kinematicsInverseValueEffector.getEt_z()
+//        };
+//
+//        boolean[][] tableParametersBool = new boolean[3][4];
+//        for (int i = 0; i < tableParametersBool.length; i++) {
+//
+//            ModelKinematicsInverseVariablesJoin modelKinematicsInverseVariablesJoin = (ModelKinematicsInverseVariablesJoin) modelKinematicsInverseVariablwsParents.get(i);
+//
+//            tableParametersBool[i][0] = modelKinematicsInverseVariablesJoin.isEt_alpha();
+//            tableParametersBool[i][1] = modelKinematicsInverseVariablesJoin.isEt_a();
+//            tableParametersBool[i][2] = modelKinematicsInverseVariablesJoin.isEt_theta();
+//            tableParametersBool[i][3] = modelKinematicsInverseVariablesJoin.isEt_d();
+//        }
+//
+//        CalculationInverseNumerical calculationInverseNumerical = new CalculationInverseNumerical(tableParameters, tableParametersBool, endCoordinates, 1);
+//        calculationInverseNumerical.getTableParam();
+//        calculationInverseNumerical.getCoordinates();
     }
 
     private ArrayList<String> Calculation() {

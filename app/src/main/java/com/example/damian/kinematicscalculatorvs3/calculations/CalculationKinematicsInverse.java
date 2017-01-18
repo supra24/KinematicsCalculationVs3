@@ -66,11 +66,11 @@ public class CalculationKinematicsInverse {
         return coordinatesEndEffectorString;
     }
 
-    public CalculationKinematicsInverse(float[][] tableParameters, float[] coordinatesEndEffector) {
-        this.tableParameters = tableParameters;
-        this.coordinatesEndEffector = coordinatesEndEffector;
-        Calculation();
-    }
+//    public CalculationKinematicsInverse(float[][] tableParameters, float[] coordinatesEndEffector) {
+//        this.tableParameters = tableParameters;
+//        this.coordinatesEndEffector = coordinatesEndEffector;
+//        Calculation();
+//    }
 
     public void Calculation() {
         int size = tableParameters.length;

@@ -73,15 +73,15 @@ public class CalculationInverseNumerical {
                 for (int i = 0; i < 3; i++) {
                     for (int j = 0; j < 4; j++) {
                         if (tableParametersBool[i][j] == true)
-                            tableParameters[i][j] = (float) (tableParameters[i][j] + 0.00001);
+                            tableParameters[i][j] = (float) (tableParameters[i][j] + 0.001);
                     }
                 }
             }
         }
-        while (differentCoordinates[0] > precision || differentCoordinates[1] > precision || differentCoordinates[2] > precision);
+        while ( !(!(differentCoordinates[0] > precision) && !(differentCoordinates[1] > precision) && !(differentCoordinates[2] > precision)));
     }
 
-    private float[] forwardKinematics( float [][] tab) {
+    private float[] forwardKinematics(float[][] tab) {
 
         float[][] matrixHomogeneous = {
                 {1, 0, 0, 0},
@@ -117,7 +117,7 @@ public class CalculationInverseNumerical {
 
             for (int j = 0; j < 4; j++) {
                 if (tableParametersBool[i][j] == true)
-                    tableParameters[i][j] = tableParameters[i][j] + (0.001f);
+                    tableParameters[i][j] = tableParameters[i][j] + (0.000001f);
             }
 
             float[] secondCoordinates = forwardKinematics(tableParameters);
@@ -129,15 +129,15 @@ public class CalculationInverseNumerical {
 
             for (int j = 0; j < 4; j++) {
                 if (tableParametersBool[i][j] == true)
-                    tableParameters[i][j] = (float) (tableParameters[i][j] - (0.001));
+                    tableParameters[i][j] = (float) (tableParameters[i][j] - (0.000001));
             }
 
             if (i == 0)
-                singleColumnJacobian(i, difference[0], difference[1], difference[2], 0.001f, 0, 0);
+                singleColumnJacobian(i, difference[0], difference[1], difference[2], 0.000001f, 0, 0);
             else if (i == 1)
-                singleColumnJacobian(i, difference[0], difference[1], difference[2], 0, 0.001f, 0);
+                singleColumnJacobian(i, difference[0], difference[1], difference[2], 0, 0.000001f, 0);
             else if (i == 2)
-                singleColumnJacobian(i, difference[0], difference[1], difference[2], 0, 0, 0.001f);
+                singleColumnJacobian(i, difference[0], difference[1], difference[2], 0, 0, 0.000001f);
         }
     }
 
@@ -200,5 +200,10 @@ public class CalculationInverseNumerical {
 
     public float[][] getTableParam() {
         return tableParameters;
+    }
+
+    public float[] getCoordinates() {
+
+        return forwardKinematics(tableParameters);
     }
 }
