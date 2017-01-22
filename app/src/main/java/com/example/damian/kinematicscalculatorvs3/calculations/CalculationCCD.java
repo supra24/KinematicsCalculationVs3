@@ -9,17 +9,69 @@ public class CalculationCCD {
     private float[][] tableParameters;
     private boolean[][] tableParametersBool;
     private float[] coordinatesEnd;
-    private float precision;
-    private float[][] jacobianFloat;
+    private float precision , precisionCalculation = 1;
 
-    public CalculationCCD(float[][] tableParameters, boolean[][] tableParametersBool, float[] coordinatesEnd, float precision){
+    public CalculationCCD(float[][] tableParameters, boolean[][] tableParametersBool, float[] coordinatesEnd, float precision) {
 
         this.tableParameters = tableParameters;
         this.tableParametersBool = tableParametersBool;
         this.coordinatesEnd = coordinatesEnd;
         this.precision = precision;
+        this.precisionCalculation = precision;
+
+        calculation();
     }
 
+    private void calculation() {
+
+        float distanceStart, distanceEnd;
+        int direction;
+
+        do {
+
+            for (int i = 0; i < tableParameters.length; i++) {
+
+
+                for (int j = 0; j < 4; j++) {
+                    if (tableParametersBool[i][j] == true) {
+
+                        direction = 0;
+
+                        do {
+
+                            if (direction == 0) {
+
+                                distanceStart = distanceBetweenPoints(forwardKinematics(tableParameters), coordinatesEnd);
+                                tableParameters[i][j] = tableParameters[i][j] + (precisionCalculation);
+                                distanceEnd = distanceBetweenPoints(forwardKinematics(tableParameters), coordinatesEnd);
+
+                                if ( distanceEnd >= distanceStart) {
+                                    direction = 1;
+                                    tableParameters[i][j] = tableParameters[i][j] - (precisionCalculation);
+                                }
+
+                                changePrecision(distanceEnd);
+
+                            } else if (direction == 1) {
+
+                                distanceStart = distanceBetweenPoints(forwardKinematics(tableParameters), coordinatesEnd);
+                                tableParameters[i][j] = tableParameters[i][j] - (precisionCalculation);
+                                distanceEnd = distanceBetweenPoints(forwardKinematics(tableParameters), coordinatesEnd);
+
+                                if (distanceEnd >= distanceStart) {
+                                    direction = 2;
+                                    tableParameters[i][j] = tableParameters[i][j] + (precisionCalculation);
+                                }
+
+                                changePrecision(distanceEnd);
+                            }
+                        } while (direction < 2);
+                    }
+                }
+            }
+        }
+        while (distanceBetweenPoints(forwardKinematics(tableParameters), coordinatesEnd) > precision);
+    }
 
 
     private float[] forwardKinematics(float[][] tab) {
@@ -50,4 +102,32 @@ public class CalculationCCD {
         };
     }
 
+    private float distanceBetweenPoints(float[] firstPoint, float[] secondPoint) {
+
+        float ax = firstPoint[0] - secondPoint[0];
+        float ay = firstPoint[1] - secondPoint[1];
+        float az = firstPoint[2] - secondPoint[2];
+
+        return (float) Math.sqrt(ax * ax + ay * ay + az * az);
+    }
+
+    private void changePrecision(float distance){
+
+        if (distance > 1)
+            precisionCalculation = precision * 1000;
+        else if (distance <=1 && distance > 0.01)
+            precisionCalculation = precision * 100;
+        else
+            precisionCalculation = precision;
+
+
+    }
+
+    public float [][] getTableParameters(){
+        return tableParameters;
+    }
+
+    public float [] getCoordinatesEnd(){
+        return forwardKinematics(tableParameters);
+    }
 }
