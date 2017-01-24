@@ -79,11 +79,43 @@ public class KinematicsInverseSystemOfEquation extends AppCompatActivity {
         }
 
         CalculationCCD calculationCCD = new CalculationCCD(tableParameters, tableParametersBool, endCoordinates, 0.001f);
-        calculationCCD.getTableParameters();
-
+        float[][] tableParameter = calculationCCD.getTableParameters();
+        float[] coordinatesFloats = calculationCCD.getCoordinatesEnd();
 //        CalculationInverseNumerical calculationInverseNumerical = new CalculationInverseNumerical(tableParameters, tableParametersBool, endCoordinates, 1);
 //        calculationInverseNumerical.getTableParam();
 //        calculationInverseNumerical.getCoordinates();
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList<ModelKinematicsInverseVariablwsParent> modelKinematicsInverseVariablwsParents2 = StaticVolumesInverseVariables.getModels();
+
+        for (int i = 0; i < tableParameters.length; i++) {
+
+            ModelKinematicsInverseValueJoin modelKinematicsInverseValueJoin = (ModelKinematicsInverseValueJoin) modelKinematicsInverseValueParents.get(i);
+            ModelKinematicsInverseVariablesJoin modelKinematicsInverseVariablesJoin = (ModelKinematicsInverseVariablesJoin) modelKinematicsInverseVariablwsParents.get(i);
+
+            if (modelKinematicsInverseVariablesJoin.isEt_alpha() == true)
+                arrayList.add("α" + (i + 1) + " = " + tableParameter[i][0]);
+
+            if (modelKinematicsInverseVariablesJoin.isEt_a() == true)
+                arrayList.add("a" + (i + 1) + " = " + tableParameter[i][1]);
+
+            if (modelKinematicsInverseVariablesJoin.isEt_theta() == true)
+                arrayList.add("θ" + (i + 1) + " = " + tableParameter[i][2]);
+
+            if (modelKinematicsInverseVariablesJoin.isEt_d() == true)
+                arrayList.add("d" + (i + 1) + " = " + tableParameter[i][3]);
+
+        }
+
+        arrayList.add("x" + " = " + coordinatesFloats[0]);
+        arrayList.add("y" + " = " + coordinatesFloats[1]);
+        arrayList.add("z" + " = " + coordinatesFloats[2]);
+
+        list = (ListView) findViewById(R.id.list_view_inverse_system_of_equation);
+
+        adapter = new ArrayAdapter<String>(this, R.layout.model_system_of_equation_inverse, arrayList );
+        list.setAdapter(adapter);
+
     }
 
     private ArrayList<String> Calculation() {

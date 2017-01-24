@@ -73,7 +73,6 @@ public class CalculationCCD {
         while (distanceBetweenPoints(forwardKinematics(tableParameters), coordinatesEnd) > precision);
     }
 
-
     private float[] forwardKinematics(float[][] tab) {
 
         float[][] matrixHomogeneous = {

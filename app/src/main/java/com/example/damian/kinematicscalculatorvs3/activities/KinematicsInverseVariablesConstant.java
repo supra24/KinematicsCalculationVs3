@@ -120,8 +120,11 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity {
     @OnClick(R.id.floating_action_button_inverse_add)
     public void OnClickFloatingActionButtonAdd() {
 
-        registerForContextMenu(floatingActionButton);
-        openContextMenu(floatingActionButton);
+    //    registerForContextMenu(floatingActionButton);
+    //    openContextMenu(floatingActionButton);
+        FragmentListInverseVariables fragmentListInverseVariables = (FragmentListInverseVariables) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
+        fragmentListInverseVariables.addObjectJoin(FIRST_TYPE_OBJECT);
+
     }
 
     @OnClick(R.id.floating_action_button_inverse_play)
