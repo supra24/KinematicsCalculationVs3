@@ -9,7 +9,7 @@ public class CalculationCCD {
     private float[][] tableParameters;
     private boolean[][] tableParametersBool;
     private float[] coordinatesEnd;
-    private float precision , precisionCalculation = 1;
+    private float precision, precisionCalculation = 1;
 
     public CalculationCCD(float[][] tableParameters, boolean[][] tableParametersBool, float[] coordinatesEnd, float precision) {
 
@@ -25,12 +25,13 @@ public class CalculationCCD {
     private void calculation() {
 
         float distanceStart, distanceEnd;
-        int direction;
+        int direction, numberPasses = 0;
+
 
         do {
 
-            for (int i = 0; i < tableParameters.length; i++) {
-
+//            for (int i = 0; i < tableParameters.length; i++) {
+            for (int i = tableParameters.length - 1; i >= 0; i--) {
 
                 for (int j = 0; j < 4; j++) {
                     if (tableParametersBool[i][j] == true) {
@@ -45,7 +46,7 @@ public class CalculationCCD {
                                 tableParameters[i][j] = tableParameters[i][j] + (precisionCalculation);
                                 distanceEnd = distanceBetweenPoints(forwardKinematics(tableParameters), coordinatesEnd);
 
-                                if ( distanceEnd >= distanceStart) {
+                                if (distanceEnd >= distanceStart) {
                                     direction = 1;
                                     tableParameters[i][j] = tableParameters[i][j] - (precisionCalculation);
                                 }
@@ -69,8 +70,9 @@ public class CalculationCCD {
                     }
                 }
             }
+            numberPasses++;
         }
-        while (distanceBetweenPoints(forwardKinematics(tableParameters), coordinatesEnd) > precision);
+        while ((distanceBetweenPoints(forwardKinematics(tableParameters), coordinatesEnd) > precision) && numberPasses < 200);
     }
 
     private float[] forwardKinematics(float[][] tab) {
@@ -110,11 +112,11 @@ public class CalculationCCD {
         return (float) Math.sqrt(ax * ax + ay * ay + az * az);
     }
 
-    private void changePrecision(float distance){
+    private void changePrecision(float distance) {
 
         if (distance > 1)
             precisionCalculation = precision * 1000;
-        else if (distance <=1 && distance > 0.01)
+        else if (distance <= 1 && distance > 0.01)
             precisionCalculation = precision * 100;
         else
             precisionCalculation = precision;
@@ -122,11 +124,11 @@ public class CalculationCCD {
 
     }
 
-    public float [][] getTableParameters(){
+    public float[][] getTableParameters() {
         return tableParameters;
     }
 
-    public float [] getCoordinatesEnd(){
+    public float[] getCoordinatesEnd() {
         return forwardKinematics(tableParameters);
     }
 }
