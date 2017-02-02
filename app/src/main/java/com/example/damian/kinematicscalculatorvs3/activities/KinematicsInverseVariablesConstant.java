@@ -47,8 +47,8 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        FragmentListInverseVariables fragmentListInverseVariables = (FragmentListInverseVariables) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
-        fragmentListInverseVariables.undoObject();
+        //FragmentListInverseVariables fragmentListInverseVariables = (FragmentListInverseVariables) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
+        //fragmentListInverseVariables.undoObject();
     }
 
     @Override
