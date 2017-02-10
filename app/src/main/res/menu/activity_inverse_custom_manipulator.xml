@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_kartezjanski"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Kartezjański" />
+        <item
+            android:id="@+id/nav_antropomorficzny"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Antropomorficzny" />
+        <item
+            android:id="@+id/nav_cylindryczny"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Cylindryczny" />
+        <item
+            android:id="@+id/nav_sferyczny"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Sferyczny" />
+        <item
+            android:id="@+id/nav_scara"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Scara" />
+    </group>
+
+    <!--<item android:title="Communicate">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_share"-->
+                <!--android:icon="@drawable/ic_menu_share"-->
+                <!--android:title="Share" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_send"-->
+                <!--android:icon="@drawable/ic_menu_send"-->
+                <!--android:title="Send" />-->
+        <!--</menu>-->
+    <!--</item>-->
+
+</menu>

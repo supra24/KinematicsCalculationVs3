@@ -71,10 +71,12 @@ public class KinematicsInverseValue extends AppCompatActivity {
                 public void run() {
                     doubleBackToExitPressedOnce = false;
                 }
+
             }, CLOSE_APP_ON_BACK);
 
         } else {
             super.onBackPressed();
+
         }
     }
 

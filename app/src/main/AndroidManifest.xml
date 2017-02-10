@@ -18,19 +18,28 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.MenuActivity" />
-
-        <activity android:name=".activities.KinematicsForwardValue" />
-
         <activity
-            android:name=".activities.KinematicsForwardDraw"
+            android:name=".activities.MenuActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".activities.KinematicsInverseVariablesConstant" />
+        <activity
+            android:name=".activities.KinematicsForwardValue"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".activities.KinematicsInverseValue" />
+        <activity
+            android:name=".activities.KinematicsForwardDraw" />
 
-        <activity android:name=".activities.KinematicsInverseSystemOfEquation" />
+        <activity
+            android:name=".activities.KinematicsInverseVariablesConstant"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.KinematicsInverseValue"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.KinematicsInverseSystemOfEquation"
+            android:screenOrientation="portrait" />
 
     </application>
 
