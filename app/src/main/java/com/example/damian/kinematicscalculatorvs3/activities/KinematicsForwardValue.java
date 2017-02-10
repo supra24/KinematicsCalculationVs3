@@ -8,8 +8,10 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,13 +19,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.damian.kinematicscalculatorvs3.R;
-import com.example.damian.kinematicscalculatorvs3.calculations.CalculationInverseNumerical;
 import com.example.damian.kinematicscalculatorvs3.fragments.FragmentListForwardValue;
-import com.example.damian.kinematicscalculatorvs3.fragments.FragmentListInverseVariables;
-import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsInverseValueJoin;
-import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsInverseVariablesJoin;
-import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesInverseVariables;
-import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesKinematicsInverseValue;
+import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueEffector;
+import com.example.damian.kinematicscalculatorvs3.models.ModelKinematicsForwardValueJoin;
+import com.example.damian.kinematicscalculatorvs3.staticVolumes.StaticVolumesKinematicsForwardValue;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,6 +52,18 @@ public class KinematicsForwardValue extends AppCompatActivity implements Navigat
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_base_value_kinematics_forward);
         ButterKnife.bind(this);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_forward);
+        setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_forward);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_forward);
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -61,8 +72,7 @@ public class KinematicsForwardValue extends AppCompatActivity implements Navigat
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_kinematics_simple, menu);
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_forward);
-        navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -124,6 +134,7 @@ public class KinematicsForwardValue extends AppCompatActivity implements Navigat
         } else {
             floatingActionButtonAdd.setVisibility(View.VISIBLE);
             floatingActionButtonPlay.setVisibility(View.INVISIBLE);
+
         }
     }
 
@@ -156,64 +167,213 @@ public class KinematicsForwardValue extends AppCompatActivity implements Navigat
                 fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
                 fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
                 fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
+                fragmentListForwardValue.addObjectJoin(SECOND_TYPE_OBJECT);
 
-                ModelKinematicsInverseVariablesJoin modelVariables = new ModelKinematicsInverseVariablesJoin(0);
-                modelVariables.setEt_alpha(false);
-                modelVariables.setEt_a(false);
-                modelVariables.setEt_theta(false);
-                modelVariables.setEt_d(true);
-                StaticVolumesInverseVariables.setOneModel(modelVariables);
-
-                modelVariables = new ModelKinematicsInverseVariablesJoin(1);
-                modelVariables.setEt_alpha(false);
-                modelVariables.setEt_a(false);
-                modelVariables.setEt_theta(false);
-                modelVariables.setEt_d(true);
-                StaticVolumesInverseVariables.setOneModel(modelVariables);
-
-                modelVariables = new ModelKinematicsInverseVariablesJoin(2);
-                modelVariables.setEt_alpha(false);
-                modelVariables.setEt_a(false);
-                modelVariables.setEt_theta(false);
-                modelVariables.setEt_d(true);
-                StaticVolumesInverseVariables.setOneModel(modelVariables);
-
-                ModelKinematicsInverseValueJoin model = new ModelKinematicsInverseValueJoin(0);
+                ModelKinematicsForwardValueJoin model = new ModelKinematicsForwardValueJoin(0);
                 model.setTv_lp(1);
                 model.setEt_alpha(90);
                 model.setEt_a(0);
                 model.setEt_theta(90);
                 model.setEt_d(20);
-                StaticVolumesKinematicsInverseValue.setOneModel(model);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
 
-                model = new ModelKinematicsInverseValueJoin(1);
+                model = new ModelKinematicsForwardValueJoin(1);
                 model.setTv_lp(2);
                 model.setEt_alpha(-90);
                 model.setEt_a(0);
                 model.setEt_theta(90);
                 model.setEt_d(20);
-                StaticVolumesKinematicsInverseValue.setOneModel(model);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
 
-                model = new ModelKinematicsInverseValueJoin(2);
+                model = new ModelKinematicsForwardValueJoin(2);
                 model.setTv_lp(3);
                 model.setEt_alpha(0);
                 model.setEt_a(0);
                 model.setEt_theta(0);
                 model.setEt_d(20);
-                StaticVolumesKinematicsInverseValue.setOneModel(model);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
+
+                ModelKinematicsForwardValueEffector model2 = new ModelKinematicsForwardValueEffector(3);
+                StaticVolumesKinematicsForwardValue.setOneModel(model2);
+
+                floatingActionButtonAdd.setVisibility(View.INVISIBLE);
+                floatingActionButtonPlay.setVisibility(View.VISIBLE);
 
             }
             break;
+            case R.id.nav_antropomorficzny: {
+
+                FragmentListForwardValue fragmentListForwardValue = (FragmentListForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
+
+                while (fragmentListForwardValue.undoObject()) {
+
+                }
+
+                fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
+                fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
+                fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
+                fragmentListForwardValue.addObjectJoin(SECOND_TYPE_OBJECT);
+
+                ModelKinematicsForwardValueJoin model = new ModelKinematicsForwardValueJoin(0);
+                model.setTv_lp(1);
+                model.setEt_alpha(-90);
+                model.setEt_a(0);
+                model.setEt_theta(40);
+                model.setEt_d(10);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
+
+                model = new ModelKinematicsForwardValueJoin(1);
+                model.setTv_lp(2);
+                model.setEt_alpha(0);
+                model.setEt_a(10);
+                model.setEt_theta(-40);
+                model.setEt_d(0);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
+
+                model = new ModelKinematicsForwardValueJoin(2);
+                model.setTv_lp(3);
+                model.setEt_alpha(0);
+                model.setEt_a(10);
+                model.setEt_theta(40);
+                model.setEt_d(0);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
+
+                ModelKinematicsForwardValueEffector model2 = new ModelKinematicsForwardValueEffector(3);
+                StaticVolumesKinematicsForwardValue.setOneModel(model2);
+
+                floatingActionButtonAdd.setVisibility(View.INVISIBLE);
+                floatingActionButtonPlay.setVisibility(View.VISIBLE);
+            }
             case R.id.nav_cylindryczny: {
 
+                FragmentListForwardValue fragmentListForwardValue = (FragmentListForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
+
+                while (fragmentListForwardValue.undoObject()) {
+
+                }
+
+                fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
+                fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
+                fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
+                fragmentListForwardValue.addObjectJoin(SECOND_TYPE_OBJECT);
+
+                ModelKinematicsForwardValueJoin model = new ModelKinematicsForwardValueJoin(0);
+                model.setTv_lp(1);
+                model.setEt_alpha(0);
+                model.setEt_a(0);
+                model.setEt_theta(20);
+                model.setEt_d(0);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
+
+                model = new ModelKinematicsForwardValueJoin(1);
+                model.setTv_lp(2);
+                model.setEt_alpha(90);
+                model.setEt_a(0);
+                model.setEt_theta(90);
+                model.setEt_d(20);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
+
+                model = new ModelKinematicsForwardValueJoin(2);
+                model.setTv_lp(3);
+                model.setEt_alpha(0);
+                model.setEt_a(0);
+                model.setEt_theta(0);
+                model.setEt_d(20);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
+
+                ModelKinematicsForwardValueEffector model2 = new ModelKinematicsForwardValueEffector(3);
+                StaticVolumesKinematicsForwardValue.setOneModel(model2);
+
+                floatingActionButtonAdd.setVisibility(View.INVISIBLE);
+                floatingActionButtonPlay.setVisibility(View.VISIBLE);
             }
             break;
             case R.id.nav_sferyczny: {
 
+                FragmentListForwardValue fragmentListForwardValue = (FragmentListForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
+
+                while (fragmentListForwardValue.undoObject()) {
+
+                }
+
+                fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
+                fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
+                fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
+                fragmentListForwardValue.addObjectJoin(SECOND_TYPE_OBJECT);
+
+                ModelKinematicsForwardValueJoin model = new ModelKinematicsForwardValueJoin(0);
+                model.setTv_lp(1);
+                model.setEt_alpha(-90);
+                model.setEt_a(0);
+                model.setEt_theta(0);
+                model.setEt_d(20);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
+
+                model = new ModelKinematicsForwardValueJoin(1);
+                model.setTv_lp(2);
+                model.setEt_alpha(90);
+                model.setEt_a(0);
+                model.setEt_theta(45);
+                model.setEt_d(0);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
+
+                model = new ModelKinematicsForwardValueJoin(2);
+                model.setTv_lp(3);
+                model.setEt_alpha(0);
+                model.setEt_a(0);
+                model.setEt_theta(0);
+                model.setEt_d(20);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
+
+                ModelKinematicsForwardValueEffector model2 = new ModelKinematicsForwardValueEffector(3);
+                StaticVolumesKinematicsForwardValue.setOneModel(model2);
+
+                floatingActionButtonAdd.setVisibility(View.INVISIBLE);
+                floatingActionButtonPlay.setVisibility(View.VISIBLE);
             }
             break;
             case R.id.nav_scara: {
 
+                FragmentListForwardValue fragmentListForwardValue = (FragmentListForwardValue) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_forward);
+
+                while (fragmentListForwardValue.undoObject()) {
+
+                }
+
+                fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
+                fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
+                fragmentListForwardValue.addObjectJoin(FIRST_TYPE_OBJECT);
+                fragmentListForwardValue.addObjectJoin(SECOND_TYPE_OBJECT);
+
+                ModelKinematicsForwardValueJoin model = new ModelKinematicsForwardValueJoin(0);
+                model.setTv_lp(1);
+                model.setEt_alpha(0);
+                model.setEt_a(10);
+                model.setEt_theta(0);
+                model.setEt_d(20);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
+
+                model = new ModelKinematicsForwardValueJoin(1);
+                model.setTv_lp(2);
+                model.setEt_alpha(180);
+                model.setEt_a(10);
+                model.setEt_theta(45);
+                model.setEt_d(0);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
+
+                model = new ModelKinematicsForwardValueJoin(2);
+                model.setTv_lp(3);
+                model.setEt_alpha(0);
+                model.setEt_a(0);
+                model.setEt_theta(0);
+                model.setEt_d(10);
+                StaticVolumesKinematicsForwardValue.setOneModel(model);
+
+                ModelKinematicsForwardValueEffector model2 = new ModelKinematicsForwardValueEffector(3);
+                StaticVolumesKinematicsForwardValue.setOneModel(model2);
+
+                floatingActionButtonAdd.setVisibility(View.INVISIBLE);
+                floatingActionButtonPlay.setVisibility(View.VISIBLE);
             }
             break;
             default:
@@ -221,7 +381,7 @@ public class KinematicsForwardValue extends AppCompatActivity implements Navigat
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_forward);
         drawer.closeDrawer(GravityCompat.START);
 
         return true;

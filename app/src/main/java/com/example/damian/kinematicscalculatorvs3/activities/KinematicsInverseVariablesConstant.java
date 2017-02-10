@@ -53,6 +53,15 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity implem
         setContentView(R.layout.activity_data_base_variablesconstant_kinematics_inverse);
         ButterKnife.bind(this);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_inverse);
+        setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_inverse);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -208,7 +217,6 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity implem
                 model.setEt_theta(0);
                 model.setEt_d(20);
                 StaticVolumesKinematicsInverseValue.setOneModel(model);
-
             }
             break;
             case R.id.nav_antropomorficzny: {
@@ -245,26 +253,26 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity implem
 
                 ModelKinematicsInverseValueJoin model = new ModelKinematicsInverseValueJoin(0);
                 model.setTv_lp(1);
-                model.setEt_alpha(90);
+                model.setEt_alpha(-90);
                 model.setEt_a(0);
-                model.setEt_theta(90);
-                model.setEt_d(20);
+                model.setEt_theta(40);
+                model.setEt_d(10);
                 StaticVolumesKinematicsInverseValue.setOneModel(model);
 
                 model = new ModelKinematicsInverseValueJoin(1);
                 model.setTv_lp(2);
-                model.setEt_alpha(-90);
-                model.setEt_a(0);
-                model.setEt_theta(90);
-                model.setEt_d(20);
+                model.setEt_alpha(0);
+                model.setEt_a(10);
+                model.setEt_theta(-40);
+                model.setEt_d(0);
                 StaticVolumesKinematicsInverseValue.setOneModel(model);
 
                 model = new ModelKinematicsInverseValueJoin(2);
                 model.setTv_lp(3);
                 model.setEt_alpha(0);
-                model.setEt_a(0);
-                model.setEt_theta(0);
-                model.setEt_d(20);
+                model.setEt_a(10);
+                model.setEt_theta(40);
+                model.setEt_d(0);
                 StaticVolumesKinematicsInverseValue.setOneModel(model);
 
             }
@@ -446,7 +454,7 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity implem
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_inverse);
         drawer.closeDrawer(GravityCompat.START);
 
         return true;

@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Kinematics Calculator</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="name_kinematics_forward">Forward Kinematics </string>
     <string name="name_kinematics_inverse">Inverse Kinematics</string>
     <string name="title_activity_main">MainActivity</string>
