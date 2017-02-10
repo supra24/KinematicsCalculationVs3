@@ -158,7 +158,6 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity implem
                 FragmentListInverseVariables fragmentListInverseVariables = (FragmentListInverseVariables) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
 
                 while (fragmentListInverseVariables.undoObject()) {
-
                 }
 
                 fragmentListInverseVariables.addObjectJoin(FIRST_TYPE_OBJECT);
