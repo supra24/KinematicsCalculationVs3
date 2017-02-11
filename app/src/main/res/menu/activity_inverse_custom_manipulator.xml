@@ -4,19 +4,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_kartezjanski"
-            android:title="Cartesian manipulator" />
+            android:title="@string/cartesian_manipulator" />
         <item
             android:id="@+id/nav_antropomorficzny"
-            android:title="Anthropomorphic manipulator" />
+            android:title="@string/anthropomorphic_manipulator" />
         <item
             android:id="@+id/nav_cylindryczny"
-            android:title="Cylindrical manipulator" />
+            android:title="@string/cylindrical_manipulator" />
         <item
             android:id="@+id/nav_sferyczny"
-            android:title="Spherical manipulator" />
+            android:title="@string/spherical_manipulator" />
         <item
             android:id="@+id/nav_scara"
-            android:title="SCARA manipulator" />
+            android:title="@string/scara_manipulator" />
     </group>
 
     <!--<item android:title="Communicate">-->

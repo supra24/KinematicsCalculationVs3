@@ -4,14 +4,14 @@
     <group>
         <item
             android:id="@+id/id_add_join"
-            android:title="Add Join"></item>
+            android:title="@string/add_join"></item>
 
         <item
             android:id="@+id/id_add_effector"
-            android:title="Add Effector"></item>
+            android:title="@string/add_effector"></item>
 
         <item
             android:id="@+id/id_undo"
-            android:title="Undo"></item>
+            android:title="@string/undo"></item>
     </group>
 </menu>

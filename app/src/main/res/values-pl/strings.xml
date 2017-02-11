@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Kinematics Calculator</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="name_kinematics_forward">Kinematyka prosta </string>
+    <string name="name_kinematics_inverse">Kinematyka odwrotna</string>
+    <string name="name_change_language">Wybierz język</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="list_header_lp">i</string>
+    <string name="list_header_alpha">α</string>
+    <string name="list_header_a">a</string>
+    <string name="list_header_theta">Θ</string>
+    <string name="list_header_d">d</string>
+
+    <string name="cartesian_manipulator">Manipulator kartezjański</string>
+    <string name="anthropomorphic_manipulator">Manipulator antropomorficzny</string>
+    <string name="cylindrical_manipulator">Manipulator cylindryczny</string>
+    <string name="spherical_manipulator">Manipulator sferyczny</string>
+    <string name="scara_manipulator">Manipulator SCARA</string>
+
+    <string name="add_join">Dodaj człon</string>
+    <string name="add_effector">Dodaj efektor</string>
+    <string name="undo">Cofnij</string>
+    <string name="nav_header_basic_kinematics_structure">Podstawowe struktury kinematyczne</string>
+</resources>

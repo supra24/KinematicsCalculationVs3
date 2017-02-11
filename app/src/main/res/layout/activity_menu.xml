@@ -3,25 +3,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorGray"
     android:orientation="vertical"
-    tools:context=".activities.MenuActivity"
-    android:background="@color/colorGray">
+    tools:context=".activities.MenuActivity">
 
     <Button
         android:id="@+id/b_kinematicsForward"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/name_kinematics_forward"
         android:layout_above="@+id/b_kinematicsInverse"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/name_kinematics_forward" />
 
     <Button
         android:id="@+id/b_kinematicsInverse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/name_kinematics_inverse"
+        android:layout_above="@+id/b_change_language"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_gravity="center_horizontal"
+        android:text="@string/name_kinematics_inverse" />
+
+    <Button
+        android:id="@+id/b_change_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/name_change_language" />
+
+    <Button
+        android:id="@+id/b_language_pl"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/b_language_en"
+        android:layout_below="@+id/b_language_en"
+        android:text="Pl"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/b_language_en"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/b_change_language"
+        android:layout_below="@+id/b_change_language"
+        android:text="En"
+        android:visibility="invisible" />
+
 </RelativeLayout>
