@@ -47,6 +47,10 @@
             android:name=".activities.KinematicsInverseSystemOfEquation"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ActionBar"/>
+        
+        <activity android:name=".activities.Help"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.ActionBar"/>
 
     </application>
 </manifest>

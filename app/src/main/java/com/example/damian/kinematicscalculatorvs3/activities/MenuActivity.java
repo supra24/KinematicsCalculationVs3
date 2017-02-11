@@ -1,15 +1,20 @@
 package com.example.damian.kinematicscalculatorvs3.activities;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.damian.kinematicscalculatorvs3.R;
 import com.example.damian.kinematicscalculatorvs3.calculations.CalculationInverseNumerical;
@@ -45,6 +50,10 @@ public class MenuActivity extends AppCompatActivity {
     Button b_pl;
     @BindView(R.id.b_language_en)
     Button b_en;
+    @BindView(R.id.button_toolbar_menu)
+    Button buttonToolbar;
+    @BindView(R.id.relative_layout_menu)
+    RelativeLayout relativeLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,32 +66,44 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.b_kinematicsForward)
-    void openActivityKinematicsForward(){
+    void openActivityKinematicsForward() {
 
         Intent intent = new Intent(getApplicationContext(), KinematicsForwardValue.class);
         startActivity(intent);
     }
 
     @OnClick(R.id.b_kinematicsInverse)
-    void openActivityKinematicsInverse(){
+    void openActivityKinematicsInverse() {
         Intent intent = new Intent(getApplicationContext(), KinematicsInverseVariablesConstant.class);
         startActivity(intent);
     }
 
     @OnClick(R.id.b_change_language)
-    void changeLanguage(){
+    void changeLanguage() {
         b_en.setVisibility(View.VISIBLE);
         b_pl.setVisibility(View.VISIBLE);
     }
 
     @OnClick(R.id.b_language_en)
-    void changeLanguageEn(){
+    void changeLanguageEn() {
         setLocale("en");
     }
 
     @OnClick(R.id.b_language_pl)
-    void changeLanguagePl(){
+    void changeLanguagePl() {
         setLocale("pl");
+    }
+
+    @OnClick(R.id.button_toolbar_menu)
+    void help() {
+
+        Intent intent = new Intent(getApplicationContext(), Help.class);
+        startActivity(intent);
+
+//        TextView textView =  (TextView) findViewById(R.id.text_fragment_help);
+//        textView.setText(R.string.help_menu);
+
+//        Toast.makeText(this, R.string.help_menu, Toast.LENGTH_LONG).show();
     }
 
     public void setLocale(String lang) {

@@ -1,75 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGray"
-    android:orientation="vertical"
-    tools:context=".activities.MenuActivity">
+    android:layout_width="wrap_content"
+    android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_menu"
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_menu"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorBrown"
-        android:theme="@style/ToolBarStyle"
-        app:popupTheme="@style/AppTheme.PopupOverlay">
+        android:layout_height="match_parent"
+        android:background="@color/colorGray"
+        android:orientation="vertical"
+        tools:context=".activities.MenuActivity">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_menu"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorBrown"
+            android:theme="@style/ToolBarStyle"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <Button
+                android:id="@+id/button_toolbar_menu"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@color/colorDarkBrown"
+                android:text="@string/toolbar_help" />
+
+        </android.support.v7.widget.Toolbar>
 
         <Button
-            android:id="@+id/button_toolbar_menu"
-            android:layout_width="60dp"
+            android:id="@+id/b_kinematicsForward"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:background="@color/colorDarkBrown"
-            android:text="@string/toolbar_help" />
+            android:layout_above="@+id/b_kinematicsInverse"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/name_kinematics_forward" />
 
-    </android.support.v7.widget.Toolbar>
+        <Button
+            android:id="@+id/b_kinematicsInverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/b_change_language"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/name_kinematics_inverse" />
 
-    <Button
-        android:id="@+id/b_kinematicsForward"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/b_kinematicsInverse"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/name_kinematics_forward" />
+        <Button
+            android:id="@+id/b_change_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/name_change_language" />
 
-    <Button
-        android:id="@+id/b_kinematicsInverse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/b_change_language"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/name_kinematics_inverse" />
+        <Button
+            android:id="@+id/b_language_pl"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/b_language_en"
+            android:layout_below="@+id/b_language_en"
+            android:text="Pl"
+            android:visibility="invisible" />
 
-    <Button
-        android:id="@+id/b_change_language"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/name_change_language" />
+        <Button
+            android:id="@+id/b_language_en"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/b_change_language"
+            android:layout_below="@+id/b_change_language"
+            android:text="En"
+            android:visibility="invisible" />
 
-    <Button
-        android:id="@+id/b_language_pl"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/b_language_en"
-        android:layout_below="@+id/b_language_en"
-        android:text="Pl"
-        android:visibility="invisible" />
 
-    <Button
-        android:id="@+id/b_language_en"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/b_change_language"
-        android:layout_below="@+id/b_change_language"
-        android:text="En"
-        android:visibility="invisible" />
+    </RelativeLayout>
 
-</RelativeLayout>
+    <!--<fragment-->
+        <!--android:id="@+id/custom_join_list_view_kinematics_in"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--tools:layout="@layout/fragment_help"-->
+        <!--/>-->
+
+</LinearLayout>

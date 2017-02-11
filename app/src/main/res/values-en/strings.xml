@@ -27,4 +27,25 @@
     <string name="add_effector">Add Effector</string>
     <string name="undo">Undo</string>
     <string name="nav_header_basic_kinematics_structure">Basic Kinematics Structure</string>
+
+    <string name="help_menu">Kalkulator służy do liczenia zadania prostego i odwrotnego kinematyki dla manipulatorów o szeregowej strukturze kinematycznej.
+    Jeżeli chcesz obliczyć zadanie proste kinematyki wciśniej przycisk "Kinematyka prosta" z menu głównego
+    Jeżeli chcesz obliczyć zadanie odwrotne kinematyki wciśnij przycisk "Kinematyka odrotna" z menu głównego
+
+    W aplikacji do zapisu członów jest wykorzystywana notacja Denavita-Hartenberga. Dzięki niej przyjmowane są układy współrzędne oraz parametry kinematyczne.
+        Jest kilka kroków dzięki którym dobrze zostanie wszsytko przyjęte: \n
+
+        •	Osie Zi rysowane są wzdłuż osi obrotu bądź wzdłuż kierunku przesuwu; \n
+        •	Oś Z dla chwytaka rysowane są równolegle do osi Z która go poprzedza;\n
+        •	Umieścić środek lokalnego układu współrzędnych Oi, gdzie wspólna normalna dla osi Zi-1 i Zi przecina oś Zi;\n
+        •	Przyjąć osie Xi w taki sposób aby były wspólnymi normalnymi dla osi Zi-1 i Zi;\n
+        •	Odległość ai jest mierzona wzdłuż osi Xi od środka lokalnego układu współrzędnych Oi do przecięcia się osi Xi i Zi-1;\n
+        •	Odległość di jest mierzona wzdłuż osi Zi od środka lokalnego układu współrzędnych  Oi-1 do przecięcia się osi Xi i Zi-1;\n
+        •	Kąt αi jest mierzony między osiami Zi-1 oraz Zi wokół osi Xi;\n
+        •	Kąt θi jest mierzony między osiami Xi-1 oraz Xi wokół osi Zi-1.\n
+
+    Mając tak zadeklarowany manipulator można z łatwością wpisać odpowiednie wartości do tabelki wyświetlanej w aplikacji.\n
+
+    </string>
+
 </resources>
