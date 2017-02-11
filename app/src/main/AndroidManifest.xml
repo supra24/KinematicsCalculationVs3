@@ -24,16 +24,17 @@
 
         <activity
             android:name=".activities.KinematicsForwardValue"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity
-            android:name=".activities.KinematicsForwardDraw" />
+        <activity android:name=".activities.KinematicsForwardDraw" />
+
+        <activity android:name=".activities.KinematicsInverseDraw" />
 
         <activity
             android:name=".activities.KinematicsInverseVariablesConstant"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".activities.KinematicsInverseValue"
