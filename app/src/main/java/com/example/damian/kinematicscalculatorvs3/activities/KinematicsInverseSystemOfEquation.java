@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -51,6 +52,10 @@ public class KinematicsInverseSystemOfEquation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_system_of_equation_inverse);
         ButterKnife.bind(this);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_system_of_equation);
+        setSupportActionBar(toolbar);
+
 //        list = (ListView) findViewById(R.id.list_view_inverse_system_of_equation);
 //
 //        adapter = new ArrayAdapter<String>(this, R.layout.model_system_of_equation_inverse, Calculation());

@@ -10,7 +10,8 @@
 
         <activity
             android:name=".activities.StartActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,12 +21,13 @@
 
         <activity
             android:name=".activities.MenuActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.ActionBar"/>
 
         <activity
             android:name=".activities.KinematicsForwardValue"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.ActionBar" />
 
         <activity android:name=".activities.KinematicsForwardDraw" />
 
@@ -34,17 +36,17 @@
         <activity
             android:name=".activities.KinematicsInverseVariablesConstant"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.ActionBar" />
 
         <activity
             android:name=".activities.KinematicsInverseValue"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.ActionBar"/>
 
         <activity
             android:name=".activities.KinematicsInverseSystemOfEquation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.ActionBar"/>
 
     </application>
-
-
 </manifest>

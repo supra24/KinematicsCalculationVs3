@@ -25,8 +25,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/colorBrown"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
-                android:theme="@style/ToolBarStyle" />
+                android:theme="@style/ToolBarStyle"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <Button
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="help"
+                    android:layout_gravity="right"
+                    android:id="@+id/toolbar_title"
+                    android:background="@color/colorDarkBrown"/>
+
+            </android.support.v7.widget.Toolbar>
 
             <include
                 android:id="@+id/header"
