@@ -29,12 +29,12 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay">
 
                 <Button
+                    android:id="@+id/toolbar_title"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:text="help"
                     android:layout_gravity="right"
-                    android:id="@+id/toolbar_title"
-                    android:background="@color/colorDarkBrown"/>
+                    android:background="@color/colorDarkBrown"
+                    android:text="@string/toolbar_help" />
 
             </android.support.v7.widget.Toolbar>
 

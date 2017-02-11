@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:background="@color/colorDarkBrown"
-            android:text="help" />
+            android:text="@string/toolbar_help" />
 
     </android.support.v7.widget.Toolbar>
 

@@ -4,6 +4,8 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="toolbar_help">help</string>
+
     <string name="name_kinematics_forward">Forward Kinematics </string>
     <string name="name_kinematics_inverse">Inverse Kinematics</string>
     <string name="name_change_language">Change Language</string>
