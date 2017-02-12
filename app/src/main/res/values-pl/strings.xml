@@ -4,7 +4,12 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="toolbar_help">pomoc</string>
+    <string name="toolbar_help">Pomoc</string>
+
+    <string name="activity_name_dh">Notacja D-H</string>
+    <string name="activity_draw_manipulator">Rysowanie manipulatora</string>
+    <string name="activity_const_variable">Stałe i zmienne</string>
+    <string name="activity_result">Wynik</string>
 
     <string name="name_kinematics_forward">Kinematyka prosta </string>
     <string name="name_kinematics_inverse">Kinematyka odwrotna</string>
@@ -16,6 +21,9 @@
     <string name="list_header_a">a</string>
     <string name="list_header_theta">Θ</string>
     <string name="list_header_d">d</string>
+
+    <string name="toogle_button_off">S</string>
+    <string name="toogle_button_on">Z</string>
 
     <string name="cartesian_manipulator">Manipulator kartezjański</string>
     <string name="anthropomorphic_manipulator">Manipulator antropomorficzny</string>

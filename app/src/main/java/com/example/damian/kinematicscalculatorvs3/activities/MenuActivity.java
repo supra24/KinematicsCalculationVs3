@@ -60,6 +60,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         ButterKnife.bind(this);
+        invalidateOptionsMenu();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_menu);
         setSupportActionBar(toolbar);
@@ -115,6 +116,7 @@ public class MenuActivity extends AppCompatActivity {
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
+        invalidateOptionsMenu();
         Intent refresh = new Intent(this, MenuActivity.class);
         startActivity(refresh);
     }

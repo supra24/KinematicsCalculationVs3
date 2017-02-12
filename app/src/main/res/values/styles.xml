@@ -76,8 +76,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:ems">4</item>
-        <item name="android:textOff">S</item>
-        <item name="android:textOn">Z</item>
+        <item name="android:textOff">@string/toogle_button_off</item>
+        <item name="android:textOn">@string/toogle_button_on</item>
     </style>
 
     <style name="pictureListViewToggleButtonInverseEffector">

@@ -43,6 +43,7 @@ public class KinematicsInverseSystemOfEquation extends AppCompatActivity {
     private ListView list;
     private ArrayAdapter<String> adapter;
     float[][] tableParameter;
+    Toolbar toolbar;
 
     @BindView(R.id.floating_action_button_inverse_draw)
     FloatingActionButton floatingActionButtonDraw;
@@ -53,7 +54,7 @@ public class KinematicsInverseSystemOfEquation extends AppCompatActivity {
         setContentView(R.layout.activity_system_of_equation_inverse);
         ButterKnife.bind(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_system_of_equation);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_system_of_equation);
         setSupportActionBar(toolbar);
 
 //        list = (ListView) findViewById(R.id.list_view_inverse_system_of_equation);
@@ -133,7 +134,14 @@ public class KinematicsInverseSystemOfEquation extends AppCompatActivity {
 
     }
 
-//    private ArrayList<String> Calculation() {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        invalidateOptionsMenu();
+        toolbar.setTitle(R.string.activity_result);
+    }
+
+    //    private ArrayList<String> Calculation() {
 //
 //        ArrayList<String> arrayList = new ArrayList<>();
 //
@@ -221,4 +229,12 @@ public class KinematicsInverseSystemOfEquation extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    @OnClick(R.id.button_toolbar_system_of_equation)
+    void help() {
+
+        Intent intent = new Intent(getApplicationContext(), Help.class);
+        startActivity(intent);
+    }
+
 }

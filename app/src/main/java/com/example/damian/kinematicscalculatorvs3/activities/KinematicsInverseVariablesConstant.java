@@ -37,6 +37,7 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity implem
     private static final int RETURN_BACK_STACK = 0;
     private static final int FIRST_TYPE_OBJECT = 1;
     private static final int SECOND_TYPE_OBJECT = 2;
+    Toolbar toolbar;
 
     @BindView(R.id.floating_action_button_inverse_play)
     FloatingActionButton floatingActionButtonPlay;
@@ -53,7 +54,7 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity implem
         setContentView(R.layout.activity_data_base_variablesconstant_kinematics_inverse);
         ButterKnife.bind(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_inverse);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_inverse);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_inverse);
@@ -71,6 +72,8 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity implem
         super.onResume();
         FragmentListInverseVariables fragmentListInverseVariables = (FragmentListInverseVariables) getSupportFragmentManager().findFragmentById(R.id.custom_join_list_view_kinematics_inverse);
         fragmentListInverseVariables.undoObject();
+        invalidateOptionsMenu();
+        toolbar.setTitle(R.string.activity_const_variable);
     }
 
     @Override
@@ -157,6 +160,14 @@ public class KinematicsInverseVariablesConstant extends AppCompatActivity implem
 
         startActivity(new Intent(KinematicsInverseVariablesConstant.this, KinematicsInverseValue.class));
     }
+
+    @OnClick(R.id.button_toolbar_variables_inverse)
+    void help() {
+
+        Intent intent = new Intent(getApplicationContext(), Help.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

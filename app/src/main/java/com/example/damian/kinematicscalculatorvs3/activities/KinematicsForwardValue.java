@@ -46,6 +46,7 @@ public class KinematicsForwardValue extends AppCompatActivity implements Navigat
     FloatingActionButton floatingActionButtonPlay;
 
     private boolean doubleBackToExitPressedOnce = false;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,7 +54,7 @@ public class KinematicsForwardValue extends AppCompatActivity implements Navigat
         setContentView(R.layout.activity_data_base_value_kinematics_forward);
         ButterKnife.bind(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_forward);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_forward);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_forward);
@@ -64,6 +65,13 @@ public class KinematicsForwardValue extends AppCompatActivity implements Navigat
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_forward);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        invalidateOptionsMenu();
+        toolbar.setTitle(R.string.activity_name_dh);
     }
 
     @Override
@@ -150,6 +158,13 @@ public class KinematicsForwardValue extends AppCompatActivity implements Navigat
 
         startActivity(new Intent(KinematicsForwardValue.this, KinematicsForwardDraw.class));
 
+    }
+
+    @OnClick(R.id.toolbar_title)
+    void help() {
+
+        Intent intent = new Intent(getApplicationContext(), Help.class);
+        startActivity(intent);
     }
 
     @Override

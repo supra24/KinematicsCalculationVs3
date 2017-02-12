@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -46,6 +47,7 @@ public class KinematicsInverseDraw extends AppCompatActivity {
     private ArrayList<ModelKinematicsInverseValueParent> kinematicsInverseValueParents;
 
     private DrawerLayout drawer;
+    Toolbar toolbar;
 
     /**
      * @param savedInstanceState
@@ -55,6 +57,9 @@ public class KinematicsInverseDraw extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_draw_kinematics_inverse);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar_draw_inverse);
+        setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
 
@@ -114,6 +119,8 @@ public class KinematicsInverseDraw extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mTestHarness.onResume();
+        invalidateOptionsMenu();
+        toolbar.setTitle(R.string.activity_draw_manipulator);
     }
 
     @Override

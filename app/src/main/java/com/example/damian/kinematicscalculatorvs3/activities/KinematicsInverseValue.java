@@ -42,6 +42,7 @@ public class KinematicsInverseValue extends AppCompatActivity {
     private static final int RETURN_BACK_STACK = 0;
     private boolean doubleBackToExitPressedOnce = false;
     private static int CLOSE_APP_ON_BACK = 2000;
+    Toolbar toolbar;
 
     @BindView(R.id.floating_action_button_inverse_play_value)
     FloatingActionButton floatingActionButtonPlayValue;
@@ -55,8 +56,15 @@ public class KinematicsInverseValue extends AppCompatActivity {
         setContentView(R.layout.activity_data_base_value_kinematics_inverse);
         ButterKnife.bind(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_value_inverse);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_value_inverse);
         setSupportActionBar(toolbar);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        invalidateOptionsMenu();
+        toolbar.setTitle(R.string.activity_name_dh);
     }
 
     @Override
@@ -185,4 +193,12 @@ public class KinematicsInverseValue extends AppCompatActivity {
         floatingActionButtonCalcValue.setVisibility(View.VISIBLE);
         floatingActionButtonPlayValue.setVisibility(View.VISIBLE);
     }
+
+    @OnClick(R.id.button_toolbar_value_inverse)
+    void help() {
+
+        Intent intent = new Intent(getApplicationContext(), Help.class);
+        startActivity(intent);
+    }
+
 }

@@ -11,7 +11,7 @@
         <activity
             android:name=".activities.StartActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,35 +22,47 @@
         <activity
             android:name=".activities.MenuActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:theme="@style/AppTheme.ActionBar" />
 
         <activity
             android:name=".activities.KinematicsForwardValue"
+            android:label="@string/activity_name_dh"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ActionBar" />
 
-        <activity android:name=".activities.KinematicsForwardDraw" />
+        <activity
+            android:name=".activities.KinematicsForwardDraw"
+            android:label="@string/activity_draw_manipulator"
+            android:theme="@style/AppTheme.ActionBar" />
 
-        <activity android:name=".activities.KinematicsInverseDraw" />
+        <activity
+            android:name=".activities.KinematicsInverseDraw"
+            android:label="@string/activity_draw_manipulator"
+            android:theme="@style/AppTheme.ActionBar" />
 
         <activity
             android:name=".activities.KinematicsInverseVariablesConstant"
+            android:label="@string/activity_const_variable"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
             android:name=".activities.KinematicsInverseValue"
+            android:label="@string/activity_name_dh"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:theme="@style/AppTheme.ActionBar" />
 
         <activity
             android:name=".activities.KinematicsInverseSystemOfEquation"
+            android:label="@string/activity_result"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.ActionBar"/>
-        
-        <activity android:name=".activities.Help"
+            android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
+            android:name=".activities.Help"
+            android:label="@string/help_menu"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 </manifest>

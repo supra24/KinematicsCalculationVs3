@@ -4,18 +4,26 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="toolbar_help">help</string>
+    <string name="toolbar_help">Help</string>
+
+    <string name="activity_name_dh">Notation D-H</string>
+    <string name="activity_draw_manipulator">Draw manipulator</string>
+    <string name="activity_const_variable">Constants and variables</string>
+    <string name="activity_result">Result</string>
 
     <string name="name_kinematics_forward">Forward Kinematics </string>
     <string name="name_kinematics_inverse">Inverse Kinematics</string>
     <string name="name_change_language">Change Language</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="list_header_lp">i</string>
 
+    <string name="list_header_lp">i</string>
     <string name="list_header_alpha">α</string>
     <string name="list_header_a">a</string>
     <string name="list_header_theta">Θ</string>
     <string name="list_header_d">d</string>
+
+    <string name="toogle_button_off">C</string>
+    <string name="toogle_button_on">V</string>
 
     <string name="cartesian_manipulator">Cartesian manipulator</string>
     <string name="anthropomorphic_manipulator">Anthropomorphic manipulator</string>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -43,7 +44,7 @@ public class KinematicsForwardDraw extends AppCompatActivity {
     private ArrayList<ModelKinematicsForwardValueParent> kinematicsForwardValueParents;
 
     private DrawerLayout drawer;
-
+    Toolbar toolbar;
     /**
      * @param savedInstanceState
      */
@@ -52,6 +53,9 @@ public class KinematicsForwardDraw extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_draw_kinematics_forward);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar_draw_forward);
+        setSupportActionBar(toolbar);
 
         kinematicsForwardValueParents = StaticVolumesKinematicsForwardValue.getModels();
 
@@ -108,6 +112,8 @@ public class KinematicsForwardDraw extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mTestHarness.onResume();
+        invalidateOptionsMenu();
+        toolbar.setTitle(R.string.activity_draw_manipulator);
     }
 
     @Override
