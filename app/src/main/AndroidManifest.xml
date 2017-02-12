@@ -60,8 +60,7 @@
 
         <activity
             android:name=".activities.Help"
-            android:label="@string/help_menu"
-            android:screenOrientation="portrait"
+            android:label="@string/toolbar_help"
             android:theme="@style/AppTheme.NoActionBar" />
 
     </application>

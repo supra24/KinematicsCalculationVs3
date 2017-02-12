@@ -36,24 +36,23 @@
     <string name="undo">Undo</string>
     <string name="nav_header_basic_kinematics_structure">Basic Kinematics Structure</string>
 
+    <string name="help_menu">
+        \t The calculator is used to count the tasks forward and inverse kinematics for manipulators with serial kinematic structure. \n
+        \t If you want to calculate a forward task kinematics press the "Forward Kinematics" from the main menu \n
+        \t If you want to calculate a inverse task kinematics press the "Inverse Kinematics" from the main menu \n
+        \t In the application to write the join is used Denavit-Hartenberg notation. According to her are accepted coordinates systems and kinematic parameters.
+         There are several steps to be saved data using this notation: \n
 
-    <string name="help_menu">Kalkulator służy do liczenia zadania prostego i odwrotnego kinematyki dla manipulatorów o szeregowej strukturze kinematycznej.
-    Jeżeli chcesz obliczyć zadanie proste kinematyki wciśniej przycisk "Kinematyka prosta" z menu głównego
-    Jeżeli chcesz obliczyć zadanie odwrotne kinematyki wciśnij przycisk "Kinematyka odrotna" z menu głównego
+        • The Zi axes are drawn along the axis of rotation or the direction of advance; \n
+        • The Z-axis gripper are drawn parallel to the Z axis which precedes it; \n
+        • Place the center of the local coordinate system Oi, where the common normal axis Zi-1 and Z-axis intersects Zi \n
+        • Take Xi axes in such a way that they are common normal axis Z-1 and Z; \n
+        • The distance ai is measured along the axis X from the center of the local coordinate system Oi to the intersection of the axes X and Zi-1; \n
+        • The distance di is measured along the axis Z from the center of the local coordinate system Oi-1 to the intersection of the axes X and Zi-1; \n
+        • The angle of αi is measured between the axes Zi-1 and Zi axis Xi \n
+        • The angle θi is measured between the axes Xi-1 and X axis Zi-1. \n
 
-    W aplikacji do zapisu członów jest wykorzystywana notacja Denavita-Hartenberga. Dzięki niej przyjmowane są układy współrzędne oraz parametry kinematyczne.
-        Jest kilka kroków dzięki którym dobrze zostanie wszsytko przyjęte: \n
-
-        •	Osie Zi rysowane są wzdłuż osi obrotu bądź wzdłuż kierunku przesuwu; \n
-        •	Oś Z dla chwytaka rysowane są równolegle do osi Z która go poprzedza;\n
-        •	Umieścić środek lokalnego układu współrzędnych Oi, gdzie wspólna normalna dla osi Zi-1 i Zi przecina oś Zi;\n
-        •	Przyjąć osie Xi w taki sposób aby były wspólnymi normalnymi dla osi Zi-1 i Zi;\n
-        •	Odległość ai jest mierzona wzdłuż osi Xi od środka lokalnego układu współrzędnych Oi do przecięcia się osi Xi i Zi-1;\n
-        •	Odległość di jest mierzona wzdłuż osi Zi od środka lokalnego układu współrzędnych  Oi-1 do przecięcia się osi Xi i Zi-1;\n
-        •	Kąt αi jest mierzony między osiami Zi-1 oraz Zi wokół osi Xi;\n
-        •	Kąt θi jest mierzony między osiami Xi-1 oraz Xi wokół osi Zi-1.\n
-
-    Mając tak zadeklarowany manipulator można z łatwością wpisać odpowiednie wartości do tabelki wyświetlanej w aplikacji.\n
+        With so declared manipulator can easily enter the appropriate values to the table displayed in the application. \n
 
     </string>
 </resources>
