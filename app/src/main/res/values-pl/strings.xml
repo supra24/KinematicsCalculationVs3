@@ -37,11 +37,13 @@
     <string name="nav_header_basic_kinematics_structure">Podstawowe struktury kinematyczne</string>
 
      <string name="help_menu">
+         \n
         \tKalkulator służy do liczenia zadania prostego i odwrotnego kinematyki dla manipulatorów o szeregowej strukturze kinematycznej. \n
         \tJeżeli chcesz obliczyć zadanie proste kinematyki wciśnij przycisk "Kinematyka prosta" z menu głównego \n
         \tJeżeli chcesz obliczyć zadanie odwrotne kinematyki wciśnij przycisk "Kinematyka odrotna" z menu głównego \n
         \tW aplikacji do zapisu członów jest wykorzystywana notacja Denavita-Hartenberga. Dzięki niej przyjmowane są układy współrzędne oraz parametry kinematyczne. \n
-        Jest kilka kroków aby dobrze zapisać dane z wykorzystaniem tej notacji: \n
+        \n
+         Jest kilka kroków aby dobrze zapisać dane z wykorzystaniem tej notacji: \n
 
         • Osie Zi rysowane są wzdłuż osi obrotu bądź wzdłuż kierunku przesuwu; \n
         • Oś Z dla chwytaka rysowane są równolegle do osi Z która go poprzedza;\n
@@ -53,6 +55,18 @@
         • Kąt θi jest mierzony między osiami Xi-1 oraz Xi wokół osi Zi-1.\n
 
     Mając tak zadeklarowany manipulator można z łatwością wpisać odpowiednie wartości do tabelki wyświetlanej w aplikacji.\n
+         \n
+         Kinematyka prosta \n
+         1. Wprowadzenie członów z wartościami. Można wybrać gotowy manipulator z lewego menu \n
+         2. Wprowadzenie efektora \n
+         3. Przyciśnięcie PLAY aby zadanie zostało obliczone\n
+         4. na ekranie pojawiają się współzędne końca efektora oraz manipulator w 3D\n
+         \n
+         Kinematyka odwrotna \n
+         1. Deklaracja członów przez wprowadzenie czy dana jest zmienna czy stała. Można wybrać gotowy manipulator z lewego menu \n
+         2. Wprowadzanie danych dla parametrów. Jeżeli wybrany został gotowy manipulator to dane są już wprowadzone \n
+         3. Wprowadzenie punktu do którego ma się zbliżyć manipulator, domyślne wartości to punkt (0,0,0) \n
+         4. Przyciśnięcie PLAY aby zadanie zostało obliczone\n
 
     </string>
 </resources>
