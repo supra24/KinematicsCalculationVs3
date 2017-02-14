@@ -26,10 +26,8 @@ public class CoordinateYAxes extends ObjectParent {
 
         gl.glColor4f(colors[2][0], colors[2][1], colors[2][2], colors[2][3]);
         gl.glLineWidth(10);
+        gl.glDrawElements(GL10.GL_LINES, indices.length, GL10.GL_UNSIGNED_SHORT, indexBuffer);
+
     }
 
-    @Override
-    protected void drawingMode(GL10 gl) {
-        gl.glDrawElements(GL10.GL_LINES, indices.length, GL10.GL_UNSIGNED_SHORT, indexBuffer);
-    }
 }

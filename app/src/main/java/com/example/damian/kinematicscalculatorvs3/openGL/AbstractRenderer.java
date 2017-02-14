@@ -58,6 +58,7 @@ public abstract class AbstractRenderer implements GLSurfaceView.Renderer {
 
         GLES20.glViewport(0, 0, width, height);
         float ratio = (float) width / height;
+        gl.glShadeModel(GL10.GL_SMOOTH);
         gl.glMatrixMode(GL10.GL_PROJECTION);
         gl.glLoadIdentity();
         gl.glFrontFace(GL10.GL_CCW);

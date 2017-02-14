@@ -6,6 +6,7 @@ import com.example.damian.kinematicscalculatorvs3.openGL.objects.CoordinateXAxes
 import com.example.damian.kinematicscalculatorvs3.openGL.objects.CoordinateYAxes;
 import com.example.damian.kinematicscalculatorvs3.openGL.objects.CoordinateZAxes;
 import com.example.damian.kinematicscalculatorvs3.openGL.objects.CuboidD;
+import com.example.damian.kinematicscalculatorvs3.openGL.objects.CylinderD;
 import com.example.damian.kinematicscalculatorvs3.openGL.objects.ObjectParent;
 import com.example.damian.kinematicscalculatorvs3.openGL.objects.Vector;
 
@@ -31,8 +32,9 @@ public class RenderManipulator extends AbstractRenderer {
 
         object.add(new CoordinateXAxes());
         object.add(new CoordinateYAxes());
-        object.add(new CoordinateZAxes());
-        object.add(new CuboidD(3));
+//        object.add(new CoordinateZAxes());
+        object.add(new CylinderD(4));
+//        object.add(new CuboidD(3));
 
         for (int i = 0; i < effectorEndCoord.size() - 1; i++) {
             object.add(new Vector(

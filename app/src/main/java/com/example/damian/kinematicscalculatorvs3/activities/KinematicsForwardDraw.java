@@ -88,9 +88,9 @@ public class KinematicsForwardDraw extends AppCompatActivity {
         TextView textY = (TextView) findViewById(R.id.textY);
         TextView textZ = (TextView) findViewById(R.id.textZ);
 
-        textX.setText("X = " + String.valueOf(new BigDecimal(coordinates.get(coordinates.size() - 1)[0][3]).setScale(SCALE_TEXT, BigDecimal.ROUND_HALF_EVEN).doubleValue()));
-        textY.setText("Y = " + String.valueOf(new BigDecimal(coordinates.get(coordinates.size() - 1)[1][3]).setScale(SCALE_TEXT, BigDecimal.ROUND_HALF_EVEN).doubleValue()));
-        textZ.setText("Z = " + String.valueOf(new BigDecimal(coordinates.get(coordinates.size() - 1)[2][3]).setScale(SCALE_TEXT, BigDecimal.ROUND_HALF_EVEN).doubleValue()));
+        textX.setText("X = " + String.valueOf(coordinates.get(coordinates.size() - 1)[0][3]) /*.setScale(SCALE_TEXT, BigDecimal.ROUND_HALF_EVEN).doubleValue())*/);
+        textY.setText("Y = " + String.valueOf(/*new BigDecimal(*/coordinates.get(coordinates.size() - 1)[1][3])/*.setScale(SCALE_TEXT, BigDecimal.ROUND_HALF_EVEN).doubleValue())*/);
+        textZ.setText("Z = " + String.valueOf(/*new BigDecimal(*/coordinates.get(coordinates.size() - 1)[2][3])/*.setScale(SCALE_TEXT, BigDecimal.ROUND_HALF_EVEN).doubleValue())*/);
 
         // openGlES
         mTestHarness = (GLSurfaceView) findViewById(R.id.GLView);

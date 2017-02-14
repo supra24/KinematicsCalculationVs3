@@ -126,9 +126,8 @@ public abstract class ObjectParent {
         gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
 
         drawing(gl);
-        drawingMode(gl);
 
-        gl.glDrawElements(GL10.GL_LINES, indices.length, GL10.GL_UNSIGNED_SHORT, indexBuffer);
+//        gl.glDrawElements(GL10.GL_LINES, indices.length, GL10.GL_UNSIGNED_SHORT, indexBuffer);
 
         gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
         gl.glDisable(GL10.GL_CULL_FACE);
@@ -136,5 +135,4 @@ public abstract class ObjectParent {
 
     protected abstract void drawing(GL10 gl);
 
-    protected abstract void drawingMode(GL10 gl);
 }
