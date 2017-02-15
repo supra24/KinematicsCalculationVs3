@@ -47,5 +47,4 @@ public class CuboidD extends ObjectParent {
         gl.glDrawElements(GL10.GL_TRIANGLES, indices.length, GL10.GL_UNSIGNED_SHORT, indexBuffer);
 
     }
-
 }

@@ -103,6 +103,14 @@ public abstract class ObjectParent {
             {1.0f, 0.5f, 0.0f, 1.0f},  // 0. orange
     };
 
+    public float[] getVerticles() {
+        return verticles;
+    }
+
+    public void setVerticles(float[] verticles) {
+        this.verticles = verticles;
+    }
+
     public void draw(GL10 gl) {
 
         ByteBuffer vbb = ByteBuffer.allocateDirect(verticles.length * 4);
