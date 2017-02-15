@@ -89,18 +89,18 @@ public class RenderManipulator extends AbstractRenderer {
 
             float[] verticlesD, verticlesD2;
 
-            if (tableParameter[i][3] == 0 && i < (tableParameter.length - 1)) {
+//            if (tableParameter[i][3] == 0 /*&& i < (tableParameter.length - 1)*/) {
 
-                object.add(new CylinderD(tableParameter[i][3] + 1.5f));
-                object.add(new CylinderD(tableParameter[i][3] - 1.5f));
+                object.add(new CylinderD(/*tableParameter[i][3]*/ + 0.5f));
+                object.add(new CylinderD(/*tableParameter[i][3]*/ - 0.5f));
                 verticlesD = object.get(object.size() - 1).getVerticles();
                 verticlesD2 = object.get(object.size() - 2).getVerticles();
 
-            } else {
-                object.add(new CylinderD(tableParameter[i][3]));
-                verticlesD = object.get(object.size() - 1).getVerticles();
-                verticlesD2 = null;
-            }
+//            } else {
+//                object.add(new CylinderD(tableParameter[i][3]));
+//                verticlesD = object.get(object.size() - 1).getVerticles();
+//                verticlesD2 = null;
+//            }
 
 //            float[][] Ad = {
 //                    {1, 0, 0, 0},
@@ -126,7 +126,7 @@ public class RenderManipulator extends AbstractRenderer {
                     Ad = SingeltonMatrixKinematicsForward.Multiplication(Ad, RotZxRotXD);
                 }
 
-                if (tableParameter[i][3] == 0 && i < (tableParameter.length - 1)) {
+//                if (tableParameter[i][3] == 0  /*&& i < (tableParameter.length - 1)*/ ) {
                     for (int h = 0; h < verticlesD.length; h = h + 3) {
                         float[] v = {
                                 verticlesD[h + 0],
@@ -157,22 +157,22 @@ public class RenderManipulator extends AbstractRenderer {
 
                     object.get(object.size() - 2).setVerticles(verticlesD2);
 
-                } else {
-                    for (int h = 0; h < verticlesD.length; h = h + 3) {
-                        float[] v = {
-                                verticlesD[h + 0],
-                                verticlesD[h + 1],
-                                verticlesD[h + 2]
-                        };
-                        v = SingeltonMatrixKinematicsForward.Multiplication(Ad, v);
-
-                        verticlesD[h + 0] = v[0] + MatrixUnit[0][3];
-                        verticlesD[h + 1] = v[1] + MatrixUnit[1][3];
-                        verticlesD[h + 2] = v[2] + MatrixUnit[2][3];
-                    }
-
-                    object.get(object.size() - 1).setVerticles(verticlesD);
-                }
+//                } else {
+//                    for (int h = 0; h < verticlesD.length; h = h + 3) {
+//                        float[] v = {
+//                                verticlesD[h + 0],
+//                                verticlesD[h + 1],
+//                                verticlesD[h + 2]
+//                        };
+//                        v = SingeltonMatrixKinematicsForward.Multiplication(Ad, v);
+//
+//                        verticlesD[h + 0] = v[0] + MatrixUnit[0][3];
+//                        verticlesD[h + 1] = v[1] + MatrixUnit[1][3];
+//                        verticlesD[h + 2] = v[2] + MatrixUnit[2][3];
+//                    }
+//
+//                    object.get(object.size() - 1).setVerticles(verticlesD);
+//                }
 
 
             }
