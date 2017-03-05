@@ -19,6 +19,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class RenderManipulator extends AbstractRenderer {
 
+    private static final float LENGTH = 0.5f;
     private float[][] tableParameter;
     private float[] effectorCoord;
     private ArrayList<float[][]> effectorEndCoord;
@@ -91,8 +92,8 @@ public class RenderManipulator extends AbstractRenderer {
 
 //            if (tableParameter[i][3] == 0 /*&& i < (tableParameter.length - 1)*/) {
 
-                object.add(new CylinderD(/*tableParameter[i][3]*/ + 0.5f));
-                object.add(new CylinderD(/*tableParameter[i][3]*/ - 0.5f));
+                object.add(new CylinderD(/*tableParameter[i][3]*/ +LENGTH));
+                object.add(new CylinderD(/*tableParameter[i][3]*/ - LENGTH));
                 verticlesD = object.get(object.size() - 1).getVerticles();
                 verticlesD2 = object.get(object.size() - 2).getVerticles();
 
