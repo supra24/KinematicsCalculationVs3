@@ -97,6 +97,6 @@ public class CylinderD extends ObjectParent {
     @Override
     protected void drawing(GL10 gl) {
         gl.glColor4f(colors[5][0], colors[5][1], colors[5][2], colors[5][3]);
-        gl.glDrawElements(GL10.GL_TRIANGLES, indices.length, GL10.GL_UNSIGNED_SHORT, indexBuffer);
+        gl.glDrawElements(GL10.GL_TRIANGLE_STRIP, indices.length, GL10.GL_UNSIGNED_SHORT, indexBuffer);
     }
 }
